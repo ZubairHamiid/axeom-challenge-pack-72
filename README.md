@@ -62,3 +62,4 @@ The application is completely self-contained with zero build steps or server set
 * **We Owe:** **\$1,500.00** to **Lone Star Realty** (overpayment on cancelled shoot B152 re-billed under INV-1153).
 * **Most Likely to Churn:** **Patel Insurance Group (Nina Patel)** with two unread contract inquiries and \$5,000 in withheld retainer payments.
 * **Top Marketing Channel:** **Referral** (\$30,600 revenue, \$6,120 avg revenue/client, \$0 CAC, 86.1% gross margin).
+
