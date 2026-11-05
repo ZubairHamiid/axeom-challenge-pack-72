@@ -30,7 +30,6 @@ app_data = {
 }
 
 with open('app_data.js', 'w', encoding='utf-8') as f:
-    f.write('window.PRELOADED_PACK_DATA = ' + json.dumps(app_data, indent=2) + ';')
+    f.write('window.PRELOADED_PACK_DATA = ' + json.dumps(app_data, indent=2) + ';\n\nwindow.APP_DATA = window.PRELOADED_PACK_DATA;\n')
 
-print("app_data.js generated successfully!")
-
+print("app_data.js generated successfully with both window.PRELOADED_PACK_DATA and window.APP_DATA!")
