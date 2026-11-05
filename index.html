@@ -997,7 +997,7 @@
   <!-- JAVASCRIPT APPLICATION CORE -->
   <script>
     const state = {
-      data: window.APP_DATA || {},
+      data: window.PRELOADED_PACK_DATA || window.APP_DATA || {},
       activeTab: 'tabClients',
       invoiceFilter: 'all',
       newlyGeneratedInvoices: []
@@ -1026,7 +1026,11 @@
 
     function initApp() {
       if (!state.data || !state.data.answers) {
-        console.error('APP_DATA not found');
+        state.data = window.PRELOADED_PACK_DATA || window.APP_DATA || {};
+      }
+      if (!state.data || !state.data.answers) {
+        console.error('APP_DATA not found. Retrying in 100ms...');
+        setTimeout(initApp, 100);
         return;
       }
 
@@ -1647,19 +1651,23 @@ Outcome: ${outcomeText}`);
     }
 
     function filterClients() {
-      const term = document.getElementById('clientSearchInput').value.toLowerCase();
+      const inputEl = document.getElementById('clientSearchInput');
+      const term = (inputEl ? inputEl.value : '').toLowerCase().trim();
       const cards = document.getElementById('clientsGrid').children;
-      const clients = state.data.answers.clients || [];
+      const clients = (state.data.answers || {}).clients || [];
 
       for (let i = 0; i < clients.length; i++) {
+        if (!cards[i]) continue;
+        if (!term || term === 'all') {
+          cards[i].style.display = 'flex';
+          continue;
+        }
         const c = clients[i];
         const match = c.name.toLowerCase().includes(term) ||
           (c.other_names_used_in_the_data || []).some(a => a.toLowerCase().includes(term)) ||
           (c.emails || []).some(e => e.toLowerCase().includes(term)) ||
           (c.phones || []).some(p => p.includes(term));
-        if (cards[i]) {
-          cards[i].style.display = match ? 'flex' : 'none';
-        }
+        cards[i].style.display = match ? 'flex' : 'none';
       }
     }
 

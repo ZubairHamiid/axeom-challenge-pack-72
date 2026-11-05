@@ -10296,3 +10296,5 @@ window.PRELOADED_PACK_DATA = {
     ]
   }
 };
+
+window.APP_DATA = window.PRELOADED_PACK_DATA;
