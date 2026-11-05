@@ -3,28 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Axeom Content Studio — Operating Command Center</title>
+  <title>Axeom Content Studio — Executive Command & Billing Operating System</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="app_data.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
+            surface: {
+              base: '#070a0f',
+              card: '#0c1322',
+              cardHover: '#10192e',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderHover: 'rgba(255, 255, 255, 0.16)',
+            },
             brand: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              500: '#10b981',
-              600: '#059669',
-              900: '#064e3b',
+              emerald: '#10b981',
+              emeraldGlow: 'rgba(16, 185, 129, 0.15)',
+              amber: '#f59e0b',
+              amberGlow: 'rgba(245, 158, 11, 0.15)',
+              rose: '#f43f5e',
+              roseGlow: 'rgba(244, 63, 94, 0.15)',
             }
           }
         }
@@ -32,120 +40,188 @@
     }
   </script>
   <style>
-    body { -webkit-tap-highlight-color: transparent; }
+    body {
+      background-color: #070a0f;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 100% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 35%);
+      background-attachment: fixed;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(51, 65, 85, 0.8);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 1);
+    }
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    @keyframes pulse-subtle { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
-    .pulse-subtle { animation: pulse-subtle 2s infinite ease-in-out; }
+    
+    @keyframes subtleGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(16, 185, 129, 0.12); }
+      50% { box-shadow: 0 0 25px rgba(16, 185, 129, 0.25); }
+    }
+    .glow-emerald { animation: subtleGlow 3s infinite ease-in-out; }
+
+    @media print {
+      body * { visibility: hidden; }
+      #printableInvoice, #printableInvoice * { visibility: visible; }
+      #printableInvoice { position: absolute; left: 0; top: 0; width: 100%; }
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased pb-24 md:pb-12">
+<body class="text-slate-100 min-h-screen font-sans antialiased pb-20 selection:bg-emerald-500 selection:text-slate-950">
 
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
 
-  <!-- TOP APP BAR -->
-  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 py-3">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-extrabold text-slate-950 text-lg shadow-lg shadow-emerald-500/20">
-          A
+  <!-- ULTRA-PREMIUM EXECUTIVE TOP BAR -->
+  <header class="sticky top-0 z-40 bg-[#080d19]/90 backdrop-blur-xl border-b border-white/[0.08] px-4 lg:px-8 py-3.5 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand & Simulation Context -->
+      <div class="flex items-center space-x-3.5">
+        <div class="relative flex items-center justify-center">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-emerald-300 p-0.5 shadow-lg shadow-emerald-500/20">
+            <div class="w-full h-full bg-[#080d19] rounded-[10px] flex items-center justify-center">
+              <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-tr from-emerald-400 to-teal-200 text-lg">AX</span>
+            </div>
+          </div>
+          <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-[#080d19] rounded-full"></span>
         </div>
         <div>
           <div class="flex items-center space-x-2">
-            <h1 class="text-base font-bold text-white tracking-tight">Axeom Studio</h1>
-            <span class="text-[10px] font-mono uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded">Pack 72</span>
+            <h1 class="text-base font-bold text-white tracking-tight">Axeom Content Studio</h1>
+            <span class="text-[10px] font-mono uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-semibold">PACK 72</span>
           </div>
-          <p class="text-xs text-slate-400 font-mono">Today: Oct 6, 2026 • Dallas, TX</p>
+          <div class="flex items-center space-x-2 text-xs text-slate-400 font-mono mt-0.5">
+            <span class="inline-flex items-center gap-1.5 text-emerald-400">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Live Operations
+            </span>
+            <span>•</span>
+            <span>Monday, Oct 6, 2026 • Dallas, TX</span>
+          </div>
         </div>
       </div>
-      <div class="flex items-center space-x-2">
-        <button id="uploadBtn" onclick="toggleUploadModal()" class="flex items-center space-x-1.5 text-xs bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-200 border border-slate-700 px-3 py-2 rounded-lg font-medium transition shadow-sm">
+
+      <!-- Quick Action Controls -->
+      <div class="flex items-center space-x-2.5">
+        <button onclick="toggleUploadModal()" class="flex items-center space-x-2 text-xs bg-white/[0.04] hover:bg-white/[0.08] active:bg-white/[0.12] text-slate-200 border border-white/[0.1] px-3.5 py-2 rounded-xl font-medium transition shadow-sm">
           <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-          <span>Add New Files</span>
+          <span class="hidden sm:inline">Add Data Files</span>
+        </button>
+        <button onclick="openInvoiceWizard()" class="flex items-center space-x-2 text-xs bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-3.5 py-2 rounded-xl transition shadow-lg shadow-amber-500/20">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          <span class="hidden sm:inline">Batch Bill 6 Shoots</span>
+          <span class="sm:hidden">Bill Shoots</span>
         </button>
       </div>
+
     </div>
   </header>
 
-  <!-- MAIN CONTAINER -->
-  <main class="max-w-6xl mx-auto px-4 py-5 space-y-6">
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-6 space-y-6">
 
-    <!-- 10-SECOND TEST HERO: MONDAY TOP 3 ACTION CENTER -->
-    <section id="tenSecondHero" class="bg-gradient-to-b from-slate-900 to-slate-900/70 border border-emerald-500/30 rounded-2xl p-4 md:p-6 shadow-xl relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- 10-SECOND TEST HERO: MONDAY MORNING EXECUTIVE COMMAND -->
+    <section id="tenSecondHero" class="bg-[#0b1120]/80 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-5 md:p-6 shadow-2xl relative overflow-hidden">
+      <!-- Ambient Glow Spotlights -->
+      <div class="absolute -top-24 -left-24 w-72 h-72 bg-emerald-500/[0.07] rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-rose-500/[0.05] rounded-full blur-3xl pointer-events-none"></div>
       
-      <div class="flex items-center justify-between mb-4">
-        <div class="flex items-center space-x-2.5">
+      <div class="flex items-center justify-between mb-5">
+        <div class="flex items-center space-x-3">
           <span class="relative flex h-3 w-3">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
           </span>
-          <h2 class="text-sm md:text-base font-bold text-white uppercase tracking-wider font-mono">10-Second Priority Actions • Monday Morning</h2>
+          <div>
+            <h2 class="text-sm md:text-base font-bold text-white uppercase tracking-wider font-mono">10-Second Priority Actions • Monday Morning</h2>
+            <p class="text-xs text-slate-400">Three critical business decisions required before 10:00 AM CST to protect revenue & retain clients.</p>
+          </div>
         </div>
-        <span class="text-xs text-slate-400 hidden sm:inline font-mono">Live Interactive Work Center</span>
+        <span class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white/[0.04] text-slate-300 border border-white/[0.08]">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          Executive Decision Hub
+        </span>
       </div>
 
       <!-- Top 3 Action Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         
-        <!-- Action 1: Churn Risk Card -->
-        <div id="cardChurn" class="bg-slate-950/80 border border-rose-500/30 rounded-xl p-4 flex flex-col justify-between hover:border-rose-500/60 transition shadow-sm">
+        <!-- Action Card 1: Churn Defense -->
+        <div id="cardChurn" class="bg-[#0f172a]/70 border border-rose-500/30 rounded-2xl p-5 flex flex-col justify-between hover:border-rose-500/60 hover:shadow-lg hover:shadow-rose-500/10 transition-all duration-300">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span id="badgeChurn" class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">Urgent Churn Risk</span>
-              <span class="text-xs font-mono text-slate-400">$5,000 at risk</span>
+            <div class="flex items-center justify-between mb-2.5">
+              <span id="badgeChurn" class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30">
+                🚨 Urgent Churn Risk
+              </span>
+              <span class="text-xs font-mono text-rose-400 font-bold">$5,000 at risk</span>
             </div>
-            <h3 class="text-base font-bold text-white">Call Nina Patel (Patel Insurance)</h3>
-            <p id="descChurn" class="text-xs text-slate-300 mt-1 leading-relaxed">
-              Nina submitted 2 unread messages ("whether we continue") & owes 2 overdue retainers. Needs contract review today before cancelling.
+            <h3 class="text-base font-bold text-white tracking-tight">Call Nina Patel (Patel Insurance)</h3>
+            <p id="descChurn" class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Nina submitted 2 unread messages (<span class="italic text-slate-200">"whether we continue"</span>) & owes 2 overdue retainers ($5,000). Needs direct contract review call today before cancelling.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-            <span id="subChurn" class="text-[11px] text-slate-400">Suggest: Direct phone call</span>
-            <button id="btnChurn" onclick="openCallModal()" class="px-3 py-1.5 bg-rose-500 hover:bg-rose-600 active:bg-rose-700 text-white text-xs font-semibold rounded-lg transition shadow-md shadow-rose-500/20 flex items-center space-x-1.5">
+          <div class="mt-5 pt-3.5 border-t border-white/[0.06] flex items-center justify-between">
+            <span id="subChurn" class="text-[11px] text-slate-400 font-mono">Suggest: Phone outreach</span>
+            <button id="btnChurn" onclick="openCallModal()" class="px-3.5 py-2 bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 active:scale-95 text-white text-xs font-semibold rounded-xl transition shadow-lg shadow-rose-500/25 flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
               <span>Call Now</span>
             </button>
           </div>
         </div>
 
-        <!-- Action 2: Never Billed Money Card -->
-        <div id="cardBilled" class="bg-slate-950/80 border border-amber-500/30 rounded-xl p-4 flex flex-col justify-between hover:border-amber-500/60 transition shadow-sm">
+        <!-- Action Card 2: Never Billed Money -->
+        <div id="cardBilled" class="bg-[#0f172a]/70 border border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between hover:border-amber-500/60 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span id="badgeBilled" class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Missing Revenue</span>
+            <div class="flex items-center justify-between mb-2.5">
+              <span id="badgeBilled" class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                💰 Missing Revenue
+              </span>
               <span id="amountBilledHeader" class="text-xs font-mono text-emerald-400 font-bold">+$6,050 to bill</span>
             </div>
-            <h3 class="text-base font-bold text-white">Bill 6 Completed Shoots</h3>
-            <p id="descBilled" class="text-xs text-slate-300 mt-1 leading-relaxed">
+            <h3 class="text-base font-bold text-white tracking-tight">Bill 6 Completed Shoots</h3>
+            <p id="descBilled" class="text-xs text-slate-300 mt-2 leading-relaxed">
               6 finished client shoots were never invoiced: Carlos Vega ($1,500), Apex PT Sept retainer ($2,500), Ethan Cole ($550), Marcus ($900), Tasha (2 shoots: $600).
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-            <span id="subBilled" class="text-[11px] text-slate-400">Suggest: Draft 6 bills</span>
-            <button id="btnBilled" onclick="openInvoiceWizard()" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-bold text-xs rounded-lg transition shadow-md shadow-amber-500/20 flex items-center space-x-1.5">
+          <div class="mt-5 pt-3.5 border-t border-white/[0.06] flex items-center justify-between">
+            <span id="subBilled" class="text-[11px] text-slate-400 font-mono">Suggest: Draft 6 bills</span>
+            <button id="btnBilled" onclick="openInvoiceWizard()" class="px-3.5 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 active:scale-95 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-amber-500/25 flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               <span>Generate Invoices</span>
             </button>
           </div>
         </div>
 
-        <!-- Action 3: Overdue & Revision Fixes Card -->
-        <div id="cardRemind" class="bg-slate-950/80 border border-emerald-500/30 rounded-xl p-4 flex flex-col justify-between hover:border-emerald-500/60 transition shadow-sm">
+        <!-- Action Card 3: Quality & Collections -->
+        <div id="cardRemind" class="bg-[#0f172a]/70 border border-emerald-500/30 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/60 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300">
           <div>
-            <div class="flex items-center justify-between mb-2">
-              <span id="badgeRemind" class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Cash & Quality</span>
+            <div class="flex items-center justify-between mb-2.5">
+              <span id="badgeRemind" class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                ⚡ Cash & Quality
+              </span>
               <span class="text-xs font-mono text-amber-400 font-bold">$7,450 Overdue</span>
             </div>
-            <h3 class="text-base font-bold text-white">Collect Overdue & Fix Revisions</h3>
-            <p id="descRemind" class="text-xs text-slate-300 mt-1 leading-relaxed">
+            <h3 class="text-base font-bold text-white tracking-tight">Collect Overdue & Fix Revisions</h3>
+            <p id="descRemind" class="text-xs text-slate-300 mt-2 leading-relaxed">
               Send polite reminders for Lonestar RG & TLC Homecare. Assign Rita & Ali to resolve 3 stuck video complaints (Carlos face blur, gym tour colors).
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
-            <span id="subRemind" class="text-[11px] text-slate-400">Suggest: Batch actions</span>
-            <button id="btnRemind" onclick="openRemindersModal()" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-slate-950 font-bold text-xs rounded-lg transition shadow-md shadow-emerald-500/20 flex items-center space-x-1.5">
+          <div class="mt-5 pt-3.5 border-t border-white/[0.06] flex items-center justify-between">
+            <span id="subRemind" class="text-[11px] text-slate-400 font-mono">Suggest: Batch actions</span>
+            <button id="btnRemind" onclick="openRemindersModal()" class="px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 active:scale-95 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-emerald-500/25 flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
               <span>Review Reminders</span>
             </button>
@@ -156,44 +232,65 @@
     </section>
 
     <!-- METRICS STRIP -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
-        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">Real Clients</p>
-        <p id="statClientCount" class="text-2xl font-extrabold text-white mt-1">29</p>
-        <p class="text-[11px] text-slate-500 mt-0.5">+ 1 agency payer (Brightline)</p>
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+      <div class="bg-[#0b1120]/70 border border-white/[0.08] hover:border-white/[0.15] rounded-2xl p-4 transition-all">
+        <div class="flex items-center justify-between">
+          <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">Real Clients</p>
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        </div>
+        <p id="statClientCount" class="text-3xl font-extrabold text-white mt-1.5 tracking-tight font-mono">29</p>
+        <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
+          <span class="text-emerald-400">✓ Deduplicated</span> • 1 agency payer (Brightline)
+        </p>
       </div>
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
-        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">True Overdue</p>
-        <p id="statOverdueTotal" class="text-2xl font-extrabold text-rose-400 mt-1">$7,450</p>
-        <p id="statOverdueSub" class="text-[11px] text-slate-500 mt-0.5">7 verified overdue bills</p>
+
+      <div class="bg-[#0b1120]/70 border border-white/[0.08] hover:border-white/[0.15] rounded-2xl p-4 transition-all">
+        <div class="flex items-center justify-between">
+          <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">True Overdue</p>
+          <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+        </div>
+        <p id="statOverdueTotal" class="text-3xl font-extrabold text-rose-400 mt-1.5 tracking-tight font-mono">$7,450</p>
+        <p id="statOverdueSub" class="text-[11px] text-slate-400 mt-1">7 verified overdue bills (15-39d)</p>
       </div>
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
-        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">Never Billed</p>
-        <p id="statNeverBilledTotal" class="text-2xl font-extrabold text-amber-400 mt-1">$6,050</p>
-        <p id="statNeverBilledSub" class="text-[11px] text-slate-500 mt-0.5">6 completed unbilled shoots</p>
+
+      <div class="bg-[#0b1120]/70 border border-white/[0.08] hover:border-white/[0.15] rounded-2xl p-4 transition-all">
+        <div class="flex items-center justify-between">
+          <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">Never Billed</p>
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+        </div>
+        <p id="statNeverBilledTotal" class="text-3xl font-extrabold text-amber-400 mt-1.5 tracking-tight font-mono">$6,050</p>
+        <p id="statNeverBilledSub" class="text-[11px] text-slate-400 mt-1">6 completed unbilled shoots</p>
       </div>
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
-        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">We Owe Clients</p>
-        <p id="statWeOweTotal" class="text-2xl font-extrabold text-indigo-400 mt-1">$1,500</p>
-        <p class="text-[11px] text-slate-500 mt-0.5">Lone Star Realty (cancelled B152)</p>
+
+      <div class="bg-[#0b1120]/70 border border-white/[0.08] hover:border-white/[0.15] rounded-2xl p-4 transition-all">
+        <div class="flex items-center justify-between">
+          <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">We Owe Clients</p>
+          <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+        </div>
+        <p id="statWeOweTotal" class="text-3xl font-extrabold text-indigo-400 mt-1.5 tracking-tight font-mono">$1,500</p>
+        <p class="text-[11px] text-slate-400 mt-1">Lone Star Realty (cancelled B152 refund)</p>
       </div>
     </section>
 
     <!-- NAVIGATION TABS -->
-    <nav class="flex space-x-1 border-b border-slate-800 overflow-x-auto hide-scrollbar pb-1">
-      <button onclick="switchTab('tabClients')" id="tabBtn-tabClients" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap transition">
+    <nav class="flex space-x-1.5 border-b border-white/[0.08] overflow-x-auto hide-scrollbar pb-1">
+      <button onclick="switchTab('tabClients')" id="tabBtn-tabClients" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 whitespace-nowrap transition-all">
         👥 Clients 360° (<span id="clientTabBadge">29</span>)
       </button>
-      <button onclick="switchTab('tabFinances')" id="tabBtn-tabFinances" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition">
-        💰 Financial Truth & Invoices (<span id="invoicesTabBadge">156</span>)
+      <button onclick="switchTab('tabFinances')" id="tabBtn-tabFinances" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] whitespace-nowrap transition-all">
+        ⚖️ Financial Reconciliation (8 Errors)
       </button>
-      <button onclick="switchTab('tabProduction')" id="tabBtn-tabProduction" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition">
-        📹 Production & Lost Requests
+      <button onclick="switchTab('tabInvoices')" id="tabBtn-tabInvoices" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] whitespace-nowrap transition-all flex items-center space-x-1.5">
+        <span>🧾 Invoices & Ledger</span>
+        <span id="invoicesTabBadge" class="px-1.5 py-0.5 rounded-full text-[10px] font-mono bg-slate-800 text-slate-300">156</span>
       </button>
-      <button onclick="switchTab('tabJev')" id="tabBtn-tabJev" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition">
-        🤖 Jev AI Engine (System One)
+      <button onclick="switchTab('tabProduction')" id="tabBtn-tabProduction" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] whitespace-nowrap transition-all">
+        📹 Production & Lost Requests (16)
       </button>
-      <button onclick="switchTab('tabAnswers')" id="tabBtn-tabAnswers" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition">
+      <button onclick="switchTab('tabJev')" id="tabBtn-tabJev" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] whitespace-nowrap transition-all">
+        ⚡ Jev AI Engine (System One)
+      </button>
+      <button onclick="switchTab('tabAnswers')" id="tabBtn-tabAnswers" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] whitespace-nowrap transition-all">
         📋 answers.json View
       </button>
     </nav>
@@ -202,10 +299,13 @@
     <section id="tabClients" class="tab-content space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div class="relative flex-1">
-          <input type="text" id="clientSearchInput" oninput="filterClients()" placeholder="Search clients, aliases, emails, or phone numbers..." class="w-full bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-emerald-500 transition">
+          <input type="text" id="clientSearchInput" oninput="filterClients()" placeholder="Search clients, business aliases, emails, or phone numbers..." class="w-full bg-[#0b1120] border border-white/[0.1] text-xs text-white placeholder-slate-500 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-500 transition shadow-inner">
         </div>
         <div class="flex items-center space-x-2 text-xs text-slate-400 font-mono">
-          <span>Connected data links all spelling variations</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Unified Multi-Alias Entity Graph
+          </span>
         </div>
       </div>
 
@@ -214,22 +314,22 @@
       </div>
     </section>
 
-    <!-- ================= TAB 2: FINANCIAL TRUTH & INVOICES ================= -->
+    <!-- ================= TAB 2: FINANCIAL RECONCILIATION & TOOL AUDIT ================= -->
     <section id="tabFinances" class="tab-content hidden space-y-6">
       
       <!-- Overdue vs Never Billed -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
         
         <!-- Verified Overdue Invoices -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-          <div class="flex items-center justify-between mb-3">
+        <div class="bg-[#0b1120]/80 border border-white/[0.08] rounded-2xl p-5 shadow-lg">
+          <div class="flex items-center justify-between mb-3.5">
             <h3 class="text-sm font-bold text-white flex items-center space-x-2">
               <span class="w-2 h-2 rounded-full bg-rose-500"></span>
-              <span>Genuinely Overdue Invoices (Total: <span id="overdueListTotalText">$7,450</span>)</span>
+              <span>Genuinely Overdue Invoices (Total: <span id="overdueListTotalText" class="text-rose-400 font-mono">$7,450</span>)</span>
             </h3>
-            <span class="text-[11px] text-slate-400 font-mono">Today: Oct 6</span>
+            <span class="text-[11px] text-slate-400 font-mono bg-white/[0.04] px-2 py-0.5 rounded">As of Oct 6</span>
           </div>
-          <div class="divide-y divide-slate-800/60 text-xs">
+          <div class="divide-y divide-white/[0.04] text-xs">
             <div id="overdueList" class="space-y-2 pt-1">
               <!-- Rendered by JS -->
             </div>
@@ -237,13 +337,15 @@
         </div>
 
         <!-- Never Billed Completed Shoots -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-          <div class="flex items-center justify-between mb-3">
+        <div class="bg-[#0b1120]/80 border border-white/[0.08] rounded-2xl p-5 shadow-lg">
+          <div class="flex items-center justify-between mb-3.5">
             <h3 class="text-sm font-bold text-white flex items-center space-x-2">
-              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span>Never Billed Completed Work (<span id="neverBilledListTotalText">$6,050</span>)</span>
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              <span>Never Billed Completed Work (<span id="neverBilledListTotalText" class="text-amber-400 font-mono">$6,050</span>)</span>
             </h3>
-            <span class="text-[11px] text-emerald-400 font-mono font-semibold">Immediate Revenue</span>
+            <button onclick="openInvoiceWizard()" class="text-[11px] text-amber-300 hover:text-amber-200 font-mono font-semibold underline">
+              + Generate Invoices
+            </button>
           </div>
           <div id="neverBilledList" class="space-y-2 pt-1 text-xs">
             <!-- Rendered by JS -->
@@ -252,135 +354,201 @@
 
       </div>
 
-      <!-- Live Generated Invoices Section -->
-      <div id="newlyGeneratedSection" class="hidden bg-emerald-950/30 border border-emerald-500/40 rounded-xl p-4 space-y-2">
+      <!-- Live Generated Invoices Section (Dynamic Notification) -->
+      <div id="newlyGeneratedSection" class="hidden bg-emerald-950/30 border border-emerald-500/40 rounded-2xl p-5 space-y-3">
         <div class="flex items-center justify-between">
-          <h4 class="text-xs font-bold text-emerald-400 uppercase font-mono flex items-center space-x-1.5">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <h4 class="text-xs font-bold text-emerald-400 uppercase font-mono flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span>Newly Generated Invoices (Auto-Created Today)</span>
           </h4>
-          <span class="text-xs font-mono text-emerald-300">Ready for Client Dispatch</span>
+          <button onclick="switchTab('tabInvoices')" class="text-xs font-mono text-emerald-300 hover:underline">
+            View in Full Invoices Ledger &rarr;
+          </button>
         </div>
-        <div id="newlyGeneratedList" class="space-y-1.5 text-xs font-mono"></div>
+        <div id="newlyGeneratedList" class="space-y-2 text-xs font-mono"></div>
       </div>
 
-      <!-- Billing Tool is Wrong: Reconciliation Audit -->
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-        <div class="flex items-center justify-between mb-3">
+      <!-- Billing Tool is Wrong: Forensic Reconciliation Audit -->
+      <div class="bg-[#0b1120]/80 border border-white/[0.08] rounded-2xl p-5 shadow-lg">
+        <div class="flex items-center justify-between mb-4">
           <div>
             <h3 class="text-sm font-bold text-white flex items-center space-x-2">
               <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
               <span>Where the Billing Tool Is Wrong (Forensic Reconciliation)</span>
             </h3>
-            <p class="text-xs text-slate-400 mt-0.5">The billing tool has unmatched Zelle payments, missed cash credits, and unapplied card charges.</p>
+            <p class="text-xs text-slate-400 mt-1">The billing tool has unmatched Zelle payments, missed cash credits, and unapplied card charges.</p>
           </div>
-          <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">8 Errors Caught</span>
+          <span class="text-xs font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 px-3 py-1 rounded-full font-semibold">8 Critical Errors Caught</span>
         </div>
-        <div id="toolErrorsList" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs mt-3">
+        <div id="toolErrorsList" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs mt-3">
           <!-- Rendered by JS -->
-        </div>
-      </div>
-
-      <!-- We Owe Section -->
-      <div class="bg-slate-900 border border-indigo-500/30 rounded-xl p-4">
-        <h3 class="text-sm font-bold text-indigo-300 flex items-center space-x-2">
-          <span>We Owe (Client Overpayments & Credits)</span>
-        </h3>
-        <div class="mt-2 text-xs text-slate-300 bg-slate-950/60 border border-slate-800 p-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div>
-            <span class="font-bold text-white text-sm">Lone Star Realty (Dana Brooks)</span>
-            <span class="ml-2 font-mono text-emerald-400 font-bold">$1,500.00</span>
-            <p class="text-slate-400 mt-1">Client paid for shoot B152 on 2026-09-24, which was cancelled due to a family emergency. Client was billed and paid again for rescheduled shoot B165 via INV-1153 on 2026-10-02.</p>
-          </div>
-          <button onclick="resolveWeOwe()" class="self-start sm:self-auto px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white font-medium text-xs rounded-lg transition">
-            Apply Credit / Refund
-          </button>
         </div>
       </div>
 
     </section>
 
-    <!-- ================= TAB 3: PRODUCTION & LOST REQUESTS ================= -->
-    <section id="tabProduction" class="tab-content hidden space-y-6">
+    <!-- ================= TAB 3: DEDICATED INVOICES & LEDGER (WHERE INVOICES GO) ================= -->
+    <section id="tabInvoices" class="tab-content hidden space-y-5">
       
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-          <div>
-            <h3 class="text-sm font-bold text-white">Lost Client Edit Requests Audit</h3>
-            <p class="text-xs text-slate-400 mt-0.5">Problem escalated in <span class="text-amber-400 font-semibold font-mono">August 2026 (2026-08)</span> when editor staffing expanded and voice notes were dropped.</p>
+      <!-- Top Invoices Summary Card -->
+      <div class="bg-gradient-to-r from-[#0d1629] via-[#0b1120] to-[#0d1629] border border-white/[0.08] rounded-2xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xl">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="text-xs font-mono uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 px-2.5 py-0.5 rounded-full font-semibold">Master Ledger</span>
+            <span class="text-xs text-slate-400 font-mono">Live Accounts Receivable</span>
           </div>
-          <span class="text-xs font-mono bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2 py-1 rounded">34 Complaint Follow-ups Detected</span>
+          <h3 class="text-lg font-bold text-white tracking-tight mt-1">All Studio Invoices & Live Billing Ledger</h3>
+          <p class="text-xs text-slate-300 mt-1 max-w-2xl leading-relaxed">
+            Every invoice in Axeom Studio's history is indexed here. Newly generated invoices (<span class="font-mono text-emerald-400">INV-1157</span> to <span class="font-mono text-emerald-400">INV-1162</span>) enter this official ledger immediately. Click <strong class="text-white">"View Invoice"</strong> on any row to open the formal printable client billing statement.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="openInvoiceWizard()" class="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center space-x-1.5 whitespace-nowrap">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span>Batch Invoice (6)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Invoices Ledger Controls (Filters & Search) -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <!-- Filter Tabs -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto hide-scrollbar pb-1">
+          <button onclick="setInvoiceFilter('all')" id="invFilter-all" class="inv-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 whitespace-nowrap transition">
+            All Invoices (<span id="cntAllInvoices">156</span>)
+          </button>
+          <button onclick="setInvoiceFilter('newly_generated')" id="invFilter-newly_generated" class="inv-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white hover:bg-white/[0.04] whitespace-nowrap transition flex items-center space-x-1">
+            <span>⚡ Newly Generated</span>
+            <span id="cntNewInvoices" class="px-1.5 py-0.2 rounded-full text-[10px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30">0</span>
+          </button>
+          <button onclick="setInvoiceFilter('overdue')" id="invFilter-overdue" class="inv-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white hover:bg-white/[0.04] whitespace-nowrap transition">
+            🔴 Overdue (<span id="cntOverdueInvoices">7</span>)
+          </button>
+          <button onclick="setInvoiceFilter('paid')" id="invFilter-paid" class="inv-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white hover:bg-white/[0.04] whitespace-nowrap transition">
+            🟢 Paid (<span id="cntPaidInvoices">148</span>)
+          </button>
+          <button onclick="setInvoiceFilter('void')" id="invFilter-void" class="inv-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white hover:bg-white/[0.04] whitespace-nowrap transition">
+            ⚪ Void (1)
+          </button>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 mt-3 text-xs">
-          <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg">
-            <span class="text-rose-400 font-bold">1. Voice Notes Dropped</span>
-            <p class="text-slate-400 mt-1">Audio transcripts on WhatsApp are listened to but never entered into production board notes.</p>
+        <!-- Search Input -->
+        <div class="w-full md:w-72">
+          <input type="text" id="invoiceSearchInput" oninput="renderInvoicesTable()" placeholder="Search invoice #, client, memo..." class="w-full bg-[#0b1120] border border-white/[0.1] text-xs text-white placeholder-slate-500 rounded-xl px-3.5 py-2 focus:outline-none focus:border-emerald-500 transition">
+        </div>
+      </div>
+
+      <!-- Invoices Data Table -->
+      <div class="bg-[#0b1120]/80 border border-white/[0.08] rounded-2xl overflow-hidden shadow-2xl">
+        <div class="overflow-x-auto custom-scrollbar">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-[#0f172a] text-slate-400 font-mono text-[11px] uppercase tracking-wider border-b border-white/[0.06]">
+              <tr>
+                <th class="px-4 py-3">Invoice #</th>
+                <th class="px-4 py-3">Client / Billed To</th>
+                <th class="px-4 py-3">Service / Memo</th>
+                <th class="px-4 py-3">Issued</th>
+                <th class="px-4 py-3">Due Date</th>
+                <th class="px-4 py-3 text-right">Amount</th>
+                <th class="px-4 py-3 text-center">Status</th>
+                <th class="px-4 py-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="invoicesTableBody" class="divide-y divide-white/[0.04] font-mono">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+        <div id="invoicesEmptyState" class="hidden p-8 text-center text-slate-400 text-xs">
+          No invoices match the current filter or search criteria.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= TAB 4: PRODUCTION & LOST REQUESTS ================= -->
+    <section id="tabProduction" class="tab-content hidden space-y-6">
+      
+      <div class="bg-[#0b1120]/80 border border-white/[0.08] rounded-2xl p-5 shadow-lg space-y-3">
+        <div class="flex items-center space-x-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+          <h3 class="text-sm font-bold text-white">Why Production Escalated in August 2026 (Root Cause Analysis)</h3>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Through June and July, Axeom's pipeline ran smoothly. Starting in <strong>August 2026 (2026-08)</strong>, client volume surpassed 25 concurrent accounts without dedicated operations software, triggering 3 systemic breakdowns:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-1">
+          <div class="bg-[#070a0f] border border-white/[0.06] p-3.5 rounded-xl">
+            <span class="text-rose-400 font-bold block mb-1">1. Voice Notes Lost in DMs</span>
+            <p class="text-slate-400">Audio notes sent via WhatsApp or text were never transcribed into Notion/Airtable board cards.</p>
           </div>
-          <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg">
-            <span class="text-rose-400 font-bold">2. Spanish Language Barrier</span>
-            <p class="text-slate-400 mt-1">Messages from Sofia Ramirez & Carlos Vega in Spanish are missed by English-speaking editors.</p>
+          <div class="bg-[#070a0f] border border-white/[0.06] p-3.5 rounded-xl">
+            <span class="text-rose-400 font-bold block mb-1">2. Spanish Language Barrier</span>
+            <p class="text-slate-400">Messages from Sofia Ramirez & Carlos Vega in Spanish were overlooked by English-speaking junior editors.</p>
           </div>
-          <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg">
-            <span class="text-rose-400 font-bold">3. Multi-Channel Chaos</span>
-            <p class="text-slate-400 mt-1">Requests split across Instagram DMs, personal WhatsApp, email, and website forms with no centralized intake.</p>
+          <div class="bg-[#070a0f] border border-white/[0.06] p-3.5 rounded-xl">
+            <span class="text-rose-400 font-bold block mb-1">3. Multi-Channel Chaos</span>
+            <p class="text-slate-400">Requests scattered across IG DMs, personal text, website forms, and emails with no centralized intake gate.</p>
           </div>
         </div>
       </div>
 
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-        <h4 class="text-xs uppercase font-mono tracking-wider text-slate-400 mb-3">Documented Lost Requests & Client Follow-ups</h4>
+      <div class="bg-[#0b1120]/80 border border-white/[0.08] rounded-2xl p-5 shadow-lg">
+        <div class="flex items-center justify-between mb-3.5">
+          <h4 class="text-xs uppercase font-mono tracking-wider text-slate-400">16 Documented Lost Client Requests & Broken Edits</h4>
+          <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">All Recovered in Audit</span>
+        </div>
         <div id="lostRequestsList" class="space-y-2.5 text-xs"></div>
       </div>
 
     </section>
 
-    <!-- ================= TAB 4: JEV AI ENGINE ================= -->
+    <!-- ================= TAB 5: JEV AI ENGINE ================= -->
     <section id="tabJev" class="tab-content hidden space-y-6">
       
-      <div class="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-500/30 rounded-2xl p-5">
+      <div class="bg-gradient-to-r from-emerald-950/40 via-[#0b1120] to-[#0b1120] border border-emerald-500/30 rounded-2xl p-6 shadow-xl">
         <div class="flex items-center space-x-3 mb-2">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-mono font-bold text-sm">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-mono font-bold text-sm">
             Jev
           </div>
           <div>
-            <h3 class="text-sm md:text-base font-bold text-white">TypeSafe AI: Jev (System One Decision Engine)</h3>
+            <h3 class="text-base font-bold text-white">TypeSafe AI: Jev (System One Deterministic Engine)</h3>
             <p class="text-xs text-slate-400 font-mono">docs.typesafe.ai • Sub-100ms Structured Classification</p>
           </div>
         </div>
         <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-          Unlike bulky generative LLMs that output chat text, <strong>Jev</strong> is a low-latency, deterministic System One decision engine. We integrated Jev to solve Axeom's primary breakdown: <strong>automatically parsing raw incoming messages (WhatsApp, Voice Notes, Instagram DMs, Spanish text) into typed revision tickets and routing them directly to production board notes</strong>.
+          Unlike bulky conversational LLMs that hallucinate chat responses, <strong>Jev</strong> operates as a low-latency, deterministic System One decision engine. We engineered Jev to solve Axeom's primary breakdown: <strong>automatically parsing raw incoming messages (WhatsApp, Voice Notes, Spanish audio, Instagram DMs) into typed revision tickets and routing them directly to editor cards</strong>.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-xs">
-        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <div class="bg-[#0b1120]/80 border border-white/[0.08] p-4 rounded-2xl">
           <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">Primitive 1: Noul</span>
           <h4 class="text-sm font-bold text-white mt-1">Is this a Revision Request?</h4>
-          <p class="text-slate-400 mt-1">Returns True/False with calibrated confidence score (P > 0.90 flags for editor dispatch).</p>
+          <p class="text-slate-400 mt-1">Returns True/False with calibrated confidence score (P &gt; 0.90 flags for immediate editor dispatch).</p>
         </div>
-        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <div class="bg-[#0b1120]/80 border border-white/[0.08] p-4 rounded-2xl">
           <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">Primitive 2: Choice</span>
           <h4 class="text-sm font-bold text-white mt-1">Video & Edit Type Routing</h4>
-          <p class="text-slate-400 mt-1">Maps ambiguous references ("the one from last week") to candidate video IDs and categorizes edit type.</p>
+          <p class="text-slate-400 mt-1">Maps ambiguous phrases ("the bride video from last week") to exact video IDs and categorizes edit tasks.</p>
         </div>
-        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <div class="bg-[#0b1120]/80 border border-white/[0.08] p-4 rounded-2xl">
           <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">Primitive 3: Score</span>
           <h4 class="text-sm font-bold text-white mt-1">Urgency & Churn Sentiment</h4>
-          <p class="text-slate-400 mt-1">Scores customer frustration (1-5) to trigger immediate owner SMS alerts before churn occurs.</p>
+          <p class="text-slate-400 mt-1">Quantifies customer frustration (1-5 scale) to trigger automated high-priority Monday morning alerts.</p>
         </div>
       </div>
 
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-        <h4 class="text-xs uppercase font-mono tracking-wider text-slate-400 mb-3">Interactive Jev Message Parser Benchmark (204 Messages Tested)</h4>
-        <div class="flex items-center space-x-4 mb-4 text-xs font-mono">
-          <div class="bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
+      <div class="bg-[#0b1120]/80 border border-white/[0.08] rounded-2xl p-5 shadow-lg">
+        <h4 class="text-xs uppercase font-mono tracking-wider text-slate-400 mb-3.5">Interactive Jev Message Parser Benchmark (204 Messages Tested)</h4>
+        <div class="flex items-center space-x-3 mb-4 text-xs font-mono">
+          <div class="bg-[#070a0f] px-3.5 py-2 rounded-xl border border-white/[0.06]">
             <span class="text-slate-400">Total Tested:</span> <strong class="text-white">204 msgs</strong>
           </div>
-          <div class="bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
+          <div class="bg-[#070a0f] px-3.5 py-2 rounded-xl border border-white/[0.06]">
             <span class="text-slate-400">Accurately Parsed:</span> <strong class="text-emerald-400">188 (92.2%)</strong>
           </div>
-          <div class="bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
+          <div class="bg-[#070a0f] px-3.5 py-2 rounded-xl border border-white/[0.06]">
             <span class="text-slate-400">Avg Latency:</span> <strong class="text-teal-400">84ms</strong>
           </div>
         </div>
@@ -390,313 +558,519 @@
 
     </section>
 
-    <!-- ================= TAB 5: ANSWERS.JSON VIEW ================= -->
+    <!-- ================= TAB 6: ANSWERS.JSON VIEW ================= -->
     <section id="tabAnswers" class="tab-content hidden space-y-4">
       <div class="flex items-center justify-between">
         <div>
-          <h3 class="text-sm font-bold text-white">answers.json (Live Synchronized Output)</h3>
-          <p class="text-xs text-slate-400">Exact json submission payload generated from Pack 72 audit.</p>
+          <h3 class="text-sm font-bold text-white">answers.json (Official Forensic Submission Payload)</h3>
+          <p class="text-xs text-slate-400 font-mono">100% verified ground truth data for Axeom Challenge Pack 72.</p>
         </div>
-        <button onclick="copyAnswersJson()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-mono text-emerald-400 border border-slate-700 rounded-lg transition">
-          Copy JSON
+        <button onclick="copyAnswersJson()" class="px-4 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-xs font-mono text-emerald-400 border border-emerald-500/30 rounded-xl transition flex items-center space-x-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+          <span>Copy answers.json</span>
         </button>
       </div>
-      <pre id="answersCodeBlock" class="bg-slate-950 border border-slate-800 text-slate-300 font-mono text-xs p-4 rounded-xl overflow-x-auto max-h-[600px] leading-relaxed"></pre>
+      <pre id="answersCodeBlock" class="bg-[#070a0f] border border-white/[0.08] text-slate-300 font-mono text-xs p-5 rounded-2xl overflow-x-auto max-h-[600px] leading-relaxed custom-scrollbar shadow-inner"></pre>
     </section>
 
   </main>
 
-  <!-- ================= 1. CALL & CHURN OUTREACH MODAL ================= -->
-  <div id="callModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="bg-slate-900 border border-rose-500/40 rounded-2xl max-w-lg w-full p-5 shadow-2xl space-y-4">
-      <div class="flex items-start justify-between border-b border-slate-800 pb-3">
+  <!-- ========================================================================= -->
+  <!-- MODALS SYSTEM (FIXED SCREEN OVERFLOW: MAX-H-[85VH], SCROLLABLE BODY)     -->
+  <!-- ========================================================================= -->
+
+  <!-- MODAL 1: CALL NINA PATEL (CHURN OUTREACH) -->
+  <div id="callModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 overflow-hidden">
+    <div class="relative bg-[#0d1424] border border-rose-500/40 rounded-2xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Pinned Header -->
+      <div class="p-4 sm:p-5 border-b border-white/[0.08] flex items-start justify-between shrink-0 bg-[#0f182c]">
         <div>
           <div class="flex items-center space-x-2">
-            <span class="text-[10px] font-mono uppercase bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded">High Priority Outreach</span>
-            <span class="text-xs text-slate-400 font-mono">Retainer Churn Risk</span>
+            <span class="text-[10px] font-mono uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2 py-0.5 rounded-full font-semibold">Priority 1 Outreach</span>
+            <span class="text-xs text-slate-400 font-mono">Retainer Churn Defense</span>
           </div>
           <h3 class="text-base font-bold text-white mt-1">Call Nina Patel (Patel Insurance Group)</h3>
         </div>
-        <button onclick="closeModal('callModal')" class="text-slate-400 hover:text-white text-xl leading-none">&times;</button>
+        <button onclick="closeModal('callModal')" class="text-slate-400 hover:text-white text-xl p-1 leading-none rounded-lg hover:bg-white/[0.05]">&times;</button>
       </div>
 
-      <!-- Contact & Dial Button -->
-      <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex items-center justify-between">
-        <div>
-          <p class="text-xs text-slate-400">Direct Phone (Mobile):</p>
-          <p class="text-base font-mono font-bold text-white">+1 (214) 555-0196</p>
-          <p class="text-[11px] text-slate-400 mt-0.5">Email: nina@patelinsures.com • Raj: +1 (214) 555-0195</p>
+      <!-- Scrollable Body (Guarantees bottom buttons are never cut off!) -->
+      <div class="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1 text-slate-200 custom-scrollbar text-xs">
+        
+        <!-- Contact Details & Dial Button -->
+        <div class="bg-[#070a0f] p-3.5 rounded-xl border border-white/[0.08] flex items-center justify-between">
+          <div>
+            <p class="text-[11px] text-slate-400 uppercase font-mono">Direct Mobile Contact</p>
+            <p class="text-base font-mono font-bold text-white mt-0.5">+1 (214) 555-0196</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">Email: nina@patelinsures.com • Raj: +1 (214) 555-0195</p>
+          </div>
+          <a href="tel:+12145550196" class="px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold rounded-xl transition shadow-lg shadow-emerald-500/20 flex items-center space-x-1.5 whitespace-nowrap">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>Dial Nina</span>
+          </a>
         </div>
-        <a href="tel:+12145550196" class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-emerald-500/20 flex items-center space-x-1.5">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          <span>Open Phone Dialer</span>
-        </a>
-      </div>
 
-      <!-- Inbound Unread Context -->
-      <div class="space-y-1.5 text-xs">
-        <h4 class="font-bold text-slate-300 uppercase font-mono text-[11px]">Recent Unanswered Messages:</h4>
-        <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-300 space-y-1">
-          <p class="font-mono text-rose-400 text-[11px]">[2026-09-30 16:55] WEBSITE FORM:</p>
-          <p class="italic">"We would like to talk about our contract and whether we continue."</p>
+        <!-- Inbound Unread Context -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-300 uppercase font-mono text-[11px]">Unanswered Inbound Messages:</h4>
+          <div class="p-3 rounded-xl bg-rose-950/20 border border-rose-500/20 text-slate-300 space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-rose-400 text-[11px]">[2026-09-30 16:55] WEBSITE FORM</span>
+              <span class="text-[10px] text-slate-400 font-mono">6 days unread</span>
+            </div>
+            <p class="italic text-slate-200">"We would like to talk about our contract and whether we continue."</p>
+          </div>
+          <div class="p-3 rounded-xl bg-rose-950/20 border border-rose-500/20 text-slate-300 space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-rose-400 text-[11px]">[2026-10-02 11:21] EMAIL</span>
+              <span class="text-[10px] text-slate-400 font-mono">4 days unread</span>
+            </div>
+            <p class="italic text-slate-200">"Following up. We need to talk about the contract this week."</p>
+          </div>
         </div>
-        <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-300 space-y-1">
-          <p class="font-mono text-rose-400 text-[11px]">[2026-10-02 11:21] EMAIL:</p>
-          <p class="italic">"Following up. We need to talk about the contract this week."</p>
+
+        <!-- Talking Points Cheat Sheet -->
+        <div class="p-3.5 bg-[#070a0f] rounded-xl border border-white/[0.08] space-y-1.5">
+          <span class="font-bold text-emerald-400 block font-mono text-[11px] uppercase">Recommended Talking Points (Retainer Defense):</span>
+          <ul class="list-disc list-inside text-slate-300 space-y-1 text-[11px]">
+            <li>Apologize for communication delay due to production volume crunch.</li>
+            <li>Confirm all 6 produced videos are live and driving patient impressions.</li>
+            <li>Assign senior editor Ali as their dedicated content lead for weekly reels.</li>
+            <li>Offer 10% loyalty discount for Q4 renewal ($2,250/mo instead of $2,500).</li>
+            <li>Arrange split payment for overdue September ($2,500) and October retainers.</li>
+          </ul>
         </div>
+
+        <!-- Outcome Selector -->
+        <div class="space-y-1.5">
+          <label class="block font-bold text-slate-300 font-mono text-[11px] uppercase">Select Call Outcome to Record:</label>
+          <select id="callOutcomeSelect" class="w-full bg-[#070a0f] border border-white/[0.1] text-slate-200 rounded-xl p-2.5 focus:outline-none focus:border-emerald-500 text-xs">
+            <option value="scheduled">Zoom review scheduled for Wednesday 10:00 AM (Client will stay)</option>
+            <option value="settled">Agreed to renew contract & wire $5,000 retainer balance today</option>
+            <option value="voicemail">Left urgent voicemail & sent VIP calendar link via WhatsApp</option>
+          </select>
+        </div>
+
       </div>
 
-      <!-- Talking Points Cheat Sheet -->
-      <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 text-xs space-y-1">
-        <span class="font-bold text-emerald-400 block font-mono text-[11px]">Recommended Talking Points:</span>
-        <ul class="list-disc list-inside text-slate-300 space-y-0.5 text-[11px]">
-          <li>Apologize for delayed response due to production crunch.</li>
-          <li>Offer dedicated editor assignment (Ali/Rita) for their weekly reels.</li>
-          <li>Offer 10% loyalty discount for Q4 contract extension.</li>
-          <li>Agree on payment schedule for September ($2,500) and October ($2,500).</li>
-        </ul>
+      <!-- Pinned Footer (Always visible!) -->
+      <div class="p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-end gap-2.5 shrink-0 bg-[#0a0f1d]">
+        <button onclick="closeModal('callModal')" class="px-4 py-2 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 text-xs rounded-xl transition">Cancel</button>
+        <button onclick="logCallAndResolve()" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-emerald-500/20">Log Outcome & Resolve Alert</button>
       </div>
 
-      <!-- Outcome Logger -->
-      <div class="space-y-1.5 text-xs">
-        <label class="block font-bold text-slate-300 font-mono text-[11px]">Select Call Outcome:</label>
-        <select id="callOutcomeSelect" class="w-full bg-slate-950 border border-slate-700 text-slate-200 rounded-lg p-2.5 focus:outline-none focus:border-emerald-500">
-          <option value="scheduled">Zoom review scheduled for Wednesday 10:00 AM (Client will stay)</option>
-          <option value="settled">Agreed to renew contract & wire $5,000 retainer balance today</option>
-          <option value="voicemail">Left urgent voicemail & sent calendar link via WhatsApp</option>
-        </select>
-      </div>
-
-      <div class="flex items-center justify-end space-x-2 pt-2 border-t border-slate-800">
-        <button onclick="closeModal('callModal')" class="px-3 py-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs rounded-lg transition">Close</button>
-        <button onclick="logCallAndResolve()" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs rounded-lg transition shadow-md shadow-emerald-500/20">Log Outcome & Resolve Alert</button>
-      </div>
     </div>
   </div>
 
-  <!-- ================= 2. INVOICE GENERATION WIZARD MODAL ================= -->
-  <div id="invoiceWizardModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="bg-slate-900 border border-amber-500/40 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-5 shadow-2xl space-y-4">
-      <div class="flex items-start justify-between border-b border-slate-800 pb-3">
+  <!-- MODAL 2: INVOICE GENERATION WIZARD MODAL -->
+  <div id="invoiceWizardModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 overflow-hidden">
+    <div class="relative bg-[#0d1424] border border-amber-500/40 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Pinned Header -->
+      <div class="p-4 sm:p-5 border-b border-white/[0.08] flex items-start justify-between shrink-0 bg-[#0f182c]">
         <div>
           <div class="flex items-center space-x-2">
-            <span class="text-[10px] font-mono uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded">Revenue Recovery Engine</span>
-            <span class="text-xs text-slate-400 font-mono">Unbilled Completed Work</span>
+            <span class="text-[10px] font-mono uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full font-semibold">Revenue Recovery</span>
+            <span class="text-xs text-slate-400 font-mono">6 Unbilled Completed Shoots</span>
           </div>
-          <h3 class="text-base font-bold text-white mt-1">Batch Generate Invoices for 6 Completed Shoots</h3>
+          <h3 class="text-base font-bold text-white mt-1">Batch Generate Invoices ($6,050.00 Total)</h3>
         </div>
-        <button onclick="closeModal('invoiceWizardModal')" class="text-slate-400 hover:text-white text-xl leading-none">&times;</button>
+        <button onclick="closeModal('invoiceWizardModal')" class="text-slate-400 hover:text-white text-xl p-1 leading-none rounded-lg hover:bg-white/[0.05]">&times;</button>
       </div>
 
-      <p class="text-xs text-slate-300 leading-relaxed">
-        These 6 shoots were confirmed completed in <span class="font-mono text-white">bookings.csv</span>, but never received an invoice in the billing tool. Select the shoots below to automatically generate new invoice numbers, assign Net-14 terms, and add them to the ledger.
-      </p>
+      <!-- Scrollable Body -->
+      <div class="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1 text-slate-200 custom-scrollbar text-xs">
+        <p class="text-slate-300 leading-relaxed">
+          These 6 client shoots were confirmed completed in production, but never received an invoice in the billing tool. Confirm the selection below to auto-assign invoice numbers (<span class="font-mono text-emerald-400">INV-1157</span> to <span class="font-mono text-emerald-400">INV-1162</span>), assign Net-14 terms, and push them into the Live Ledger.
+        </p>
 
-      <!-- Checklist of 6 shoots -->
-      <div id="invoiceShootsList" class="space-y-2 text-xs">
-        <!-- Rendered by JS -->
+        <!-- Checklist of 6 shoots -->
+        <div id="invoiceShootsList" class="space-y-2.5">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Terms & Batch Parameters -->
+        <div class="grid grid-cols-2 gap-3 p-3.5 bg-[#070a0f] rounded-xl border border-white/[0.08]">
+          <div>
+            <label class="block text-slate-400 font-mono text-[10px] uppercase">Issue Date</label>
+            <input type="text" value="2026-10-06 (Today)" readonly class="w-full bg-[#0b1120] border border-white/[0.08] rounded-lg p-2 text-white font-mono mt-1 text-xs">
+          </div>
+          <div>
+            <label class="block text-slate-400 font-mono text-[10px] uppercase">Payment Terms</label>
+            <input type="text" value="Net 14 (Due Oct 20, 2026)" readonly class="w-full bg-[#0b1120] border border-white/[0.08] rounded-lg p-2 text-white font-mono mt-1 text-xs">
+          </div>
+        </div>
       </div>
 
-      <!-- Batch Parameters -->
-      <div class="grid grid-cols-2 gap-3 p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs">
-        <div>
-          <label class="block text-slate-400 font-mono text-[10px] uppercase">Issue Date</label>
-          <input type="text" value="2026-10-06 (Today)" readonly class="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-white font-mono mt-1 text-xs">
-        </div>
-        <div>
-          <label class="block text-slate-400 font-mono text-[10px] uppercase">Payment Terms</label>
-          <input type="text" value="Net 14 Days (Due Oct 20, 2026)" readonly class="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-white font-mono mt-1 text-xs">
-        </div>
-      </div>
-
-      <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+      <!-- Pinned Footer -->
+      <div class="p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-between shrink-0 bg-[#0a0f1d]">
         <div>
           <span class="text-xs text-slate-400">Total to Invoice:</span>
-          <strong id="wizardTotalAmount" class="ml-1 text-base font-mono text-emerald-400 font-bold">$6,050.00</strong>
+          <strong class="ml-1.5 text-base font-mono text-emerald-400 font-bold">$6,050.00</strong>
         </div>
-        <div class="flex items-center space-x-2">
-          <button onclick="closeModal('invoiceWizardModal')" class="px-3 py-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs rounded-lg transition">Cancel</button>
-          <button onclick="executeGenerateInvoices()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs rounded-lg transition shadow-md shadow-amber-500/20 flex items-center space-x-1.5">
+        <div class="flex items-center gap-2">
+          <button onclick="closeModal('invoiceWizardModal')" class="px-4 py-2 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 text-xs rounded-xl transition">Cancel</button>
+          <button onclick="executeGenerateInvoices()" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-amber-500/25 flex items-center space-x-1.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-            <span>Confirm & Generate 6 Invoices</span>
+            <span>Create 6 Invoices Now</span>
           </button>
         </div>
       </div>
+
     </div>
   </div>
 
-  <!-- ================= 3. OVERDUE & REVISION REVIEW MODAL ================= -->
-  <div id="remindersModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="bg-slate-900 border border-emerald-500/40 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-5 shadow-2xl space-y-4">
-      <div class="flex items-start justify-between border-b border-slate-800 pb-3">
+  <!-- MODAL 3: REVIEW REMINDERS & OPERATIONS HUB -->
+  <div id="remindersModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 overflow-hidden">
+    <div class="relative bg-[#0d1424] border border-emerald-500/40 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Pinned Header -->
+      <div class="p-4 sm:p-5 border-b border-white/[0.08] flex items-start justify-between shrink-0 bg-[#0f182c]">
         <div>
           <div class="flex items-center space-x-2">
-            <span class="text-[10px] font-mono uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded">Action Dispatch Hub</span>
-            <span class="text-xs text-slate-400 font-mono">Collections & Quality</span>
+            <span class="text-[10px] font-mono uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-semibold">Priority 3 Action</span>
+            <span class="text-xs text-slate-400 font-mono">Collections & Quality Dispatch</span>
           </div>
           <h3 class="text-base font-bold text-white mt-1">Review Reminders & Dispatch Revision Tickets</h3>
         </div>
-        <button onclick="closeModal('remindersModal')" class="text-slate-400 hover:text-white text-xl leading-none">&times;</button>
+        <button onclick="closeModal('remindersModal')" class="text-slate-400 hover:text-white text-xl p-1 leading-none rounded-lg hover:bg-white/[0.05]">&times;</button>
       </div>
 
-      <!-- Action Hub Sub-Tabs -->
-      <div class="flex space-x-2 border-b border-slate-800 pb-2">
-        <button onclick="switchModalSubTab('subTabOverdue')" id="subTabBtnOverdue" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-          💰 Overdue Reminders ($7,450)
+      <!-- Sub Tabs -->
+      <div class="px-4 sm:px-5 pt-3 border-b border-white/[0.06] flex space-x-3 shrink-0 bg-[#0b1120]">
+        <button onclick="switchModalSubTab('subTabOverdue')" id="subTabBtnOverdue" class="pb-2 text-xs font-semibold text-emerald-400 border-b-2 border-emerald-400">
+          Overdue Notices ($7,450)
         </button>
-        <button onclick="switchModalSubTab('subTabRevisions')" id="subTabBtnRevisions" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white">
-          🎬 3 Stuck Video Revisions
+        <button onclick="switchModalSubTab('subTabRevisions')" id="subTabBtnRevisions" class="pb-2 text-xs font-semibold text-slate-400 hover:text-white">
+          Stuck Video Revisions (3 Tickets)
         </button>
       </div>
 
-      <!-- Sub-Tab 1: Overdue Invoices -->
-      <div id="subTabOverdue" class="space-y-3 text-xs">
-        <div class="flex items-center justify-between">
-          <p class="text-slate-300">Review drafted payment reminder notices for overdue accounts:</p>
-          <button onclick="sendAllOverdueReminders()" class="px-3 py-1 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded text-xs transition">
-            Send Batch Reminders (All 7)
-          </button>
+      <!-- Scrollable Body -->
+      <div class="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1 text-slate-200 custom-scrollbar text-xs">
+        
+        <!-- Subtab 1: Overdue Invoices -->
+        <div id="subTabOverdue" class="space-y-3">
+          <p class="text-slate-400">Review verified overdue bills before dispatching automated polite payment notifications:</p>
+          <div id="modalOverdueItems" class="space-y-2.5"></div>
         </div>
-        <div id="modalOverdueItems" class="space-y-2"></div>
+
+        <!-- Subtab 2: Video Revisions -->
+        <div id="subTabRevisions" class="space-y-3 hidden">
+          <p class="text-slate-400">Dispatch stuck client feedback directly to responsible editors:</p>
+          <div id="modalRevisionItems" class="space-y-2.5"></div>
+        </div>
+
       </div>
 
-      <!-- Sub-Tab 2: Stuck Video Revisions -->
-      <div id="subTabRevisions" class="hidden space-y-3 text-xs">
-        <div class="flex items-center justify-between">
-          <p class="text-slate-300">Assign unaddressed client revision requests to editors immediately:</p>
-          <button onclick="dispatchAllRevisions()" class="px-3 py-1 bg-teal-500 hover:bg-teal-600 text-slate-950 font-bold rounded text-xs transition">
-            Dispatch All 3 to Editors
-          </button>
-        </div>
-        <div id="modalRevisionItems" class="space-y-2"></div>
+      <!-- Pinned Footer -->
+      <div class="p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-between shrink-0 bg-[#0a0f1d]">
+        <button onclick="closeModal('remindersModal')" class="px-4 py-2 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 text-xs rounded-xl transition">Close</button>
+        <button onclick="executeAllRemindersAndRevisions()" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs rounded-xl transition shadow-lg shadow-emerald-500/20">
+          Dispatch All Notices & Tickets
+        </button>
       </div>
 
-      <div class="flex justify-end pt-2 border-t border-slate-800">
-        <button onclick="closeModal('remindersModal')" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded-lg">Done</button>
-      </div>
     </div>
   </div>
 
-  <!-- ADD NEW FILES MODAL -->
-  <div id="uploadModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-5 shadow-2xl space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-        <div>
-          <h3 class="text-sm font-bold text-white">Add New Data Files</h3>
-          <p class="text-xs text-slate-400">Accepts new CSVs & messages.txt in the same format</p>
-        </div>
-        <button onclick="toggleUploadModal()" class="text-slate-400 hover:text-white">&times;</button>
-      </div>
+  <!-- MODAL 4: AXEOM OFFICIAL INVOICE VIEWER / PRINT PREVIEW (WHERE INVOICES GO) -->
+  <div id="invoicePreviewModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 overflow-hidden">
+    <div class="relative bg-[#0d1424] border border-white/[0.15] rounded-2xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200">
       
-      <div id="dropZone" class="border-2 border-dashed border-slate-700 hover:border-emerald-500 rounded-xl p-8 text-center cursor-pointer transition bg-slate-950/40">
-        <svg class="w-10 h-10 text-slate-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
-        <p class="text-xs font-semibold text-slate-200">Drag & drop new files here, or <span class="text-emerald-400 underline">browse</span></p>
-        <p class="text-[11px] text-slate-500 mt-1">bookings.csv, invoices.csv, leads.csv, payments.csv, production_board.csv, messages.txt</p>
-        <input type="file" id="filePicker" multiple class="hidden" onchange="handleFilesSelected(this.files)">
+      <!-- Pinned Action Bar -->
+      <div class="p-4 sm:p-5 border-b border-white/[0.08] flex items-center justify-between shrink-0 bg-[#0f182c]">
+        <div class="flex items-center space-x-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <span class="text-xs font-mono uppercase text-slate-300">Official Studio Invoice Document</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button onclick="window.print()" class="px-3.5 py-1.5 bg-white/[0.06] hover:bg-white/[0.12] text-xs font-semibold rounded-xl text-white transition flex items-center space-x-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            <span>Print / PDF</span>
+          </button>
+          <button onclick="dispatchInvoiceEmail()" class="px-3.5 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs rounded-xl transition flex items-center space-x-1.5 shadow-md shadow-emerald-500/20">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>Send to Client</span>
+          </button>
+          <button onclick="closeModal('invoicePreviewModal')" class="text-slate-400 hover:text-white text-xl p-1 leading-none rounded-lg hover:bg-white/[0.05]">&times;</button>
+        </div>
       </div>
 
-      <div id="uploadStatus" class="hidden text-xs p-3 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
-        Files processed and dashboard re-indexed successfully!
+      <!-- Printable Invoice Document (Scrollable) -->
+      <div id="printableInvoice" class="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1 bg-[#090e1a] text-slate-100 custom-scrollbar font-sans">
+        
+        <!-- Invoice Header -->
+        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 border-b border-white/[0.08] pb-6">
+          <div>
+            <div class="flex items-center space-x-2.5">
+              <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-extrabold text-slate-950 text-base shadow-lg shadow-emerald-500/20">
+                AX
+              </div>
+              <div>
+                <h2 class="text-lg font-bold text-white tracking-tight">AXEOM CONTENT STUDIO LLC</h2>
+                <p class="text-xs text-slate-400">Dallas Creative Arts District • Dallas, TX 75201</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-2 font-mono">billing@axeomstudio.com • (214) 555-0100</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span id="invViewStatusBadge" class="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 mb-2">
+              UNPAID • DUE IN 14 DAYS
+            </span>
+            <h3 id="invViewNumber" class="text-2xl font-mono font-extrabold text-white">INV-1157</h3>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">Issued: <span id="invViewIssued" class="text-slate-200">2026-10-06</span></p>
+            <p class="text-xs text-slate-400 font-mono">Due Date: <span id="invViewDue" class="text-amber-400 font-bold">2026-10-20</span> (Net 14)</p>
+          </div>
+        </div>
+
+        <!-- Billed To & Studio Details -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 rounded-xl bg-[#0d1424] border border-white/[0.06]">
+            <span class="text-[10px] font-mono uppercase text-slate-400 block mb-1">BILLED TO:</span>
+            <h4 id="invViewBillTo" class="text-sm font-bold text-white">Vega Auto Detailing</h4>
+            <p id="invViewEmail" class="text-slate-400 mt-0.5 font-mono">carlos.vega.detail@gmail.com</p>
+            <p id="invViewPhone" class="text-slate-500 mt-0.5 font-mono">+1 (214) 555-0147</p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#0d1424] border border-white/[0.06]">
+            <span class="text-[10px] font-mono uppercase text-slate-400 block mb-1">PAYMENT TERMS & METHOD:</span>
+            <p class="text-slate-200 font-medium">Standard Terms: Net 14 Days</p>
+            <p class="text-slate-400 mt-0.5">Zelle: <span class="font-mono text-emerald-400">payments@axeomstudio.com</span></p>
+            <p class="text-slate-400 font-mono">ACH Wire: Chase Bank • Acct # ****4920</p>
+          </div>
+        </div>
+
+        <!-- Line Items Table -->
+        <div class="rounded-xl border border-white/[0.08] overflow-hidden">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-[#0f172a] text-slate-400 font-mono text-[11px] uppercase tracking-wider border-b border-white/[0.06]">
+              <tr>
+                <th class="px-4 py-3">Item / Service Description</th>
+                <th class="px-4 py-3 text-center">Qty / Shoot</th>
+                <th class="px-4 py-3 text-right">Unit Rate</th>
+                <th class="px-4 py-3 text-right">Amount</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/[0.04] font-mono">
+              <tr>
+                <td class="px-4 py-3.5">
+                  <strong id="invViewItemTitle" class="text-white block font-sans">Full Production Shoot & Editing Package</strong>
+                  <span id="invViewItemMemo" class="text-slate-400 text-[11px]">B147 Content Day • 4K Sony FX6 multicam capture</span>
+                </td>
+                <td class="px-4 py-3.5 text-center text-slate-300">1 session</td>
+                <td id="invViewItemRate" class="px-4 py-3.5 text-right text-slate-300">$1,500.00</td>
+                <td id="invViewItemAmount" class="px-4 py-3.5 text-right font-bold text-white">$1,500.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Totals & Payment Instructions -->
+        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 pt-2">
+          <div class="text-xs text-slate-400 max-w-md space-y-1">
+            <span class="font-bold text-slate-300 block font-mono uppercase text-[11px]">Remittance Instructions:</span>
+            <p>Please include invoice number <span id="invViewMemoRef" class="font-mono text-emerald-400 font-bold">INV-1157</span> in your Zelle or wire transfer description. For credit card processing, use the secure link sent via SMS.</p>
+          </div>
+          <div class="w-full sm:w-64 space-y-2 text-xs font-mono">
+            <div class="flex justify-between text-slate-400">
+              <span>Subtotal:</span>
+              <span id="invViewSubtotal" class="text-white font-bold">$1,500.00</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>Sales Tax (0.0%):</span>
+              <span class="text-white">$0.00</span>
+            </div>
+            <div class="flex justify-between text-base font-bold pt-2 border-t border-white/[0.1] text-emerald-400">
+              <span>Total Due:</span>
+              <span id="invViewTotalDue">$1,500.00</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="flex justify-end pt-2">
-        <button onclick="toggleUploadModal()" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded-lg">Close</button>
+      <!-- Pinned Footer -->
+      <div class="p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-between shrink-0 bg-[#0a0f1d]">
+        <span class="text-[11px] text-slate-400 font-mono">Status: Formatted for Print / PDF Export</span>
+        <button onclick="closeModal('invoicePreviewModal')" class="px-4 py-2 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 text-xs rounded-xl transition">Close Viewer</button>
       </div>
+
     </div>
   </div>
 
-  <!-- CLIENT DETAIL MODAL -->
-  <div id="clientModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-5 shadow-2xl space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+  <!-- MODAL 5: CLIENT 360° PROFILE MODAL -->
+  <div id="clientModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 overflow-hidden">
+    <div class="relative bg-[#0d1424] border border-white/[0.1] rounded-2xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Pinned Header -->
+      <div class="p-4 sm:p-5 border-b border-white/[0.08] flex items-start justify-between shrink-0 bg-[#0f182c]">
         <div>
-          <h3 id="cModalName" class="text-base font-bold text-white"></h3>
-          <p id="cModalAliases" class="text-xs text-slate-400 mt-0.5 font-mono"></p>
+          <h3 id="cModalName" class="text-lg font-bold text-white">Client Name</h3>
+          <p id="cModalAliases" class="text-xs text-slate-400 font-mono mt-0.5 truncate max-w-md"></p>
         </div>
-        <button onclick="closeModal('clientModal')" class="text-slate-400 hover:text-white text-lg">&times;</button>
+        <button onclick="closeModal('clientModal')" class="text-slate-400 hover:text-white text-xl p-1 leading-none rounded-lg hover:bg-white/[0.05]">&times;</button>
       </div>
 
-      <div class="grid grid-cols-3 gap-2 text-xs">
-        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-          <span class="text-slate-400 block text-[10px] uppercase font-mono">Total Billed</span>
-          <strong id="cModalBilled" class="text-white text-sm"></strong>
+      <!-- Scrollable Body -->
+      <div class="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1 text-slate-200 custom-scrollbar text-xs">
+        
+        <!-- Financial Summary Banner -->
+        <div class="grid grid-cols-3 gap-2.5 p-3.5 bg-[#070a0f] rounded-xl border border-white/[0.08] text-center font-mono">
+          <div>
+            <span class="text-[10px] text-slate-400 uppercase">Total Billed</span>
+            <p id="cModalBilled" class="text-sm font-bold text-white mt-0.5">$0</p>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 uppercase">Total Paid</span>
+            <p id="cModalPaid" class="text-sm font-bold text-emerald-400 mt-0.5">$0</p>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 uppercase">True Overdue</span>
+            <p id="cModalOwed" class="text-sm font-bold text-rose-400 mt-0.5">$0</p>
+          </div>
         </div>
-        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-          <span class="text-slate-400 block text-[10px] uppercase font-mono">Total Paid</span>
-          <strong id="cModalPaid" class="text-emerald-400 text-sm"></strong>
+
+        <!-- Bookings History -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-300 uppercase font-mono text-[11px]">Bookings & Shoots</h4>
+          <div id="cModalBookings" class="space-y-1.5 font-mono text-[11px]"></div>
         </div>
-        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-          <span class="text-slate-400 block text-[10px] uppercase font-mono">Balance Owed</span>
-          <strong id="cModalOwed" class="text-rose-400 text-sm"></strong>
+
+        <!-- Invoices History -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-300 uppercase font-mono text-[11px]">Invoices</h4>
+          <div id="cModalInvoices" class="space-y-1.5 font-mono text-[11px]"></div>
         </div>
+
+        <!-- Production Videos -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-300 uppercase font-mono text-[11px]">Production Board Assets</h4>
+          <div id="cModalVideos" class="space-y-1.5 text-[11px]"></div>
+        </div>
+
       </div>
 
-      <div class="space-y-3 text-xs">
-        <div>
-          <h4 class="font-bold text-slate-300 mb-1.5 uppercase font-mono text-[11px]">Bookings History</h4>
-          <div id="cModalBookings" class="space-y-1.5 max-h-36 overflow-y-auto pr-1"></div>
-        </div>
-        <div>
-          <h4 class="font-bold text-slate-300 mb-1.5 uppercase font-mono text-[11px]">Invoices & Status</h4>
-          <div id="cModalInvoices" class="space-y-1.5 max-h-36 overflow-y-auto pr-1"></div>
-        </div>
-        <div>
-          <h4 class="font-bold text-slate-300 mb-1.5 uppercase font-mono text-[11px]">Production Board Videos</h4>
-          <div id="cModalVideos" class="space-y-1.5 max-h-36 overflow-y-auto pr-1"></div>
-        </div>
+      <!-- Pinned Footer -->
+      <div class="p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-end shrink-0 bg-[#0a0f1d]">
+        <button onclick="closeModal('clientModal')" class="px-4 py-2 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 text-xs rounded-xl transition">Close</button>
       </div>
 
-      <div class="flex justify-end pt-2 border-t border-slate-800">
-        <button onclick="closeModal('clientModal')" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded-lg">Close</button>
-      </div>
     </div>
   </div>
 
-  <!-- APPLICATION SCRIPT -->
+  <!-- MODAL 6: ADD DATA FILES MODAL -->
+  <div id="uploadModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 overflow-hidden">
+    <div class="relative bg-[#0d1424] border border-white/[0.1] rounded-2xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Pinned Header -->
+      <div class="p-4 sm:p-5 border-b border-white/[0.08] flex items-start justify-between shrink-0 bg-[#0f182c]">
+        <div>
+          <h3 class="text-base font-bold text-white">Ingest New Data Files</h3>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">Supports real-time drag-and-drop CSV ingestion</p>
+        </div>
+        <button onclick="closeModal('uploadModal')" class="text-slate-400 hover:text-white text-xl p-1 leading-none rounded-lg hover:bg-white/[0.05]">&times;</button>
+      </div>
+
+      <!-- Scrollable Body -->
+      <div class="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1 text-slate-200 custom-scrollbar text-xs">
+        <div id="dropZone" class="border-2 border-dashed border-white/[0.15] hover:border-emerald-500/60 rounded-2xl p-8 text-center cursor-pointer transition bg-[#070a0f]">
+          <svg class="w-10 h-10 text-emerald-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+          <p class="text-sm font-semibold text-white">Drop new CSV data files here</p>
+          <p class="text-xs text-slate-400 mt-1">or click to browse from your computer</p>
+          <input type="file" id="filePicker" multiple accept=".csv" class="hidden" onchange="handleFilesSelected(this.files)">
+        </div>
+
+        <div id="uploadStatus" class="hidden p-3.5 bg-emerald-950/30 border border-emerald-500/30 rounded-xl text-xs text-emerald-300 font-mono">
+          ✓ Files successfully ingested and system state recomputed!
+        </div>
+      </div>
+
+      <!-- Pinned Footer -->
+      <div class="p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-end shrink-0 bg-[#0a0f1d]">
+        <button onclick="closeModal('uploadModal')" class="px-4 py-2 bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 text-xs rounded-xl transition">Done</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION CORE -->
   <script>
-    let state = {
-      data: window.PRELOADED_PACK_DATA || {},
+    const state = {
+      data: window.APP_DATA || {},
       activeTab: 'tabClients',
-      generatedInvoicesList: [],
-      remindersSentCount: 0,
-      revisionsDispatchedCount: 0
+      invoiceFilter: 'all',
+      newlyGeneratedInvoices: []
     };
 
     document.addEventListener('DOMContentLoaded', () => {
       initApp();
+      setupDropzone();
     });
 
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'px-4 py-3 bg-[#0d1629] border border-emerald-500/40 text-emerald-300 text-xs rounded-xl shadow-2xl flex items-center space-x-2 animate-in fade-in slide-in-from-bottom-2 duration-200 pointer-events-auto';
+      toast.innerHTML = `
+        <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
     function initApp() {
+      if (!state.data || !state.data.answers) {
+        console.error('APP_DATA not found');
+        return;
+      }
+
+      // Populate Top Metrics
+      const ans = state.data.answers;
+      document.getElementById('statClientCount').textContent = ans.client_count || 29;
+      
+      const overdueTotal = (ans.overdue || []).reduce((sum, o) => sum + (o.amount_owed || 0), 0);
+      document.getElementById('statOverdueTotal').textContent = '$' + overdueTotal.toLocaleString();
+      document.getElementById('overdueListTotalText').textContent = '$' + overdueTotal.toLocaleString();
+      
+      const neverBilledTotal = (ans.never_billed || []).reduce((sum, b) => sum + (b.amount || 0), 0);
+      document.getElementById('statNeverBilledTotal').textContent = '$' + neverBilledTotal.toLocaleString();
+      document.getElementById('neverBilledListTotalText').textContent = '$' + neverBilledTotal.toLocaleString();
+      
+      const weOweTotal = (ans.we_owe || []).reduce((sum, w) => sum + (w.amount || 0), 0);
+      document.getElementById('statWeOweTotal').textContent = '$' + weOweTotal.toLocaleString();
+
+      document.getElementById('clientTabBadge').textContent = (ans.clients || []).length;
+      document.getElementById('invoicesTabBadge').textContent = (state.data.invoices || []).length;
+
+      // Render all primary views
       renderClients();
       renderFinances();
+      renderInvoicesTable();
       renderProduction();
       renderJev();
       renderAnswers();
-      setupDropzone();
     }
 
-    function showToast(message, type = 'success') {
-      const c = document.getElementById('toastContainer');
-      const toast = document.createElement('div');
-      const colors = type === 'success' ? 'bg-emerald-600 text-white border-emerald-400' : 'bg-slate-800 text-slate-200 border-slate-700';
-      toast.className = `px-4 py-3 rounded-xl border text-xs shadow-2xl transition transform duration-300 translate-y-2 opacity-0 flex items-center space-x-2 pointer-events-auto ${colors}`;
-      toast.innerHTML = `
-        <svg class="w-4 h-4 text-emerald-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-        <span>${message}</span>
-      `;
-      c.appendChild(toast);
-      setTimeout(() => { toast.classList.remove('translate-y-2', 'opacity-0'); }, 10);
-      setTimeout(() => {
-        toast.classList.add('opacity-0');
-        setTimeout(() => toast.remove(), 300);
-      }, 4000);
-    }
+    // ================= TAB NAVIGATION =================
+    function switchTab(tabId) {
+      state.activeTab = tabId;
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(el => {
+        el.className = 'tab-btn px-4 py-2.5 text-xs font-semibold rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] whitespace-nowrap transition-all flex items-center space-x-1.5';
+      });
 
-    function closeModal(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.classList.add('hidden');
-        el.classList.remove('flex');
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      const btn = document.getElementById('tabBtn-' + tabId);
+      if (btn) {
+        btn.className = 'tab-btn px-4 py-2.5 text-xs font-semibold rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 whitespace-nowrap transition-all flex items-center space-x-1.5';
       }
     }
 
@@ -705,6 +1079,14 @@
       if (el) {
         el.classList.remove('hidden');
         el.classList.add('flex');
+      }
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.add('hidden');
+        el.classList.remove('flex');
       }
     }
 
@@ -719,18 +1101,22 @@
       
       closeModal('callModal');
       
-      // Update Hero Card 1 dynamically!
+      // Update Hero Card 1 dynamically
       const card = document.getElementById('cardChurn');
-      card.className = 'bg-emerald-950/40 border border-emerald-500/50 rounded-xl p-4 flex flex-col justify-between transition shadow-sm';
-      document.getElementById('badgeChurn').className = 'text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+      card.className = 'bg-emerald-950/30 border border-emerald-500/40 rounded-2xl p-5 flex flex-col justify-between transition-all shadow-md';
+      document.getElementById('badgeChurn').className = 'text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
       document.getElementById('badgeChurn').textContent = '✅ Resolved • Outreach Logged';
-      document.getElementById('descChurn').textContent = `Outreach completed with Nina Patel: "${outcomeText}". Retainer account protected from cancellation.`;
+      document.getElementById('descChurn').textContent = `Outreach logged with Nina Patel: "${outcomeText}". Retainer account protected from cancellation.`;
       document.getElementById('subChurn').textContent = 'Completed on Oct 6 at 10:14 AM';
       
       const btn = document.getElementById('btnChurn');
-      btn.className = 'px-3 py-1.5 bg-slate-800 text-slate-300 font-semibold text-xs rounded-lg border border-slate-700 cursor-default';
+      btn.className = 'px-3.5 py-2 bg-white/[0.06] text-slate-300 font-semibold text-xs rounded-xl border border-white/[0.1] hover:bg-white/[0.1]';
       btn.innerHTML = '<span>View Log</span>';
-      btn.onclick = () => alert(`Call Log Record:\nDate: 2026-10-06 10:14 AM\nClient: Nina Patel (Patel Insurance Group)\nPhone: +1 (214) 555-0196\nOutcome: ${outcomeText}`);
+      btn.onclick = () => alert(`Call Log Record:
+Date: 2026-10-06 10:14 AM
+Client: Nina Patel (Patel Insurance Group)
+Phone: +1 (214) 555-0196
+Outcome: ${outcomeText}`);
 
       showToast('Outreach logged! Nina Patel alert marked as Resolved.');
     }
@@ -751,9 +1137,9 @@
 
       shoots.forEach((s, idx) => {
         const row = document.createElement('div');
-        row.className = 'flex items-center justify-between p-2.5 rounded-lg bg-slate-950 border border-slate-800';
+        row.className = 'flex items-center justify-between p-3 rounded-xl bg-[#070a0f] border border-white/[0.08]';
         row.innerHTML = `
-          <div class="flex items-center space-x-2.5">
+          <div class="flex items-center space-x-3">
             <input type="checkbox" checked id="shoot_chk_${idx}" class="w-4 h-4 text-emerald-500 rounded bg-slate-900 border-slate-700 focus:ring-0">
             <div>
               <strong class="text-white">${s.client}</strong>
@@ -772,62 +1158,71 @@
       closeModal('invoiceWizardModal');
 
       const newInvoices = [
-        { invoice_no: 'INV-1157', bill_to: 'Vega Auto Detailing', email: 'carlos.vega.detail@gmail.com', issued: '2026-10-06', due: '2026-10-20', amount: 1500.0, status: 'unpaid', memo: 'B147 Content Day' },
-        { invoice_no: 'INV-1158', bill_to: 'Apex Physical Therapy', email: 'klee@apexptdallas.com', issued: '2026-10-06', due: '2026-10-20', amount: 2500.0, status: 'unpaid', memo: 'Monthly retainer September 2026' },
-        { invoice_no: 'INV-1159', bill_to: 'DFW Founders Podcast', email: 'ethan@dfwfounders.fm', issued: '2026-10-06', due: '2026-10-20', amount: 550.0, status: 'unpaid', memo: 'B141 Podcast Studio 4hr' },
-        { invoice_no: 'INV-1160', bill_to: 'Ironclad Fitness', email: 'marcus@ironcladgym.com', issued: '2026-10-06', due: '2026-10-20', amount: 900.0, status: 'unpaid', memo: 'B126 Reels Pack' },
-        { invoice_no: 'INV-1161', bill_to: 'Hustle & Heart Podcast', email: 'tasha@hustleandheart.fm', issued: '2026-10-06', due: '2026-10-20', amount: 300.0, status: 'unpaid', memo: 'B132 Podcast Studio 2hr' },
-        { invoice_no: 'INV-1162', bill_to: 'Hustle & Heart Podcast', email: 'tasha@hustleandheart.fm', issued: '2026-10-06', due: '2026-10-20', amount: 300.0, status: 'unpaid', memo: 'B143 Podcast Studio 2hr' }
+        { invoice_no: 'INV-1157', bill_to: 'Vega Auto Detailing', email: 'carlos.vega.detail@gmail.com', issued: '2026-10-06', due: '2026-10-20', amount: 1500.0, status: 'issued', memo: 'B147 Content Day' },
+        { invoice_no: 'INV-1158', bill_to: 'Apex Physical Therapy', email: 'klee@apexptdallas.com', issued: '2026-10-06', due: '2026-10-20', amount: 2500.0, status: 'issued', memo: 'Monthly retainer September 2026' },
+        { invoice_no: 'INV-1159', bill_to: 'DFW Founders Podcast', email: 'ethan@dfwfounders.fm', issued: '2026-10-06', due: '2026-10-20', amount: 550.0, status: 'issued', memo: 'B141 Podcast Studio 4hr' },
+        { invoice_no: 'INV-1160', bill_to: 'Ironclad Fitness', email: 'marcus@ironcladgym.com', issued: '2026-10-06', due: '2026-10-20', amount: 900.0, status: 'issued', memo: 'B126 Reels Pack' },
+        { invoice_no: 'INV-1161', bill_to: 'Hustle & Heart Podcast', email: 'tasha@hustleandheart.fm', issued: '2026-10-06', due: '2026-10-20', amount: 300.0, status: 'issued', memo: 'B132 Podcast Studio 2hr' },
+        { invoice_no: 'INV-1162', bill_to: 'Hustle & Heart Podcast', email: 'tasha@hustleandheart.fm', issued: '2026-10-06', due: '2026-10-20', amount: 300.0, status: 'issued', memo: 'B143 Podcast Studio 2hr' }
       ];
 
-      // Push into state.data.invoices
-      state.data.invoices.push(...newInvoices);
-      state.generatedInvoicesList = newInvoices;
+      // Add to beginning of invoices array so they show at the top!
+      state.data.invoices.unshift(...newInvoices);
+      state.newlyGeneratedInvoices = newInvoices;
 
-      // Update Never Billed Stat
+      // Update Never Billed Stat to $0
       document.getElementById('statNeverBilledTotal').textContent = '$0';
-      document.getElementById('statNeverBilledTotal').className = 'text-2xl font-extrabold text-emerald-400 mt-1';
+      document.getElementById('statNeverBilledTotal').className = 'text-3xl font-extrabold text-emerald-400 mt-1.5 tracking-tight font-mono';
       document.getElementById('statNeverBilledSub').textContent = '✅ All 6 shoots invoiced!';
       document.getElementById('invoicesTabBadge').textContent = state.data.invoices.length;
 
-      // Update Card 2
+      // Update Card 2 in Hero
       const card = document.getElementById('cardBilled');
-      card.className = 'bg-emerald-950/40 border border-emerald-500/50 rounded-xl p-4 flex flex-col justify-between transition shadow-sm';
-      document.getElementById('badgeBilled').className = 'text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+      card.className = 'bg-emerald-950/30 border border-emerald-500/40 rounded-2xl p-5 flex flex-col justify-between transition-all shadow-md';
+      document.getElementById('badgeBilled').className = 'text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
       document.getElementById('badgeBilled').textContent = '✅ Invoices Generated';
       document.getElementById('amountBilledHeader').textContent = '6 Invoices Created';
-      document.getElementById('descBilled').textContent = 'Created INV-1157 through INV-1162 ($6,050 total). All 6 unbilled shoots are now officially entered into the billing system with Net-14 terms.';
+      document.getElementById('descBilled').textContent = 'Created INV-1157 through INV-1162 ($6,050 total). All 6 unbilled shoots are now officially entered into the ledger with Net-14 terms.';
       document.getElementById('subBilled').textContent = 'Generated on Oct 6, 2026';
       
       const btn = document.getElementById('btnBilled');
-      btn.className = 'px-3 py-1.5 bg-slate-800 text-slate-300 font-semibold text-xs rounded-lg border border-slate-700';
-      btn.textContent = 'View Created Invoices';
-      btn.onclick = () => switchTab('tabFinances');
+      btn.className = 'px-3.5 py-2 bg-white/[0.06] text-slate-300 font-semibold text-xs rounded-xl border border-white/[0.1] hover:bg-white/[0.1]';
+      btn.textContent = 'View in Ledger';
+      btn.onclick = () => {
+        switchTab('tabInvoices');
+        setInvoiceFilter('newly_generated');
+      };
 
-      // Update Never Billed list in Tab 2
+      // Update Never Billed list in Financial Reconciliation tab
       const nbList = document.getElementById('neverBilledList');
-      nbList.innerHTML = '<div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-lg text-emerald-300 font-medium">All 6 previously unbilled completed shoots have been officially invoiced as INV-1157 to INV-1162!</div>';
+      nbList.innerHTML = '<div class="p-3.5 bg-emerald-950/30 border border-emerald-500/30 rounded-xl text-emerald-300 font-medium text-xs">All 6 previously unbilled completed shoots have been officially invoiced as INV-1157 to INV-1162!</div>';
       document.getElementById('neverBilledListTotalText').textContent = '$0.00 (All Billed)';
 
-      // Render newly created invoices preview
+      // Render newly created invoices preview in Tab 2
       const genSection = document.getElementById('newlyGeneratedSection');
       genSection.classList.remove('hidden');
       const genList = document.getElementById('newlyGeneratedList');
       genList.innerHTML = newInvoices.map(i => `
-        <div class="flex items-center justify-between p-2 rounded bg-slate-900 border border-slate-800">
+        <div class="flex items-center justify-between p-2.5 rounded-xl bg-[#070a0f] border border-white/[0.08]">
           <span class="text-white"><strong>${i.invoice_no}</strong> • ${i.bill_to} (${i.memo})</span>
-          <span class="text-emerald-400 font-bold">$${i.amount.toLocaleString()} • Due ${i.due}</span>
+          <div class="flex items-center space-x-2">
+            <span class="text-emerald-400 font-bold">$${i.amount.toLocaleString()}</span>
+            <button onclick="openInvoicePreview('${i.invoice_no}')" class="px-2 py-1 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 rounded border border-emerald-500/30 text-[10px]">View</button>
+          </div>
         </div>
       `).join('');
 
-      // Switch to finances tab to show results!
-      switchTab('tabFinances');
-      showToast('Successfully generated 6 new invoices (INV-1157 to INV-1162) totaling $6,050!');
+      // Re-render invoices table and switch tab!
+      renderInvoicesTable();
+      switchTab('tabInvoices');
+      setInvoiceFilter('newly_generated');
+
+      showToast('🎉 Generated 6 new invoices (INV-1157 to INV-1162) totaling $6,050 into Ledger!');
     }
 
     // ================= 3. REVIEW REMINDERS INTERACTION =================
     function openRemindersModal() {
-      // Populate Overdue Reminders
+      // Overdue Reminders
       const overdueItems = [
         { client: 'Lonestar RG (Greg Whitfield)', inv: 'INV-1105', amount: 1500, days: 39, email: 'greg@lonestarrg.com' },
         { client: 'TLC Homecare (Angela Price)', inv: 'INV-1123', amount: 1500, days: 21, email: 'angela@tlchomecare.com' },
@@ -838,19 +1233,19 @@
 
       const oContainer = document.getElementById('modalOverdueItems');
       oContainer.innerHTML = overdueItems.map((o, idx) => `
-        <div id="remind_row_${idx}" class="p-3 bg-slate-950 rounded-lg border border-slate-800 flex items-center justify-between">
+        <div id="remind_row_${idx}" class="p-3 bg-[#070a0f] rounded-xl border border-white/[0.08] flex items-center justify-between">
           <div>
             <strong class="text-white">${o.client}</strong>
             <p class="text-[11px] text-slate-400 font-mono">${o.inv} • $${o.amount} • <span class="text-rose-400 font-medium">${o.days} days late</span></p>
             <p class="text-[10px] text-slate-500 mt-0.5 truncate">Send notice to ${o.email}</p>
           </div>
-          <button onclick="sendSingleReminder(${idx}, '${o.client}', '${o.inv}')" id="remind_btn_${idx}" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 rounded border border-slate-700 transition">
+          <button onclick="sendSingleReminder(${idx}, '${o.client}', '${o.inv}')" id="remind_btn_${idx}" class="px-3 py-1.5 bg-white/[0.05] hover:bg-white/[0.1] text-xs text-slate-200 rounded-lg border border-white/[0.1] transition">
             Send Notice
           </button>
         </div>
       `).join('');
 
-      // Populate Stuck Video Revisions
+      // Stuck Video Revisions
       const revisions = [
         { id: 'V261', client: 'Carlos Vega', title: 'Headlight restore', editor: 'Sam', task: 'Blur client face (missing release form)' },
         { id: 'V119', client: 'Jordan Reed (Elevate)', title: 'Gym tour', editor: 'Ali', task: 'Switch brand color to forest green' },
@@ -859,7 +1254,7 @@
 
       const rContainer = document.getElementById('modalRevisionItems');
       rContainer.innerHTML = revisions.map((r, idx) => `
-        <div id="rev_row_${idx}" class="p-3 bg-slate-950 rounded-lg border border-slate-800 flex items-center justify-between">
+        <div id="rev_row_${idx}" class="p-3 bg-[#070a0f] rounded-xl border border-white/[0.08] flex items-center justify-between">
           <div>
             <div class="flex items-center space-x-2">
               <span class="font-mono font-bold text-white">${r.id}</span>
@@ -868,7 +1263,7 @@
             <p class="text-[11px] text-teal-400 mt-0.5">Task: ${r.task}</p>
             <p class="text-[10px] text-slate-500">Assigned Editor: <strong class="text-white">${r.editor}</strong></p>
           </div>
-          <button onclick="dispatchSingleRevision(${idx}, '${r.id}', '${r.editor}')" id="rev_btn_${idx}" class="px-2.5 py-1.5 bg-teal-500/20 text-teal-300 hover:bg-teal-500/30 text-xs rounded border border-teal-500/30 transition">
+          <button onclick="dispatchSingleRevision(${idx}, '${r.id}', '${r.editor}')" id="rev_btn_${idx}" class="px-3 py-1.5 bg-teal-500/20 text-teal-300 hover:bg-teal-500/30 text-xs rounded-lg border border-teal-500/30 transition">
             Dispatch Ticket
           </button>
         </div>
@@ -880,85 +1275,211 @@
     function switchModalSubTab(tabId) {
       document.getElementById('subTabOverdue').classList.add('hidden');
       document.getElementById('subTabRevisions').classList.add('hidden');
-      document.getElementById('subTabBtnOverdue').className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white';
-      document.getElementById('subTabBtnRevisions').className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white';
+      document.getElementById('subTabBtnOverdue').className = 'pb-2 text-xs font-semibold text-slate-400 hover:text-white';
+      document.getElementById('subTabBtnRevisions').className = 'pb-2 text-xs font-semibold text-slate-400 hover:text-white';
 
       document.getElementById(tabId).classList.remove('hidden');
       if (tabId === 'subTabOverdue') {
-        document.getElementById('subTabBtnOverdue').className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+        document.getElementById('subTabBtnOverdue').className = 'pb-2 text-xs font-semibold text-emerald-400 border-b-2 border-emerald-400';
       } else {
-        document.getElementById('subTabBtnRevisions').className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/20';
+        document.getElementById('subTabBtnRevisions').className = 'pb-2 text-xs font-semibold text-teal-400 border-b-2 border-teal-400';
       }
     }
 
     function sendSingleReminder(idx, client, inv) {
       const btn = document.getElementById(`remind_btn_${idx}`);
-      btn.className = 'px-2.5 py-1.5 bg-emerald-500/20 text-emerald-400 text-xs rounded border border-emerald-500/30 cursor-default';
+      btn.className = 'px-3 py-1.5 bg-emerald-500/20 text-emerald-400 text-xs rounded-lg border border-emerald-500/30 cursor-default';
       btn.textContent = 'Sent Today';
-      showToast(`Reminder notice dispatched to ${client} for ${inv}!`);
+      showToast(`Notice sent to ${client} for ${inv}!`);
     }
 
-    function sendAllOverdueReminders() {
-      for (let i = 0; i < 5; i++) {
-        const btn = document.getElementById(`remind_btn_${i}`);
-        if (btn) {
-          btn.className = 'px-2.5 py-1.5 bg-emerald-500/20 text-emerald-400 text-xs rounded border border-emerald-500/30 cursor-default';
-          btn.textContent = 'Sent Today';
-        }
-      }
-      showToast('All 5 overdue payment reminders successfully dispatched!');
-    }
-
-    function dispatchSingleRevision(idx, vid, editor) {
+    function dispatchSingleRevision(idx, vidId, editor) {
       const btn = document.getElementById(`rev_btn_${idx}`);
-      btn.className = 'px-2.5 py-1.5 bg-emerald-500/20 text-emerald-400 text-xs rounded border border-emerald-500/30 cursor-default';
-      btn.textContent = `Dispatched to ${editor}`;
-      showToast(`Video ${vid} revision ticket routed to ${editor}!`);
+      btn.className = 'px-3 py-1.5 bg-teal-500/20 text-teal-300 text-xs rounded-lg border border-teal-500/30 cursor-default';
+      btn.textContent = 'Dispatched to ' + editor;
+      showToast(`Revision ticket ${vidId} routed to editor ${editor}!`);
     }
 
-    function dispatchAllRevisions() {
-      for (let i = 0; i < 3; i++) {
-        const btn = document.getElementById(`rev_btn_${i}`);
-        if (btn) {
-          btn.className = 'px-2.5 py-1.5 bg-emerald-500/20 text-emerald-400 text-xs rounded border border-emerald-500/30 cursor-default';
-          btn.textContent = 'Ticket Active';
-        }
-      }
+    function executeAllRemindersAndRevisions() {
+      closeModal('remindersModal');
 
-      // Update Card 3 in Hero
       const card = document.getElementById('cardRemind');
-      card.className = 'bg-emerald-950/40 border border-emerald-500/50 rounded-xl p-4 flex flex-col justify-between transition shadow-sm';
-      document.getElementById('badgeRemind').className = 'text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
-      document.getElementById('badgeRemind').textContent = '✅ Dispatched to Editors';
-      document.getElementById('descRemind').textContent = 'Revision tickets dispatched to Ali (V119 Gym tour), Rita (V078 Posture fix), and Sam (V261 Headlight restore). Reminders queued.';
-      document.getElementById('subRemind').textContent = 'Dispatched on Oct 6';
+      card.className = 'bg-emerald-950/30 border border-emerald-500/40 rounded-2xl p-5 flex flex-col justify-between transition-all shadow-md';
+      document.getElementById('badgeRemind').className = 'text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+      document.getElementById('badgeRemind').textContent = '✅ Operations Dispatched';
+      document.getElementById('descRemind').textContent = 'Dispatched 5 overdue payment reminders via email & assigned revision tickets V261, V119, V078 to editors Sam, Ali, and Rita.';
+      document.getElementById('subRemind').textContent = 'Dispatched on Oct 6 at 10:15 AM';
 
-      showToast('All 3 revision tickets dispatched to editors Rita, Ali, and Sam!');
+      const btn = document.getElementById('btnRemind');
+      btn.className = 'px-3.5 py-2 bg-white/[0.06] text-slate-300 font-semibold text-xs rounded-xl border border-white/[0.1] hover:bg-white/[0.1]';
+      btn.textContent = 'View Queue';
+      btn.onclick = () => switchTab('tabProduction');
+
+      showToast('All overdue payment notices sent & editor tickets dispatched!');
     }
 
-    function resolveWeOwe() {
-      alert('Action Executed:\n$1,500 credit successfully recorded for Lone Star Realty (Dana Brooks). It will automatically apply as credit against upcoming shoot B165 on Oct 7.');
-      document.getElementById('statWeOweTotal').textContent = '$0';
-      document.getElementById('statWeOweTotal').className = 'text-2xl font-extrabold text-emerald-400 mt-1';
-      showToast('Credit applied! Balance owed to client updated to $0.');
-    }
-
-    // ================= TABS & RENDERING =================
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(el => {
-        el.className = 'tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition';
+    // ================= 4. INVOICES & MASTER LEDGER RENDERING =================
+    function setInvoiceFilter(filterName) {
+      state.invoiceFilter = filterName;
+      document.querySelectorAll('.inv-filter-btn').forEach(btn => {
+        btn.className = 'inv-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white hover:bg-white/[0.04] whitespace-nowrap transition';
       });
 
-      const target = document.getElementById(tabId);
-      if (target) target.classList.remove('hidden');
-
-      const btn = document.getElementById('tabBtn-' + tabId);
-      if (btn) {
-        btn.className = 'tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap transition';
+      const activeBtn = document.getElementById('invFilter-' + filterName);
+      if (activeBtn) {
+        activeBtn.className = 'inv-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 whitespace-nowrap transition';
       }
+
+      renderInvoicesTable();
     }
 
+    function renderInvoicesTable() {
+      const tbody = document.getElementById('invoicesTableBody');
+      const emptyState = document.getElementById('invoicesEmptyState');
+      const searchTerm = (document.getElementById('invoiceSearchInput')?.value || '').toLowerCase();
+      
+      const allInvoices = state.data.invoices || [];
+      const newInvs = state.newlyGeneratedInvoices || [];
+      const newInvNos = newInvs.map(i => i.invoice_no);
+
+      const overdueNos = (state.data.answers.overdue || []).map(o => o.invoice);
+
+      // Update counters
+      const cntAll = allInvoices.length;
+      const cntNew = newInvs.length;
+      const cntOver = allInvoices.filter(i => overdueNos.includes(i.invoice_no)).length;
+      const cntPaid = allInvoices.filter(i => i.status === 'paid').length;
+
+      document.getElementById('cntAllInvoices').textContent = cntAll;
+      document.getElementById('cntNewInvoices').textContent = cntNew;
+      document.getElementById('cntOverdueInvoices').textContent = cntOver;
+      document.getElementById('cntPaidInvoices').textContent = cntPaid;
+      document.getElementById('invoicesTabBadge').textContent = cntAll;
+
+      // Filter logic
+      let filtered = allInvoices.filter(inv => {
+        const matchesSearch = 
+          (inv.invoice_no || '').toLowerCase().includes(searchTerm) ||
+          (inv.bill_to || '').toLowerCase().includes(searchTerm) ||
+          (inv.memo || '').toLowerCase().includes(searchTerm) ||
+          (inv.email || '').toLowerCase().includes(searchTerm) ||
+          String(inv.amount || '').includes(searchTerm);
+
+        if (!matchesSearch) return false;
+
+        if (state.invoiceFilter === 'newly_generated') {
+          return newInvNos.includes(inv.invoice_no);
+        }
+        if (state.invoiceFilter === 'overdue') {
+          return overdueNos.includes(inv.invoice_no);
+        }
+        if (state.invoiceFilter === 'paid') {
+          return inv.status === 'paid';
+        }
+        if (state.invoiceFilter === 'void') {
+          return inv.status === 'void';
+        }
+        return true;
+      });
+
+      tbody.innerHTML = '';
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
+
+      filtered.forEach(inv => {
+        const isNew = newInvNos.includes(inv.invoice_no);
+        const isOverdue = overdueNos.includes(inv.invoice_no);
+        
+        let statusBadge = '';
+        if (isNew) {
+          statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">⚡ Auto-Generated</span>';
+        } else if (isOverdue) {
+          statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">🔴 Overdue</span>';
+        } else if (inv.status === 'paid') {
+          statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">🟢 Paid</span>';
+        } else if (inv.status === 'void') {
+          statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-800 text-slate-400">⚪ Void</span>';
+        } else {
+          statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-500/10 text-blue-300">Issued</span>';
+        }
+
+        const tr = document.createElement('tr');
+        tr.className = `hover:bg-white/[0.03] transition ${isNew ? 'bg-amber-500/[0.04]' : ''}`;
+        tr.innerHTML = `
+          <td class="px-4 py-3 font-bold text-white">${inv.invoice_no}</td>
+          <td class="px-4 py-3 font-sans">
+            <strong class="text-white block">${inv.bill_to}</strong>
+            <span class="text-[11px] text-slate-400 font-mono">${inv.email}</span>
+          </td>
+          <td class="px-4 py-3 text-slate-300 font-sans max-w-xs truncate">${inv.memo || 'Studio session'}</td>
+          <td class="px-4 py-3 text-slate-400">${inv.issued}</td>
+          <td class="px-4 py-3 ${isOverdue ? 'text-rose-400 font-bold' : 'text-slate-300'}">${inv.due}</td>
+          <td class="px-4 py-3 text-right font-bold ${isNew ? 'text-amber-400' : (isOverdue ? 'text-rose-400' : 'text-emerald-400')}">
+            $${parseFloat(inv.amount || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+          </td>
+          <td class="px-4 py-3 text-center">${statusBadge}</td>
+          <td class="px-4 py-3 text-right">
+            <button onclick="openInvoicePreview('${inv.invoice_no}')" class="px-2.5 py-1 bg-white/[0.05] hover:bg-emerald-500 hover:text-slate-950 text-slate-200 text-xs rounded-lg transition border border-white/[0.1] flex items-center space-x-1 ml-auto">
+              <span>View</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ================= 5. OFFICIAL INVOICE VIEWER =================
+    function openInvoicePreview(invNumber) {
+      const inv = (state.data.invoices || []).find(i => i.invoice_no === invNumber);
+      if (!inv) return;
+
+      const isNew = (state.newlyGeneratedInvoices || []).some(i => i.invoice_no === inv.invoice_no);
+      const isOverdue = (state.data.answers.overdue || []).some(o => o.invoice === inv.invoice_no);
+
+      document.getElementById('invViewNumber').textContent = inv.invoice_no;
+      document.getElementById('invViewIssued').textContent = inv.issued;
+      document.getElementById('invViewDue').textContent = inv.due;
+      document.getElementById('invViewBillTo').textContent = inv.bill_to;
+      document.getElementById('invViewEmail').textContent = inv.email;
+      document.getElementById('invViewMemoRef').textContent = inv.invoice_no;
+      document.getElementById('invViewItemTitle').textContent = inv.memo || 'Production Content Services';
+      document.getElementById('invViewItemMemo').textContent = `${inv.invoice_no} • Multi-Camera 4K Audio & Video Production Package`;
+      
+      const amtFormatted = '$' + parseFloat(inv.amount || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      document.getElementById('invViewItemRate').textContent = amtFormatted;
+      document.getElementById('invViewItemAmount').textContent = amtFormatted;
+      document.getElementById('invViewSubtotal').textContent = amtFormatted;
+      document.getElementById('invViewTotalDue').textContent = amtFormatted;
+
+      const badge = document.getElementById('invViewStatusBadge');
+      if (isNew) {
+        badge.className = 'inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30';
+        badge.textContent = '⚡ NEWLY GENERATED TODAY • NET 14';
+      } else if (isOverdue) {
+        badge.className = 'inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30';
+        badge.textContent = '🔴 OVERDUE • PAYMENT REQUIRED';
+      } else if (inv.status === 'paid') {
+        badge.className = 'inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+        badge.textContent = '🟢 PAID IN FULL';
+      } else {
+        badge.className = 'inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-500/30';
+        badge.textContent = 'ISSUED • UNPAID';
+      }
+
+      openModal('invoicePreviewModal');
+    }
+
+    function dispatchInvoiceEmail() {
+      const invNo = document.getElementById('invViewNumber').textContent;
+      const client = document.getElementById('invViewBillTo').textContent;
+      showToast(`Formal invoice ${invNo} dispatched to ${client}!`);
+    }
+
+    // ================= 6. OTHER VIEWS (CLIENTS, FINANCES, ETC) =================
     function renderClients() {
       const grid = document.getElementById('clientsGrid');
       const clients = state.data.answers.clients || [];
@@ -970,21 +1491,23 @@
         const totalBilled = invs.reduce((sum, i) => sum + parseFloat(i.amount || 0), 0);
         
         const card = document.createElement('div');
-        card.className = 'bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between transition cursor-pointer';
+        card.className = 'bg-[#0b1120]/80 border border-white/[0.08] hover:border-emerald-500/40 rounded-2xl p-4 flex flex-col justify-between transition-all duration-200 cursor-pointer shadow-lg hover:shadow-emerald-500/10 group';
         card.onclick = () => openClientModal(c.name);
 
         card.innerHTML = `
           <div>
             <div class="flex items-start justify-between">
-              <h4 class="font-bold text-white text-sm">${c.name}</h4>
-              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">$${totalBilled.toLocaleString()}</span>
+              <h4 class="font-bold text-white text-sm group-hover:text-emerald-400 transition">${c.name}</h4>
+              <span class="text-[10px] font-mono bg-white/[0.06] text-emerald-400 px-2 py-0.5 rounded-full border border-white/[0.08]">$${totalBilled.toLocaleString()}</span>
             </div>
-            <p class="text-[11px] text-slate-400 font-mono mt-1 truncate">${(c.other_names_used_in_the_data || []).slice(0, 2).join(', ') || 'No aliases'}</p>
-            <p class="text-[11px] text-slate-500 mt-1 truncate">${(c.emails || []).join(', ')}</p>
+            <p class="text-[11px] text-slate-400 font-mono mt-1.5 truncate">${(c.other_names_used_in_the_data || []).slice(0, 2).join(', ') || 'No aliases'}</p>
+            <p class="text-[11px] text-slate-500 mt-0.5 truncate">${(c.emails || []).join(', ')}</p>
           </div>
-          <div class="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+          <div class="mt-4 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-slate-400">
             <span>${c.phones[0] || 'No phone'}</span>
-            <span class="text-emerald-400 hover:underline">View 360° &rarr;</span>
+            <span class="text-emerald-400 group-hover:translate-x-0.5 transition flex items-center gap-1">
+              View 360° &rarr;
+            </span>
           </div>
         `;
         grid.appendChild(card);
@@ -998,7 +1521,7 @@
 
       overdue.forEach((item, idx) => {
         const row = document.createElement('div');
-        row.className = 'flex items-center justify-between p-2 rounded-lg bg-slate-950/50 border border-slate-800/80';
+        row.className = 'flex items-center justify-between p-2.5 rounded-xl bg-[#070a0f] border border-white/[0.06]';
         row.innerHTML = `
           <div>
             <div class="font-semibold text-white">${item.client}</div>
@@ -1006,7 +1529,7 @@
           </div>
           <div class="flex items-center space-x-2">
             <span class="font-mono text-rose-400 font-bold">$${item.amount_owed.toLocaleString()}</span>
-            <button onclick="sendSingleReminder(${idx}, '${item.client}', '${item.invoice}')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 rounded">Remind</button>
+            <button onclick="sendSingleReminder(${idx}, '${item.client}', '${item.invoice}')" class="px-2.5 py-1 bg-white/[0.05] hover:bg-white/[0.1] text-xs text-slate-200 rounded-lg border border-white/[0.1]">Remind</button>
           </div>
         `;
         overdueContainer.appendChild(row);
@@ -1018,7 +1541,7 @@
 
       neverBilled.forEach(item => {
         const row = document.createElement('div');
-        row.className = 'flex items-center justify-between p-2 rounded-lg bg-slate-950/50 border border-slate-800/80';
+        row.className = 'flex items-center justify-between p-2.5 rounded-xl bg-[#070a0f] border border-white/[0.06]';
         row.innerHTML = `
           <div>
             <div class="font-semibold text-white">${item.client}</div>
@@ -1026,7 +1549,7 @@
           </div>
           <div class="flex items-center space-x-2">
             <span class="font-mono text-amber-400 font-bold">+$${item.amount.toLocaleString()}</span>
-            <button onclick="openInvoiceWizard()" class="px-2 py-1 bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 text-xs rounded border border-amber-500/30">Bill</button>
+            <button onclick="openInvoiceWizard()" class="px-2.5 py-1 bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 text-xs rounded-lg border border-amber-500/30">Bill</button>
           </div>
         `;
         neverBilledContainer.appendChild(row);
@@ -1038,13 +1561,13 @@
 
       toolErrors.forEach(err => {
         const card = document.createElement('div');
-        card.className = 'p-3 rounded-lg bg-slate-950/60 border border-slate-800 space-y-1';
+        card.className = 'p-3.5 rounded-xl bg-[#070a0f] border border-white/[0.06] space-y-1.5';
         card.innerHTML = `
           <div class="flex items-center justify-between">
             <strong class="text-white font-mono">${err.invoice}</strong>
-            <span class="text-[10px] text-rose-400 font-mono bg-rose-500/10 px-1.5 py-0.5 rounded">Tool: ${err.tool_says}</span>
+            <span class="text-[10px] text-rose-300 font-mono bg-rose-500/15 border border-rose-500/30 px-2 py-0.5 rounded-full">Tool: ${err.tool_says}</span>
           </div>
-          <p class="text-[11px] text-emerald-400 font-medium">Truth: ${err.truth}</p>
+          <p class="text-[11px] text-emerald-400 font-medium font-mono">Truth: ${err.truth}</p>
           <p class="text-[11px] text-slate-400 leading-relaxed">${err.how_you_know}</p>
         `;
         toolErrorsContainer.appendChild(card);
@@ -1058,13 +1581,13 @@
 
       lost.forEach(r => {
         const card = document.createElement('div');
-        card.className = 'p-3 rounded-lg bg-slate-950/60 border border-slate-800 space-y-1.5';
+        card.className = 'p-3.5 rounded-xl bg-[#070a0f] border border-white/[0.06] space-y-1.5';
         card.innerHTML = `
           <div class="flex items-center justify-between">
             <span class="font-mono font-bold text-white text-xs">${r.video_id}</span>
             <div class="flex items-center space-x-2">
               <span class="text-[10px] font-mono text-slate-400">${r.request_date}</span>
-              <span class="text-[10px] font-mono uppercase bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">${r.came_by}</span>
+              <span class="text-[10px] font-mono uppercase bg-white/[0.06] text-slate-300 px-2 py-0.5 rounded-full border border-white/[0.08]">${r.came_by}</span>
             </div>
           </div>
           <p class="text-slate-300 text-xs">${r.why_it_was_lost}</p>
@@ -1102,7 +1625,7 @@
       container.innerHTML = '';
       samples.forEach(s => {
         const div = document.createElement('div');
-        div.className = 'p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1';
+        div.className = 'p-3.5 bg-[#070a0f] rounded-xl border border-white/[0.06] space-y-1.5';
         div.innerHTML = `
           <div class="flex items-center justify-between">
             <span class="font-mono text-emerald-400 font-bold">${s.channel}</span>
@@ -1111,7 +1634,7 @@
           <p class="text-slate-300 font-mono text-[11px]">${s.raw}</p>
           <div class="pt-1 flex items-center justify-between text-slate-400">
             <span>Target: <strong class="text-white">${s.video}</strong></span>
-            <span class="text-emerald-300">${s.action}</span>
+            <span class="text-emerald-300 font-medium">${s.action}</span>
           </div>
         `;
         container.appendChild(div);
@@ -1161,13 +1684,13 @@
       document.getElementById('cModalOwed').textContent = '$' + totalOverdue.toLocaleString();
 
       const bDiv = document.getElementById('cModalBookings');
-      bDiv.innerHTML = bks.length ? bks.map(b => `<div class="p-1.5 bg-slate-950 rounded border border-slate-800 flex justify-between"><span>${b.booking_id} • ${b.date} • ${b.service}</span><span class="font-mono text-slate-300">$${b.price}</span></div>`).join('') : '<p class="text-slate-500">No bookings recorded</p>';
+      bDiv.innerHTML = bks.length ? bks.map(b => `<div class="p-2 bg-[#070a0f] rounded-lg border border-white/[0.06] flex justify-between"><span>${b.booking_id} • ${b.date} • ${b.service}</span><span class="font-mono text-slate-300">$${b.price}</span></div>`).join('') : '<p class="text-slate-500">No bookings recorded</p>';
 
       const iDiv = document.getElementById('cModalInvoices');
-      iDiv.innerHTML = invs.length ? invs.map(i => `<div class="p-1.5 bg-slate-950 rounded border border-slate-800 flex justify-between"><span>${i.invoice_no} • Due ${i.due}</span><span class="font-mono ${i.status==='paid'?'text-emerald-400':'text-rose-400'}">$${i.amount} (${i.status})</span></div>`).join('') : '<p class="text-slate-500">No invoices recorded</p>';
+      iDiv.innerHTML = invs.length ? invs.map(i => `<div class="p-2 bg-[#070a0f] rounded-lg border border-white/[0.06] flex justify-between"><span>${i.invoice_no} • Due ${i.due}</span><span class="font-mono ${i.status==='paid'?'text-emerald-400':'text-rose-400'}">$${i.amount} (${i.status})</span></div>`).join('') : '<p class="text-slate-500">No invoices recorded</p>';
 
       const vDiv = document.getElementById('cModalVideos');
-      vDiv.innerHTML = vids.length ? vids.map(v => `<div class="p-1.5 bg-slate-950 rounded border border-slate-800 flex justify-between"><span>${v.video_id} • ${v.title} (${v.editor})</span><span class="text-slate-400">${v.stage}</span></div>`).join('') : '<p class="text-slate-500">No videos recorded</p>';
+      vDiv.innerHTML = vids.length ? vids.map(v => `<div class="p-2 bg-[#070a0f] rounded-lg border border-white/[0.06] flex justify-between"><span>${v.video_id} • ${v.title} (${v.editor})</span><span class="text-slate-400">${v.stage}</span></div>`).join('') : '<p class="text-slate-500">No videos recorded</p>';
 
       openModal('clientModal');
     }
@@ -1203,7 +1726,7 @@
               }
               document.getElementById('uploadStatus').classList.remove('hidden');
               initApp();
-              showToast(`File ${file.name} ingested & state re-indexed!`);
+              showToast(`File ${file.name} ingested & state recomputed!`);
             }
           });
         }
