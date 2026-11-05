@@ -1,0 +1,137 @@
+payment_id,date,payer,payer_email,amount,method,reference
+P5001,09/04/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1002
+P5002,12/04/2026,NORTHPOINT CHURCH,media@northpointdfw.org,300.00,ACH,INV-1001
+P5003,14/04/2026,PASTOR DAVID KIM,media@northpointdfw.org,300.00,ACH,
+P5004,17/04/2026,WILL CARTER,will@cedarstone.build,1500.00,ACH,
+P5005,18/04/2026,DR KHAN,sarah@khandental.com,1500.00,ACH,INV-1003
+P5006,18/04/2026,DFW FOUNDERS PODCAST,ethan@dfwfounders.fm,550.00,ACH,INV-1005
+P5007,18/04/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1006
+P5008,22/04/2026,Bloom,priya@bloommedspa.com,1500.00,card,INV-1010
+P5009,24/04/2026,NORTHPOINT MEDIA TEAM,media@northpointdfw.org,300.00,ACH,INV-1008
+P5010,25/04/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1011
+P5011,30/04/2026,SOFIA RAMIREZ,sofia@lunabridal.com,900.00,Zelle,INV-1013
+P5012,30/04/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1015
+P5013,02/05/2026,NORTHPOINT CHURCH,media@northpointdfw.org,300.00,Zelle,INV-1014
+P5014,04/05/2026,DFW Founders Podcast,ethan@dfwfounders.fm,550.00,card,INV-1012
+P5015,07/05/2026,Meridian Wealth,pgrant@meridianwp.com,2500.00,card,INV-1016
+P5016,10/05/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1017
+P5017,12/05/2026,DFW FOUNDERS PODCAST,ethan@dfwfounders.fm,550.00,Zelle,
+P5018,14/05/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1024
+P5019,16/05/2026,NorthPoint Media Team,media@northpointdfw.org,240.00,card,INV-1018
+P5020,16/05/2026,ELEVATE FITNESS,jordan@elevatefit.co,900.00,ACH,INV-1020
+P5021,18/05/2026,MIKE'S ROOFING LLC,mike@mikesroofingtx.com,900.00,ACH,INV-1009
+P5022,20/05/2026,PASTOR DAVID KIM,media@northpointdfw.org,240.00,ACH,INV-1022
+P5023,21/05/2026,PRIYA SHAH,priya@bloommedspa.com,1500.00,Zelle,
+P5024,22/05/2026,Khan Dental,sarah@khandental.com,1500.00,card,
+P5025,23/05/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1028
+P5026,25/05/2026,Northpoint Church,media@northpointdfw.org,240.00,card,INV-1026
+P5027,25/05/2026,ETHAN COLE,ethan@dfwfounders.fm,550.00,Zelle,
+P5028,25/05/2026,Crown Barbershop,andre@crownbarbers.com,900.00,card,INV-1030
+P5029,26/05/2026,NADIA HASSAN,nadia@glowaesthetics.co,900.00,ACH,INV-1023
+P5030,28/05/2026,DANA BROOKS,dana@lonestarrealty.com,1500.00,Zelle,
+P5031,30/05/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1032
+P5032,31/05/2026,Northpoint Church,media@northpointdfw.org,240.00,card,
+P5033,04/06/2026,Elevate Fitness,jordan@elevatefit.co,900.00,card,
+P5034,06/06/2026,NorthPoint Media Team,media@northpointdfw.org,240.00,card,INV-1040
+P5035,07/06/2026,MIKE DELGADO,mike@mikesroofingtx.com,900.00,ACH,
+P5036,07/06/2026,SOFIA RAMIREZ,sofia@lunabridal.com,900.00,ACH,INV-1031
+P5037,08/06/2026,DR. KIM LEE,klee@apexptdallas.com,2500.00,ACH,INV-1037
+P5038,08/06/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1043
+P5039,10/06/2026,DFW Founders Podcast,ethan@dfwfounders.fm,550.00,card,
+P5040,10/06/2026,Hannah Brooks DDS,hbrooks@oaklanedental.com,1500.00,card,
+P5041,10/06/2026,Northpoint Church,media@northpointdfw.org,240.00,card,
+P5042,11/06/2026,PATEL INSURANCE GROUP,raj@patelinsures.com,2500.00,ACH,
+P5043,11/06/2026,PAUL GRANT,pgrant@meridianwp.com,2500.00,ACH,
+P5044,11/06/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1047
+P5045,12/06/2026,Torres Law Firm,mtorres@torreslaw.com,2500.00,card,INV-1035
+P5046,13/06/2026,Cedar & Stone Builders,will@cedarstone.build,1500.00,card,INV-1044
+P5047,21/06/2026,Khan Law,info@khanfamilylaw.com,900.00,card,
+P5048,21/06/2026,PRIYA SHAH,priya@bloommedspa.com,1500.00,ACH,
+P5049,21/06/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1054
+P5050,26/06/2026,Dr. Sarah Khan,sarah@khandental.com,1500.00,card,INV-1049
+P5051,26/06/2026,NorthPoint Media Team,media@northpointdfw.org,240.00,card,INV-1051
+P5052,26/06/2026,ELEVATE FITNESS,jordan@elevatefit.co,900.00,ACH,
+P5053,26/06/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1060
+P5054,28/06/2026,Glow Aesthetic,nadia@glowaesthetics.co,900.00,card,INV-1055
+P5055,28/06/2026,LUNA BRIDAL,sofia@lunabridal.com,900.00,Zelle,
+P5056,29/06/2026,The Brew Lab,lena@thebrewlab.coffee,900.00,card,INV-1057
+P5057,30/06/2026,ETHAN COLE,ethan@dfwfounders.fm,550.00,Zelle,INV-1053
+P5058,03/07/2026,PASTOR DAVID KIM,media@northpointdfw.org,240.00,ACH,
+P5059,04/07/2026,PATEL INSURANCE GROUP,raj@patelinsures.com,2500.00,ACH,
+P5060,04/07/2026,BRIGHTLINE MARKETING LLC,kelsey@brightlinemktg.com,900.00,ACH,Brightline Jun invoices
+P5061,05/07/2026,Meridian WP,pgrant@meridianwp.com,2500.00,card,INV-1065
+P5062,05/07/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1067
+P5063,07/07/2026,Torres Law Firm PLLC,mtorres@torreslaw.com,2500.00,card,INV-1062
+P5064,10/07/2026,ETHAN COLE,ethan@dfwfounders.fm,550.00,ACH,INV-1066
+P5065,10/07/2026,IRONCLAD FITNESS,marcus@ironcladgym.com,900.00,ACH,INV-1072
+P5066,10/07/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1073
+P5067,11/07/2026,Northpoint Church,media@northpointdfw.org,240.00,card,INV-1061
+P5068,13/07/2026,Apex PT,klee@apexptdallas.com,2500.00,card,INV-1064
+P5069,14/07/2026,MIKE'S ROOFING,mike@mikesroofingtx.com,900.00,ACH,INV-1048
+P5071,14/07/2026,Northpoint Church,media@northpointdfw.org,240.00,card,
+P5072,17/07/2026,Lone Star Realty,dana@lonestarrealty.com,1500.00,card,
+P5073,18/07/2026,DR. MARIA LOPEZ,mlopez@sagefamilytherapy.com,1500.00,Zelle,INV-1074
+P5074,20/07/2026,Elevate Fitness,jordan@elevatefit.co,900.00,card,INV-1076
+P5075,22/07/2026,BLOOM MEDSPA,priya@bloommedspa.com,1500.00,ACH,INV-1081
+P5076,23/07/2026,NorthPoint Media Team,media@northpointdfw.org,240.00,card,INV-1077
+P5077,23/07/2026,Khan Dental,sarah@khandental.com,1500.00,card,INV-1083
+P5078,25/07/2026,JEN WALSH,jen@harborcoffee.com,900.00,ACH,INV-1079
+P5079,25/07/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1084
+P5080,26/07/2026,DFW Founders,ethan@dfwfounders.fm,550.00,card,INV-1080
+P5081,26/07/2026,Oaklane Dental,hbrooks@oaklanedental.com,1500.00,card,INV-1082
+P5082,28/07/2026,Glow Aesthetics,nadia@glowaesthetics.co,900.00,card,
+P5083,29/07/2026,Nadia Hassan,nadia@glowaesthetics.co,900.00,card,INV-1088
+P5084,30/07/2026,Khans Auto,imran@khansautospa.com,900.00,card,
+P5085,01/08/2026,Tasha Green,tasha@hustleandheart.fm,300.00,card,INV-1089
+P5086,04/08/2026,NorthPoint DFW,media@northpointdfw.org,240.00,card,INV-1086
+P5087,04/08/2026,BRIGHTLINE MARKETING LLC,kelsey@brightlinemktg.com,1800.00,ACH,Brightline Jul invoices
+P5088,05/08/2026,LUNA BRIDAL BOUTIQUE,sofia@lunabridal.com,900.00,Zelle,
+P5089,05/08/2026,PATEL INSURANCE GROUP,raj@patelinsures.com,2500.00,ACH,INV-1093
+P5090,06/08/2026,DFW Founders Podcast,ethan@dfwfounders.fm,550.00,card,INV-1095
+P5091,07/08/2026,ELEVATE,jordan@elevateathletics.com,900.00,Zelle,
+P5092,09/08/2026,Khan Family Law,info@khanfamilylaw.com,900.00,card,INV-1090
+P5093,09/08/2026,PASTOR DAVID KIM,media@northpointdfw.org,240.00,Zelle,INV-1091
+P5094,10/08/2026,Apex Physical Therapy,klee@apexptdallas.com,2000.00,card,INV-1094
+P5095,11/08/2026,TORRES LAW FIRM PLLC,mtorres@torreslaw.com,2500.00,Zelle,INV-1092
+P5096,12/08/2026,Ironclad Fitness,marcus@ironcladgym.com,900.00,card,INV-1097
+P5097,12/08/2026,Brew Lab,lena@thebrewlab.coffee,900.00,card,INV-1098
+P5098,12/08/2026,TONY RUSSO,,900.00,Zelle,
+P5099,13/08/2026,MIKES ROOFING,mike@mikesroofingtx.com,900.00,ACH,
+P5100,18/08/2026,NorthPoint Media Team,media@northpointdfw.org,240.00,card,
+P5101,19/08/2026,ETHAN COLE,ethan@dfwfounders.fm,550.00,ACH,INV-1109
+P5102,22/08/2026,PASTOR DAVID KIM,media@northpointdfw.org,240.00,Zelle,INV-1106
+P5103,23/08/2026,Bloom Med Spa - Frisco,priya@bloommedspa.com,1500.00,card,INV-1107
+P5104,28/08/2026,Luna Bridal,sofia@lunabridal.com,900.00,card,INV-1110
+P5105,29/08/2026,HANNAH BROOKS DDS,hbrooks@oaklanedental.com,1500.00,Zelle,INV-1117
+P5106,30/08/2026,SARAH KHAN DDS,sarah@khandental.com,1500.00,Zelle,
+P5107,31/08/2026,PASTOR DAVID KIM,media@northpointdfw.org,240.00,Zelle,INV-1111
+P5108,31/08/2026,Harbor Roasters,jen@harborcoffee.com,900.00,card,
+P5109,01/09/2026,LONE STAR REALTY,dana@lonestarrealty.com,1500.00,ACH,INV-1113
+P5110,01/09/2026,Glow Aesthetics,nadia@glowaesthetics.co,900.00,card,INV-1119
+P5111,03/09/2026,NorthPoint Media Team,media@northpointdfw.org,240.00,card,
+P5112,04/09/2026,PASTOR DAVID KIM,media@northpointdfw.org,240.00,ACH,
+P5113,04/09/2026,TASHA GREEN,,900.00,Zelle,august sessions
+P5114,04/09/2026,BRIGHTLINE MARKETING LLC,kelsey@brightlinemktg.com,1800.00,ACH,Brightline Aug invoices
+P5115,08/09/2026,J REED,,900.00,card,
+P5116,10/09/2026,DFW Founders,ethan@dfwfounders.fm,550.00,card,INV-1122
+P5117,11/09/2026,Northpoint Church,media@northpointdfw.org,240.00,card,INV-1130
+P5118,13/09/2026,Mike's Roofing,mike@mikesroofingtx.com,900.00,card,INV-1104
+P5119,13/09/2026,MIKE TORRES,mtorres@torreslaw.com,2500.00,Zelle,INV-1124
+P5120,14/09/2026,Vega Auto Detailing,carlos.vega.detail@gmail.com,900.00,card,INV-1127
+P5121,14/09/2026,TONY RUSSO,,450.00,Zelle,half now half later
+P5122,17/09/2026,Luna Bridal,sofia@lunabridal.com,900.00,card,INV-1135
+P5123,18/09/2026,Elevate,jordan@elevateathletics.com,900.00,card,INV-1136
+P5124,20/09/2026,Khan Family Law,info@khanfamilylaw.com,900.00,card,INV-1131
+P5125,20/09/2026,Bloom Med Spa,priya@bloommedspa.com,1500.00,card,
+P5126,21/09/2026,NorthPoint DFW,media@northpointdfw.org,240.00,card,
+P5127,22/09/2026,The Brew Lab,lena@thebrewlab.coffee,900.00,card,INV-1134
+P5128,24/09/2026,DANA BROOKS,dana@lonestarrealty.com,1500.00,ACH,INV-1138
+P5129,30/09/2026,NorthPoint Media Team,media@northpointdfw.org,240.00,card,INV-1140
+P5130,02/10/2026,ETHAN COLE,ethan@dfwfounders.fm,550.00,Zelle,INV-1143
+P5131,03/10/2026,Vega Detailing,carlos.vega.detail@gmail.com,900.00,card,INV-1139
+P5132,03/10/2026,DR. KIM LEE,klee@apexptdallas.com,2500.00,ACH,INV-1149
+P5133,04/10/2026,Lone Star Realty,dana@lonestarrealty.com,1500.00,card,
+P5134,04/10/2026,BRIGHTLINE MARKETING LLC,kelsey@brightlinemktg.com,900.00,ACH,Brightline Sep invoices
+P5135,05/10/2026,SARAH KHAN DDS,sarah@khandental.com,1500.00,ACH,INV-1146
+P5136,05/10/2026,NorthPoint Media Team,media@northpointdfw.org,240.00,card,INV-1151
+P5137,06/10/2026,MIKE DELGADO,mike@mikesroofingtx.com,900.00,Zelle,INV-1132

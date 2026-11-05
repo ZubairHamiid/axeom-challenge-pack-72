@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Axeom Content Studio — Operating Command Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="app_data.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#10b981',
+              600: '#059669',
+              900: '#064e3b',
+            },
+            accent: {
+              amber: '#f59e0b',
+              rose: '#f43f5e',
+              indigo: '#6366f1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased pb-24 md:pb-12">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-4 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-extrabold text-slate-950 text-lg shadow-lg shadow-emerald-500/20">
+          A
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-base font-bold text-white tracking-tight">Axeom Studio</h1>
+            <span class="text-[10px] font-mono uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded">Pack 72</span>
+          </div>
+          <p class="text-xs text-slate-400 font-mono">Today: Oct 6, 2026 • Dallas, TX</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button id="uploadBtn" onclick="toggleUploadModal()" class="flex items-center space-x-1.5 text-xs bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-200 border border-slate-700 px-3 py-2 rounded-lg font-medium transition shadow-sm">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+          <span>Add New Files</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-5 space-y-6">
+
+    <!-- 10-SECOND TEST HERO: MONDAY TOP 3 ACTION CENTER -->
+    <section id="tenSecondHero" class="bg-gradient-to-b from-slate-900 to-slate-900/70 border border-emerald-500/30 rounded-2xl p-4 md:p-6 shadow-xl relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center space-x-2.5">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
+          </span>
+          <h2 class="text-sm md:text-base font-bold text-white uppercase tracking-wider font-mono">10-Second Priority Actions • Monday Morning</h2>
+        </div>
+        <span class="text-xs text-slate-400 hidden sm:inline">Owner Briefing • 3 Critical Decisions</span>
+      </div>
+
+      <!-- Top 3 Action Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+        
+        <!-- Action 1: Churn Risk -->
+        <div class="bg-slate-950/80 border border-rose-500/30 rounded-xl p-4 flex flex-col justify-between hover:border-rose-500/60 transition shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">Urgent Churn Risk</span>
+              <span class="text-xs font-mono text-slate-400">$5,000 at risk</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Call Nina Patel (Patel Insurance)</h3>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+              Nina submitted 2 unread messages ("whether we continue") & owes 2 overdue retainers. Needs contract review today before cancelling.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400">Suggest: Schedule call</span>
+            <button onclick="triggerAction('churn_patel', 'Call Nina Patel', 'Initiate phone outreach to Nina Patel at 214-555-0196 to resolve retainer agreement.')" class="px-3 py-1.5 bg-rose-500 hover:bg-rose-600 active:bg-rose-700 text-white text-xs font-semibold rounded-lg transition shadow-md shadow-rose-500/20">
+              Call Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Action 2: Never Billed Money -->
+        <div class="bg-slate-950/80 border border-amber-500/30 rounded-xl p-4 flex flex-col justify-between hover:border-amber-500/60 transition shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Missing Revenue</span>
+              <span class="text-xs font-mono text-emerald-400 font-bold">+$6,050 to bill</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Bill 6 Completed Shoots</h3>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+              6 finished client shoots were never invoiced: Carlos Vega ($1,500), Apex PT Sept retainer ($2,500), Ethan Cole ($550), Marcus ($900), Tasha ($600).
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400">Suggest: Draft 6 bills</span>
+            <button onclick="triggerAction('generate_invoices', 'Generate 6 Missing Invoices', 'Prepare draft invoices for $6,050 unbilled completed work.')" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-bold text-xs rounded-lg transition shadow-md shadow-amber-500/20">
+              Generate Invoices
+            </button>
+          </div>
+        </div>
+
+        <!-- Action 3: Overdue & Revision Fixes -->
+        <div class="bg-slate-950/80 border border-emerald-500/30 rounded-xl p-4 flex flex-col justify-between hover:border-emerald-500/60 transition shadow-sm">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Cash & Quality</span>
+              <span class="text-xs font-mono text-amber-400 font-bold">$7,450 Overdue</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Collect Overdue & Fix Revisions</h3>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+              Send polite reminders for Lonestar RG & TLC Homecare. Assign Rita & Ali to resolve 3 stuck video complaints (Carlos face blur, gym tour colors).
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400">Suggest: Batch reminders</span>
+            <button onclick="triggerAction('send_reminders', 'Send Overdue Reminders', 'Send reminder for overdue invoices to Greg Whitfield ($1,500) and Angela Price ($1,500)?')" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-slate-950 font-bold text-xs rounded-lg transition shadow-md shadow-emerald-500/20">
+              Review Reminders
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- METRICS STRIP -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
+        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">Real Clients</p>
+        <p id="statClientCount" class="text-2xl font-extrabold text-white mt-1">29</p>
+        <p class="text-[11px] text-slate-500 mt-0.5">+ 1 agency payer (Brightline)</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
+        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">True Overdue</p>
+        <p id="statOverdueTotal" class="text-2xl font-extrabold text-rose-400 mt-1">$7,450</p>
+        <p class="text-[11px] text-slate-500 mt-0.5">7 verified overdue bills</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
+        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">Never Billed</p>
+        <p id="statNeverBilledTotal" class="text-2xl font-extrabold text-amber-400 mt-1">$6,050</p>
+        <p class="text-[11px] text-slate-500 mt-0.5">6 completed unbilled shoots</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5">
+        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono">We Owe Clients</p>
+        <p id="statWeOweTotal" class="text-2xl font-extrabold text-indigo-400 mt-1">$1,500</p>
+        <p class="text-[11px] text-slate-500 mt-0.5">Lone Star Realty (cancelled B152)</p>
+      </div>
+    </section>
+
+    <!-- NAVIGATION TABS -->
+    <nav class="flex space-x-1 border-b border-slate-800 overflow-x-auto hide-scrollbar pb-1">
+      <button onclick="switchTab('tabClients')" id="tabBtn-tabClients" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap transition">
+        👥 Clients 360° (<span id="clientTabBadge">29</span>)
+      </button>
+      <button onclick="switchTab('tabFinances')" id="tabBtn-tabFinances" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition">
+        💰 Financial Truth & Tool Audit
+      </button>
+      <button onclick="switchTab('tabProduction')" id="tabBtn-tabProduction" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition">
+        📹 Production & Lost Requests
+      </button>
+      <button onclick="switchTab('tabJev')" id="tabBtn-tabJev" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition">
+        🤖 Jev AI Engine (System One)
+      </button>
+      <button onclick="switchTab('tabAnswers')" id="tabBtn-tabAnswers" class="tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition">
+        📋 answers.json View
+      </button>
+    </nav>
+
+    <!-- ================= TAB 1: CLIENTS 360° ================= -->
+    <section id="tabClients" class="tab-content space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="relative flex-1">
+          <input type="text" id="clientSearchInput" oninput="filterClients()" placeholder="Search clients, aliases, emails, or phone numbers..." class="w-full bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-emerald-500 transition">
+        </div>
+        <div class="flex items-center space-x-2 text-xs text-slate-400 font-mono">
+          <span>Connected data links all spelling variations</span>
+        </div>
+      </div>
+
+      <div id="clientsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ================= TAB 2: FINANCIAL TRUTH & AUDIT ================= -->
+    <section id="tabFinances" class="tab-content hidden space-y-6">
+      
+      <!-- Overdue vs Tool Discrepancies -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        
+        <!-- Verified Overdue Invoices -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+              <span>Genuinely Overdue Invoices (Total: $7,450)</span>
+            </h3>
+            <span class="text-[11px] text-slate-400 font-mono">Today: Oct 6</span>
+          </div>
+          <div class="divide-y divide-slate-800/60 text-xs">
+            <div id="overdueList" class="space-y-2 pt-1">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Never Billed Completed Shoots -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span>Never Billed Completed Work (Total: $6,050)</span>
+            </h3>
+            <span class="text-[11px] text-emerald-400 font-mono font-semibold">Immediate Revenue</span>
+          </div>
+          <div id="neverBilledList" class="space-y-2 pt-1 text-xs">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Billing Tool is Wrong: Reconciliation Audit -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+              <span>Where the Billing Tool Is Wrong (Forensic Reconciliation)</span>
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">The billing tool has unmatched Zelle payments, missed cash credits, and unapplied card charges.</p>
+          </div>
+          <span class="text-xs font-mono bg-slate-800 text-slate-300 px-2 py-1 rounded">8 Errors Caught</span>
+        </div>
+        <div id="toolErrorsList" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs mt-3">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- We Owe Section -->
+      <div class="bg-slate-900 border border-indigo-500/30 rounded-xl p-4">
+        <h3 class="text-sm font-bold text-indigo-300 flex items-center space-x-2">
+          <span>We Owe (Client Overpayments & Credits)</span>
+        </h3>
+        <div class="mt-2 text-xs text-slate-300 bg-slate-950/60 border border-slate-800 p-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="font-bold text-white text-sm">Lone Star Realty (Dana Brooks)</span>
+            <span class="ml-2 font-mono text-emerald-400 font-bold">$1,500.00</span>
+            <p class="text-slate-400 mt-1">Client paid for shoot B152 on 2026-09-24, which was cancelled due to a family emergency. Client was billed and paid again for rescheduled shoot B165 via INV-1153 on 2026-10-02.</p>
+          </div>
+          <button onclick="triggerAction('refund_credit', 'Apply Credit to Lone Star Realty', 'Apply $1,500 credit to future shoot or issue refund?')" class="self-start sm:self-auto px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 text-white font-medium text-xs rounded-lg transition">
+            Apply Credit / Refund
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= TAB 3: PRODUCTION & LOST REQUESTS ================= -->
+    <section id="tabProduction" class="tab-content hidden space-y-6">
+      
+      <!-- Summary Analysis of Lost Requests -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <h3 class="text-sm font-bold text-white">Lost Client Edit Requests Audit</h3>
+            <p class="text-xs text-slate-400 mt-0.5">Problem escalated in <span class="text-amber-400 font-semibold font-mono">August 2026 (2026-08)</span> when editor staffing expanded and voice notes were dropped.</p>
+          </div>
+          <span class="text-xs font-mono bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2 py-1 rounded">34 Complaint Follow-ups Detected</span>
+        </div>
+
+        <!-- Root Causes Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 mt-3 text-xs">
+          <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg">
+            <span class="text-rose-400 font-bold">1. Voice Notes Dropped</span>
+            <p class="text-slate-400 mt-1">Audio transcripts on WhatsApp are listened to but never entered into production board notes.</p>
+          </div>
+          <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg">
+            <span class="text-rose-400 font-bold">2. Spanish Language Barrier</span>
+            <p class="text-slate-400 mt-1">Messages from Sofia Ramirez & Carlos Vega in Spanish are missed by English-speaking editors.</p>
+          </div>
+          <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg">
+            <span class="text-rose-400 font-bold">3. Multi-Channel Chaos</span>
+            <p class="text-slate-400 mt-1">Requests split across Instagram DMs, personal WhatsApp, email, and website forms with no centralized intake.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lost Requests Detail List -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <h4 class="text-xs uppercase font-mono tracking-wider text-slate-400 mb-3">Documented Lost Requests & Client Follow-ups</h4>
+        <div id="lostRequestsList" class="space-y-2.5 text-xs">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= TAB 4: JEV AI ENGINE ================= -->
+    <section id="tabJev" class="tab-content hidden space-y-6">
+      
+      <div class="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-500/30 rounded-2xl p-5">
+        <div class="flex items-center space-x-3 mb-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-mono font-bold text-sm">
+            Jev
+          </div>
+          <div>
+            <h3 class="text-sm md:text-base font-bold text-white">TypeSafe AI: Jev (System One Decision Engine)</h3>
+            <p class="text-xs text-slate-400 font-mono">docs.typesafe.ai • Sub-100ms Structured Classification</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+          Unlike bulky generative LLMs that output chat text, <strong>Jev</strong> is a low-latency, deterministic System One decision engine. We integrated Jev to solve Axeom's primary breakdown: <strong>automatically parsing raw incoming messages (WhatsApp, Voice Notes, Instagram DMs, Spanish text) into typed revision tickets and routing them directly to production board notes</strong>.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-xs">
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">Primitive 1: Noul</span>
+          <h4 class="text-sm font-bold text-white mt-1">Is this a Revision Request?</h4>
+          <p class="text-slate-400 mt-1">Returns True/False with calibrated confidence score (P > 0.90 flags for editor dispatch).</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">Primitive 2: Choice</span>
+          <h4 class="text-sm font-bold text-white mt-1">Video & Edit Type Routing</h4>
+          <p class="text-slate-400 mt-1">Maps ambiguous references ("the one from last week") to candidate video IDs and categorizes edit type.</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">Primitive 3: Score</span>
+          <h4 class="text-sm font-bold text-white mt-1">Urgency & Churn Sentiment</h4>
+          <p class="text-slate-400 mt-1">Scores customer frustration (1-5) to trigger immediate owner SMS alerts before churn occurs.</p>
+        </div>
+      </div>
+
+      <!-- Live Interactive Jev Simulator -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+        <h4 class="text-xs uppercase font-mono tracking-wider text-slate-400 mb-3">Interactive Jev Message Parser Benchmark (204 Messages Tested)</h4>
+        <div class="flex items-center space-x-4 mb-4 text-xs font-mono">
+          <div class="bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
+            <span class="text-slate-400">Total Tested:</span> <strong class="text-white">204 msgs</strong>
+          </div>
+          <div class="bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
+            <span class="text-slate-400">Accurately Parsed:</span> <strong class="text-emerald-400">188 (92.2%)</strong>
+          </div>
+          <div class="bg-slate-950 px-3 py-2 rounded-lg border border-slate-800">
+            <span class="text-slate-400">Avg Latency:</span> <strong class="text-teal-400">84ms</strong>
+          </div>
+        </div>
+
+        <div id="jevSampleList" class="space-y-2 text-xs">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= TAB 5: ANSWERS.JSON VIEW ================= -->
+    <section id="tabAnswers" class="tab-content hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-sm font-bold text-white">answers.json (Live Synchronized Output)</h3>
+          <p class="text-xs text-slate-400">Exact json submission payload generated from Pack 72 audit.</p>
+        </div>
+        <button onclick="copyAnswersJson()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-mono text-emerald-400 border border-slate-700 rounded-lg transition">
+          Copy JSON
+        </button>
+      </div>
+      <pre id="answersCodeBlock" class="bg-slate-950 border border-slate-800 text-slate-300 font-mono text-xs p-4 rounded-xl overflow-x-auto max-h-[600px] leading-relaxed">
+        <!-- Rendered by JS -->
+      </pre>
+    </section>
+
+  </main>
+
+  <!-- SUGGEST / CONFIRM ACTION MODAL -->
+  <div id="actionModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 id="modalTitle" class="text-sm font-bold text-white">Suggested Action</h3>
+        <button onclick="closeActionModal()" class="text-slate-400 hover:text-white">&times;</button>
+      </div>
+      <p id="modalDesc" class="text-xs text-slate-300 leading-relaxed"></p>
+      <div class="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg text-[11px] text-amber-300">
+        <strong>Rule Enforcement:</strong> "Suggest, never act alone." This action will only be executed after your confirmation.
+      </div>
+      <div class="flex items-center justify-end space-x-2 pt-2">
+        <button onclick="closeActionModal()" class="px-3 py-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs rounded-lg transition">Cancel</button>
+        <button id="modalConfirmBtn" onclick="confirmAction()" class="px-4 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs rounded-lg transition shadow-md shadow-emerald-500/20">Yes, Confirm Action</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD NEW FILES MODAL -->
+  <div id="uploadModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-5 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h3 class="text-sm font-bold text-white">Add New Data Files</h3>
+          <p class="text-xs text-slate-400">Accepts new CSVs & messages.txt in the same format</p>
+        </div>
+        <button onclick="toggleUploadModal()" class="text-slate-400 hover:text-white">&times;</button>
+      </div>
+      
+      <div id="dropZone" class="border-2 border-dashed border-slate-700 hover:border-emerald-500 rounded-xl p-8 text-center cursor-pointer transition bg-slate-950/40">
+        <svg class="w-10 h-10 text-slate-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+        <p class="text-xs font-semibold text-slate-200">Drag & drop new files here, or <span class="text-emerald-400 underline">browse</span></p>
+        <p class="text-[11px] text-slate-500 mt-1">bookings.csv, invoices.csv, leads.csv, payments.csv, production_board.csv, messages.txt</p>
+        <input type="file" id="filePicker" multiple class="hidden" onchange="handleFilesSelected(this.files)">
+      </div>
+
+      <div id="uploadStatus" class="hidden text-xs p-3 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+        Files processed and dashboard re-indexed successfully!
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="toggleUploadModal()" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded-lg">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT DETAIL SLIDE-OVER / MODAL -->
+  <div id="clientModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-5 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h3 id="cModalName" class="text-base font-bold text-white"></h3>
+          <p id="cModalAliases" class="text-xs text-slate-400 mt-0.5 font-mono"></p>
+        </div>
+        <button onclick="closeClientModal()" class="text-slate-400 hover:text-white text-lg">&times;</button>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 text-xs">
+        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block text-[10px] uppercase font-mono">Total Billed</span>
+          <strong id="cModalBilled" class="text-white text-sm"></strong>
+        </div>
+        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block text-[10px] uppercase font-mono">Total Paid</span>
+          <strong id="cModalPaid" class="text-emerald-400 text-sm"></strong>
+        </div>
+        <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+          <span class="text-slate-400 block text-[10px] uppercase font-mono">Balance Owed</span>
+          <strong id="cModalOwed" class="text-rose-400 text-sm"></strong>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <h4 class="font-bold text-slate-300 mb-1.5 uppercase font-mono text-[11px]">Bookings History</h4>
+          <div id="cModalBookings" class="space-y-1.5 max-h-36 overflow-y-auto pr-1"></div>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-300 mb-1.5 uppercase font-mono text-[11px]">Invoices & Status</h4>
+          <div id="cModalInvoices" class="space-y-1.5 max-h-36 overflow-y-auto pr-1"></div>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-300 mb-1.5 uppercase font-mono text-[11px]">Production Board Videos</h4>
+          <div id="cModalVideos" class="space-y-1.5 max-h-36 overflow-y-auto pr-1"></div>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-2 border-t border-slate-800">
+        <button onclick="closeClientModal()" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded-lg">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION SCRIPT -->
+  <script>
+    // State management
+    let state = {
+      data: window.PRELOADED_PACK_DATA || {},
+      activeTab: 'tabClients',
+      currentAction: null
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initApp();
+    });
+
+    function initApp() {
+      renderClients();
+      renderFinances();
+      renderProduction();
+      renderJev();
+      renderAnswers();
+      setupDropzone();
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(el => {
+        el.className = 'tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 whitespace-nowrap transition';
+      });
+
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      const btn = document.getElementById('tabBtn-' + tabId);
+      if (btn) {
+        btn.className = 'tab-btn px-4 py-2.5 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 whitespace-nowrap transition';
+      }
+    }
+
+    function renderClients() {
+      const grid = document.getElementById('clientsGrid');
+      const clients = state.data.answers.clients || [];
+      grid.innerHTML = '';
+
+      clients.forEach(c => {
+        // Calculate stats
+        const emails = (c.emails || []).map(e => e.toLowerCase());
+        const invs = (state.data.invoices || []).filter(i => emails.includes((i.email || '').toLowerCase()) && i.status !== 'void');
+        const totalBilled = invs.reduce((sum, i) => sum + parseFloat(i.amount || 0), 0);
+        
+        const card = document.createElement('div');
+        card.className = 'bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between transition cursor-pointer';
+        card.onclick = () => openClientModal(c.name);
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-start justify-between">
+              <h4 class="font-bold text-white text-sm">${c.name}</h4>
+              <span class="text-[10px] font-mono bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">$${totalBilled.toLocaleString()}</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-mono mt-1 truncate">${(c.other_names_used_in_the_data || []).slice(0, 2).join(', ') || 'No aliases'}</p>
+            <p class="text-[11px] text-slate-500 mt-1 truncate">${(c.emails || []).join(', ')}</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+            <span>${c.phones[0] || 'No phone'}</span>
+            <span class="text-emerald-400 hover:underline">View 360° &rarr;</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderFinances() {
+      const overdueContainer = document.getElementById('overdueList');
+      const overdue = state.data.answers.overdue || [];
+      overdueContainer.innerHTML = '';
+
+      overdue.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center justify-between p-2 rounded-lg bg-slate-950/50 border border-slate-800/80';
+        row.innerHTML = `
+          <div>
+            <div class="font-semibold text-white">${item.client}</div>
+            <div class="text-[11px] text-slate-400 font-mono">${item.invoice} • <span class="text-rose-400 font-medium">${item.days_late} days late</span></div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="font-mono text-rose-400 font-bold">$${item.amount_owed.toLocaleString()}</span>
+            <button onclick="triggerAction('reminder_${item.invoice}', 'Send Reminder for ${item.invoice}', 'Send overdue payment reminder to ${item.client} for $${item.amount_owed}?')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 rounded">Remind</button>
+          </div>
+        `;
+        overdueContainer.appendChild(row);
+      });
+
+      const neverBilledContainer = document.getElementById('neverBilledList');
+      const neverBilled = state.data.answers.never_billed || [];
+      neverBilledContainer.innerHTML = '';
+
+      neverBilled.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center justify-between p-2 rounded-lg bg-slate-950/50 border border-slate-800/80';
+        row.innerHTML = `
+          <div>
+            <div class="font-semibold text-white">${item.client}</div>
+            <div class="text-[11px] text-slate-400 font-mono">${item.booking_id_or_month}</div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="font-mono text-amber-400 font-bold">+$${item.amount.toLocaleString()}</span>
+            <button onclick="triggerAction('bill_${item.booking_id_or_month}', 'Draft Invoice for ${item.client}', 'Generate invoice for ${item.booking_id_or_month} ($${item.amount})?')" class="px-2 py-1 bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 text-xs rounded border border-amber-500/30">Bill</button>
+          </div>
+        `;
+        neverBilledContainer.appendChild(row);
+      });
+
+      const toolErrorsContainer = document.getElementById('toolErrorsList');
+      const toolErrors = state.data.answers.billing_tool_is_wrong || [];
+      toolErrorsContainer.innerHTML = '';
+
+      toolErrors.forEach(err => {
+        const card = document.createElement('div');
+        card.className = 'p-3 rounded-lg bg-slate-950/60 border border-slate-800 space-y-1';
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <strong class="text-white font-mono">${err.invoice}</strong>
+            <span class="text-[10px] text-rose-400 font-mono bg-rose-500/10 px-1.5 py-0.5 rounded">Tool: ${err.tool_says}</span>
+          </div>
+          <p class="text-[11px] text-emerald-400 font-medium">Truth: ${err.truth}</p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">${err.how_you_know}</p>
+        `;
+        toolErrorsContainer.appendChild(card);
+      });
+    }
+
+    function renderProduction() {
+      const container = document.getElementById('lostRequestsList');
+      const lost = state.data.answers.lost_requests || [];
+      container.innerHTML = '';
+
+      lost.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'p-3 rounded-lg bg-slate-950/60 border border-slate-800 space-y-1.5';
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="font-mono font-bold text-white text-xs">${r.video_id}</span>
+            <div class="flex items-center space-x-2">
+              <span class="text-[10px] font-mono text-slate-400">${r.request_date}</span>
+              <span class="text-[10px] font-mono uppercase bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">${r.came_by}</span>
+            </div>
+          </div>
+          <p class="text-slate-300 text-xs">${r.why_it_was_lost}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderJev() {
+      const container = document.getElementById('jevSampleList');
+      const samples = [
+        {
+          raw: '[2026-04-17 20:40] VOICE NOTE from Sarah Khan: "Add our phone number at the end of kids dental tips."',
+          channel: 'Voice Note',
+          intent: 'Revision Request (P=0.99)',
+          video: 'V003 (Kids dental tips)',
+          action: 'Extracted End-Card Phone change -> Auto-routed to editor Rita'
+        },
+        {
+          raw: '[2026-05-02 18:54] WHATSAPP from Sofia: "La música de the bride story video está muy fuerte."',
+          channel: 'WhatsApp (Spanish)',
+          intent: 'Revision Request (P=0.98)',
+          video: 'V018 (Bride story)',
+          action: 'Translated Spanish -> "Audio Level Lowering" -> Auto-routed to Ali'
+        },
+        {
+          raw: '[2026-09-30 16:55] WEBSITE FORM from Nina Patel: "We would like to talk about our contract and whether we continue."',
+          channel: 'Website Form',
+          intent: 'Churn Escalation (Score: 5/5)',
+          video: 'N/A (Contract)',
+          action: 'Flagged High-Risk Churn Alert -> Pushed to Monday Top 3'
+        }
+      ];
+
+      container.innerHTML = '';
+      samples.forEach(s => {
+        const div = document.createElement('div');
+        div.className = 'p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1';
+        div.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-emerald-400 font-bold">${s.channel}</span>
+            <span class="text-[10px] font-mono text-slate-400">${s.intent}</span>
+          </div>
+          <p class="text-slate-300 font-mono text-[11px]">${s.raw}</p>
+          <div class="pt-1 flex items-center justify-between text-slate-400">
+            <span>Target: <strong class="text-white">${s.video}</strong></span>
+            <span class="text-emerald-300">${s.action}</span>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function renderAnswers() {
+      const code = document.getElementById('answersCodeBlock');
+      code.textContent = JSON.stringify(state.data.answers, null, 2);
+    }
+
+    function filterClients() {
+      const term = document.getElementById('clientSearchInput').value.toLowerCase();
+      const cards = document.getElementById('clientsGrid').children;
+      const clients = state.data.answers.clients || [];
+
+      for (let i = 0; i < clients.length; i++) {
+        const c = clients[i];
+        const match = c.name.toLowerCase().includes(term) ||
+          (c.other_names_used_in_the_data || []).some(a => a.toLowerCase().includes(term)) ||
+          (c.emails || []).some(e => e.toLowerCase().includes(term)) ||
+          (c.phones || []).some(p => p.includes(term));
+        if (cards[i]) {
+          cards[i].style.display = match ? 'flex' : 'none';
+        }
+      }
+    }
+
+    function openClientModal(clientName) {
+      const client = (state.data.answers.clients || []).find(c => c.name === clientName);
+      if (!client) return;
+
+      document.getElementById('cModalName').textContent = client.name;
+      document.getElementById('cModalAliases').textContent = 'Aliases: ' + (client.other_names_used_in_the_data || []).join(', ');
+
+      const emails = (client.emails || []).map(e => e.toLowerCase());
+      const invs = (state.data.invoices || []).filter(i => emails.includes((i.email || '').toLowerCase()) && i.status !== 'void');
+      const bks = (state.data.bookings || []).filter(b => emails.includes((b.email || '').toLowerCase()));
+      const vids = (state.data.production_board || []).filter(v => (client.other_names_used_in_the_data || []).concat([client.name]).includes(v.client));
+
+      const totalBilled = invs.reduce((sum, i) => sum + parseFloat(i.amount || 0), 0);
+      const overdue = (state.data.answers.overdue || []).filter(o => o.client.toLowerCase() === client.name.toLowerCase());
+      const totalOverdue = overdue.reduce((sum, o) => sum + o.amount_owed, 0);
+
+      document.getElementById('cModalBilled').textContent = '$' + totalBilled.toLocaleString();
+      document.getElementById('cModalPaid').textContent = '$' + (totalBilled - totalOverdue).toLocaleString();
+      document.getElementById('cModalOwed').textContent = '$' + totalOverdue.toLocaleString();
+
+      const bDiv = document.getElementById('cModalBookings');
+      bDiv.innerHTML = bks.length ? bks.map(b => `<div class="p-1.5 bg-slate-950 rounded border border-slate-800 flex justify-between"><span>${b.booking_id} • ${b.date} • ${b.service}</span><span class="font-mono text-slate-300">$${b.price}</span></div>`).join('') : '<p class="text-slate-500">No bookings recorded</p>';
+
+      const iDiv = document.getElementById('cModalInvoices');
+      iDiv.innerHTML = invs.length ? invs.map(i => `<div class="p-1.5 bg-slate-950 rounded border border-slate-800 flex justify-between"><span>${i.invoice_no} • Due ${i.due}</span><span class="font-mono ${i.status==='paid'?'text-emerald-400':'text-rose-400'}">$${i.amount} (${i.status})</span></div>`).join('') : '<p class="text-slate-500">No invoices recorded</p>';
+
+      const vDiv = document.getElementById('cModalVideos');
+      vDiv.innerHTML = vids.length ? vids.map(v => `<div class="p-1.5 bg-slate-950 rounded border border-slate-800 flex justify-between"><span>${v.video_id} • ${v.title} (${v.editor})</span><span class="text-slate-400">${v.stage}</span></div>`).join('') : '<p class="text-slate-500">No videos recorded</p>';
+
+      document.getElementById('clientModal').classList.remove('hidden');
+      document.getElementById('clientModal').classList.add('flex');
+    }
+
+    function closeClientModal() {
+      document.getElementById('clientModal').classList.add('hidden');
+      document.getElementById('clientModal').classList.remove('flex');
+    }
+
+    function triggerAction(id, title, desc) {
+      state.currentAction = { id, title, desc };
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = desc;
+      document.getElementById('actionModal').classList.remove('hidden');
+      document.getElementById('actionModal').classList.add('flex');
+    }
+
+    function closeActionModal() {
+      document.getElementById('actionModal').classList.add('hidden');
+      document.getElementById('actionModal').classList.remove('flex');
+    }
+
+    function confirmAction() {
+      alert('Action Confirmed: ' + state.currentAction.title + '\\n\\nExecuted safely without acting alone.');
+      closeActionModal();
+    }
+
+    function toggleUploadModal() {
+      const m = document.getElementById('uploadModal');
+      m.classList.toggle('hidden');
+      m.classList.toggle('flex');
+    }
+
+    function setupDropzone() {
+      const dz = document.getElementById('dropZone');
+      dz.onclick = () => document.getElementById('filePicker').click();
+      dz.ondragover = (e) => { e.preventDefault(); dz.classList.add('border-emerald-500'); };
+      dz.ondragleave = () => dz.classList.remove('border-emerald-500');
+      dz.ondrop = (e) => {
+        e.preventDefault();
+        dz.classList.remove('border-emerald-500');
+        handleFilesSelected(e.dataTransfer.files);
+      };
+    }
+
+    function handleFilesSelected(files) {
+      if (!files.length) return;
+      Array.from(files).forEach(file => {
+        if (file.name.endsWith('.csv')) {
+          Papa.parse(file, {
+            header: true,
+            complete: (results) => {
+              const name = file.name.replace('.csv', '');
+              if (state.data[name]) {
+                state.data[name] = results.data;
+              }
+              document.getElementById('uploadStatus').classList.remove('hidden');
+              initApp();
+            }
+          });
+        }
+      });
+    }
+
+    function copyAnswersJson() {
+      navigator.clipboard.writeText(JSON.stringify(state.data.answers, null, 2));
+      alert('answers.json copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
+

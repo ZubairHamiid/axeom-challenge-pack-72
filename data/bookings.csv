@@ -1,0 +1,179 @@
+booking_id,date,client_name,email,service,status,price
+B001,04/03/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,300
+B002,04/06/2026,H&H Podcast,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,$300
+B003,04/08/2026,Khan Dental PLLC,sarah@khandental.com,Content Day,completed,"$1,500"
+B004,04/09/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$300
+B005,04/10/2026,DFW Founders,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,550
+B006,04/13/2026,Cedar and Stone,will@cedarstone.build,Content Day,completed,1500
+B007,04/13/2026,Hustle and Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B008,04/15/2026,Mike's Roofing LLC,mike@mikesroofingtx.com,Reels Pack,completed,900
+B009,04/16/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,300
+B010,04/20/2026,Bloom Medspa,priya@bloommedspa.com,Content Day,completed,1500
+B011,04/20/2026,Tasha Green,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,$300
+B012,04/24/2026,Ethan Cole,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,550
+B013,04/27/2026,Sofia Ramirez,sofia@lunabridal.com,Reels Pack,completed,$900
+B014,04/27/2026,Meridian WP,pgrant@meridianwp.com,Retainer Shoot,completed,$0
+B015,04/27/2026,NorthPoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$300
+B016,04/29/2026,H&H Podcast,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,$300
+B017,05/05/2026,Hustle & Heart Podcast,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B018,05/06/2026,Meridian WP,pgrant@meridianwp.com,Retainer Shoot,completed,$0
+B019,05/06/2026,NorthPoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B020,05/07/2026,DFW Founders Podcast,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,550
+B021,05/08/2026,Torres Law,mtorres@torreslaw.com,Retainer Shoot,completed,$0
+B022,05/11/2026,Elevate Fit,jordan@elevatefit.co,Reels Pack,completed,$900
+B023,05/12/2026,Apex Physical Therapy,klee@apexptdallas.com,Retainer Shoot,completed,$0
+B024,05/12/2026,Dr. Sarah Khan,sarah@khandental.com,Content Day,completed,"$1,500"
+B025,05/12/2026,NorthPoint DFW,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B026,05/14/2026,Glow Aesthetic,nadia@glowaesthetics.co,Reels Pack,completed,900
+B027,05/14/2026,Hustle and Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B028,05/15/2026,Mike's Roofing LLC,mike@mikesroofingtx.com,Reels Pack,completed,900
+B029,05/18/2026,Bloom Med Spa - Plano,priya@bloommedspa.com,Content Day,completed,1500
+B030,05/18/2026,NorthPoint DFW,media@northpointdfw.org,Podcast Studio 2hr,completed,240
+B031,05/19/2026,Tasha Green,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B032,05/21/2026,DFW Founders,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,$550
+B033,05/22/2026,Andre Jackson,andre@crownbarbers.com,Reels Pack,completed,900
+B034,05/25/2026,Luna Bridal,sofia@lunabridal.com,Reels Pack,completed,900
+B035,05/26/2026,Hustle and Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B036,05/26/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B037,05/27/2026,Patel Insurance,raj@patelinsures.com,Retainer Shoot,completed,0
+B038,06/01/2026,Elevate Fit,jordan@elevatefit.co,Reels Pack,completed,$900
+B039,06/01/2026,Lone Star Realty LLC,dana@lonestarrealty.com,Content Day,completed,1500
+B040,06/02/2026,Ethan Cole,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,$550
+B041,06/02/2026,NorthPoint Media Team,media@northpointdfw.org,Podcast Studio 2hr,completed,240
+B042,06/03/2026,Oak Lane Dental,hbrooks@oaklanedental.com,Content Day,completed,1500
+B043,06/04/2026,Tasha Green,tasha.green.mail@gmail.com,Podcast Studio 2hr,completed,300
+B044,06/05/2026,Torres Law Firm,mtorres@torreslaw.com,Retainer Shoot,completed,$0
+B045,06/08/2026,Apex Physical Therapy,klee@apexptdallas.com,Retainer Shoot,completed,$0
+B046,06/08/2026,Cedar and Stone,will@cedarstone.build,Content Day,completed,"$1,500"
+B047,06/08/2026,Patel Ins,raj@patelinsures.com,Retainer Shoot,completed,0
+B048,06/09/2026,NorthPoint DFW,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B049,06/10/2026,Brightline - Greenway,kelsey@brightlinemktg.com,Reels Pack,completed,$900
+B050,06/11/2026,Hustle and Heart,tasha.green.mail@gmail.com,Podcast Studio 2hr,completed,300
+B051,06/11/2026,Mike's Roofing LLC,mike@mikesroofingtx.com,Reels Pack,completed,$900
+B052,06/12/2026,Meridian WP,pgrant@meridianwp.com,Retainer Shoot,completed,$0
+B053,06/15/2026,Sarah Khan DDS,sarah@khandental.con,Content Day,completed,"$1,500"
+B054,06/15/2026,Aisha Khan,info@khanfamilylaw.com,Reels Pack,completed,$900
+B055,06/16/2026,NorthPoint Media Team,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B056,06/17/2026,Bloom,priya@bloommedspa.com,Content Day,completed,1500
+B057,06/17/2026,DFW Founders,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,$550
+B058,06/18/2026,Glow Aesthetics,nadia@glowaesthetics.co,Reels Pack,completed,$900
+B059,06/18/2026,Hustle and Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B060,06/22/2026,Brew Lab,lena@thebrewlab.coffee,Reels Pack,completed,900
+B061,06/22/2026,Luna Bridal,sofia@lunabridal.com,Reels Pack,completed,$900
+B062,06/22/2026,NorthPoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,240
+B063,06/23/2026,Elevate Fit,jordan@elevatefit.co,Reels Pack,completed,900
+B064,06/25/2026,Hustle & Heart Podcast,tasha.green.mail@gmail.com,Podcast Studio 2hr,completed,$300
+B065,06/29/2026,NorthPoint Media Team,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B066,07/01/2026,DFW Founders,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,$550
+B067,07/01/2026,Tasha Green,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B068,07/01/2026,Brightline - Summit,kelsey@brightlinemktg.com,Reels Pack,completed,$900
+B069,07/02/2026,Crown Barbershop,andre@crownbarbers.com,Reels Pack,completed,$900
+B070,07/08/2026,Ironclad Gym,marcus@ironcladgym.com,Reels Pack,completed,$900
+B071,07/08/2026,NorthPoint DFW,media@northpointdfw.org,Podcast Studio 2hr,completed,240
+B072,07/09/2026,Hustle & Heart Podcast,tasha.green.mail@gmail.com,Podcast Studio 2hr,completed,$300
+B073,07/10/2026,Patel Insurance Group,raj@patelinsures.com,Retainer Shoot,completed,0
+B074,07/13/2026,Apex Physical Therapy,klee@apexptdallas.com,Retainer Shoot,completed,$0
+B075,07/13/2026,Lone Star Realty,dana@lonestarrealty.com,Content Day,completed,"$1,500"
+B076,07/13/2026,Meridian Wealth Partners,pgrant@meridianwp.com,Retainer Shoot,completed,$0
+B077,07/13/2026,Mike's Roofing LLC,mike@mikesroofingtx.com,Reels Pack,completed,$900
+B078,07/13/2026,Torres Law Firm,mtorres@torreslaw.com,Retainer Shoot,completed,0
+B079,07/14/2026,Sage Therapy,mlopez@sagefamilytherapy.com,Content Day,completed,1500
+B080,07/15/2026,Elevate Fit,jordan@elevatefit.co,Reels Pack,completed,900
+B081,07/15/2026,Harbor Coffee,jen@harborcoffee.com,Reels Pack,completed,$900
+B082,07/15/2026,NorthPoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B083,07/16/2026,Bloom Med Spa - Frisco,frisco@bloommedspa.com,Content Day,completed,1500
+B084,07/16/2026,Brightline - Greenway,kelsey@brightlinemktg.com,Reels Pack,completed,900
+B085,07/17/2026,Ethan Cole,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,550
+B086,07/17/2026,Oak Lane Dental,hbrooks@oaklanedental.com,Content Day,completed,"$1,500"
+B087,07/20/2026,Hustle & Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B088,07/20/2026,Dr. Sarah Khan,sarah@khandental.com,Content Day,completed,"$1,500"
+B089,07/20/2026,Imran Khan,imran@khansautospa.com,Reels Pack,completed,$900
+B090,07/22/2026,Luna Bridal Boutique,sofia@lunabridal.com,Reels Pack,completed,900
+B091,07/23/2026,NorthPoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,240
+B092,07/24/2026,Glow Aesthetics,nadia@glowaesthetics.co,Reels Pack,completed,900
+B093,07/27/2026,H&H Podcast,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,$300
+B094,07/27/2026,Khan Law,info@khanfamilylaw.com,Reels Pack,completed,$900
+B095,07/30/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B096,08/03/2026,Brew Lab,lena@thebrewlab.coffee,Reels Pack,completed,$900
+B097,08/03/2026,DFW Founders,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,$550
+B098,08/03/2026,Tasha Green,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B099,08/03/2026,Ironclad Gym,marcus@ironcladgym.com,Reels Pack,completed,$900
+B100,08/04/2026,Elevate,jordan@elevateathletics.com,Reels Pack,completed,900
+B101,08/04/2026,Brightline - Summit,kelsey@brightlinemktg.com,Reels Pack,completed,$900
+B102,08/05/2026,Tony Russo,tony@primeroofingco.com,Reels Pack,completed,$900
+B103,08/06/2026,NorthPoint DFW,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B104,08/10/2026,Hustle & Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,$300
+B105,08/11/2026,Apex PT,klee@apexptdallas.com,Retainer Shoot,completed,$0
+B106,08/11/2026,Patel Insurance,raj@patelinsures.com,Retainer Shoot,completed,$0
+B107,08/11/2026,Torres Law Firm PLLC,mtorres@torreslaw.com,Retainer Shoot,completed,$0
+B108,08/12/2026,Lonestar RG,greg@lonestarrg.com,Content Day,completed,1500
+B109,08/12/2026,Mike Delgado,mike@mikesroofingtx.com,Reels Pack,completed,900
+B110,08/13/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B111,08/14/2026,Bloom Med Spa,priya@bloommedspa.com,Content Day,completed,"$1,500"
+B112,08/17/2026,Ethan Cole,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,$550
+B113,08/17/2026,Hustle and Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B114,08/18/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,240
+B115,08/19/2026,Sofia Ramirez,sofia@lunabridal.com,Reels Pack,completed,900
+B116,08/20/2026,Greenway Pediatrics,acho@greenwaypeds.com,Reels Pack,completed,$900
+B117,08/24/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B118,08/25/2026,Elevate Athletics,jordan@elevateathletics.com,Reels Pack,completed,$900
+B119,08/25/2026,H&H Podcast,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B120,08/26/2026,Glow Aesthetic,nadia@glowaesthetics.co,Reels Pack,completed,$900
+B121,08/26/2026,Khan Dental,sarah@khandental.com,Content Day,completed,1500
+B122,08/26/2026,Lone Star Realty,dana@lonestarrealty.com,Content Day,completed,1500
+B123,08/26/2026,Oak Lane Dental,hbrooks@oaklanedental.com,Content Day,completed,"$1,500"
+B124,08/28/2026,Harbor Roasters,jen@harborcoffee.com,Reels Pack,completed,900
+B125,08/31/2026,Hustle & Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B126,08/31/2026,Marcus Webb,marcus@ironcladgym.com,Reels Pack,completed,$900
+B127,08/31/2026,NorthPoint Media Team,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B128,08/31/2026,Vega Auto Detailing,carlos.vega.detail@gmail.com,Reels Pack,completed,$900
+B129,09/01/2026,DFW Founders,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,$550
+B130,09/01/2026,TLC Home Care,angela@tlchomecare.com,Content Day,completed,"$1,500"
+B131,09/03/2026,Prime Roofing Co,tony@primeroofingco.com,Reels Pack,completed,$900
+B132,09/07/2026,H&H Podcast,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B133,09/07/2026,Khan Law,info@khanfamilylaw.com,Reels Pack,completed,900
+B134,09/07/2026,Mike's Roofing,mike@mikesroofingtx.com,Reels Pack,completed,900
+B135,09/07/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B136,09/07/2026,Brightline - Summit,kelsey@brightlinemktg.com,Reels Pack,completed,$900
+B137,09/07/2026,Torres Law Firm,mtorres@torreslaw.com,Retainer Shoot,completed,$0
+B138,09/08/2026,Apex PT Dallas,klee@apexptdallas.com,Retainer Shoot,completed,0
+B139,09/10/2026,Bloom,priya@bloommedspa.com,Content Day,completed,"$1,500"
+B140,09/14/2026,The Brew Lab,lena@thebrewlab.coffee,Reels Pack,completed,$900
+B141,09/14/2026,Ethan Cole,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,550
+B142,09/14/2026,Elevate,jordan@elevateathletics.com,Reels Pack,completed,$900
+B143,09/14/2026,Hustle & Heart,tasha.green.mail@gmail.com,Podcast Studio 2hr,completed,$300
+B144,09/14/2026,Luna Bridal,sofia@lunabridal.com,Reels Pack,completed,$900
+B145,09/14/2026,Raj Patel,raj@patelinsures.com,Retainer Shoot,completed,0
+B146,09/15/2026,NorthPoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,240
+B147,09/18/2026,Vega Auto,carlos.vega.detail@gmail.com,Content Day,completed,"$1,500"
+B148,09/21/2026,Vega Detailing,carlos.vega.detail@gmail.com,Reels Pack,completed,900
+B149,09/22/2026,NorthPoint DFW,media@northpointdfw.org,Podcast Studio 2hr,completed,240
+B150,09/23/2026,Hustle and Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B151,09/24/2026,Brightline - Greenway,kelsey@brightlinemktg.com,Reels Pack,completed,$900
+B152,09/24/2026,Dana Brooks,dana@lonestarrealty.com,Content Day,cancelled,"$1,500"
+B153,09/28/2026,Ironclad Gym,marcus@ironcladgym.com,Reels Pack,completed,$900
+B154,09/29/2026,Ethan Cole,ethan@dfwfounders.fm,Podcast Studio 4hr,completed,$550
+B155,09/29/2026,Hustle and Heart,tasha@hustleandheart.fm,Podcast Studio 2hr,completed,300
+B156,09/30/2026,Glow Aesthetic,nadia@glowaesthetics.co,Reels Pack,completed,900
+B157,09/30/2026,Khan Dental,sarah@khandental.com,Content Day,completed,"$1,500"
+B158,09/30/2026,NorthPoint Church,media@northpointdfw.org,Podcast Studio 2hr,completed,$240
+B159,10/01/2026,Prime Roofing Co,tony@primeroofingco.com,Reels Pack,completed,900
+B160,10/05/2026,Apex Physical Therapy,klee@apexptdallas.com,Retainer Shoot,completed,0
+B161,10/05/2026,Elevate Athletics,jordan@elevateathletics.com,Reels Pack,completed,900
+B162,10/05/2026,Mikes Roofing,mike@mikesroofingtx.com,Reels Pack,completed,$900
+B163,10/05/2026,Oaklane Dental,hbrooks@oaklanedental.com,Content Day,completed,"$1,500"
+B164,10/06/2026,Tasha Green,tasha.green.mail@gmail.com,Podcast Studio 2hr,upcoming,300
+B165,10/07/2026,Lone Star Realty LLC,dana@lonestarrealty.com,Content Day,upcoming,"$1,500"
+B166,10/07/2026,Raj Patel,raj@patelinsures.com,Retainer Shoot,upcoming,0
+B167,10/08/2026,Harbor Coffee,jen@harborcoffee.com,Reels Pack,upcoming,$900
+B168,10/08/2026,Torres Law,mtorres@torreslaw.com,Retainer Shoot,upcoming,$0
+B169,10/09/2026,Bloom Med Spa,priya@bloommedspa.com,Content Day,upcoming,1500
+B170,10/09/2026,Northpoint Church,media@northpointdfw.org,Podcast Studio 2hr,upcoming,240
+B171,10/12/2026,Sofia Ramirez,sofia@lunabridal.com,Reels Pack,upcoming,900
+B172,10/12/2026,Summit Chiropractic,drhale@summitchiro.com,Reels Pack,upcoming,900
+B173,10/13/2026,DFW Founders Podcast,ethan@dfwfounders.fm,Podcast Studio 4hr,upcoming,$550
+B174,10/13/2026,Vega Detailing,carlos.vega.detail@gmail.com,Reels Pack,upcoming,$900
+B175,10/15/2026,DFW Founders Podcast,ethan@dfwfounders.fm,Podcast Studio 4hr,upcoming,$550
+B176,10/15/2026,Hustle & Heart Podcast,tasha@hustleandheart.fm,Podcast Studio 2hr,upcoming,300
+B177,10/16/2026,NorthPoint DFW,media@northpointdfw.org,Podcast Studio 2hr,upcoming,240
+B178,10/19/2026,Khan Law,info@khanfamilylaw.com,Reels Pack,upcoming,900

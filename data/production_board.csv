@@ -1,0 +1,340 @@
+video_id,client,title,editor,stage,notes_on_board,revisions,editor_hours,client_approved_on,shoot_booking
+V001,Dr Khan,First visit tour,Rita,Delivered,,0,3.3,2026-04-24,B003
+V002,Khan Dental,Whitening before and after,Rita,Delivered,,0,3.9,2026-04-18,B003
+V003,Sarah Khan DDS,Kids dental tips,Rita,Delivered,,2,6.2,2026-04-23,B003
+V004,Sarah Khan DDS,Office tour,Ali,Delivered,,0,2.8,,
+V005,Cedar and Stone,Client walkthrough,Ali,Delivered,,0,3.4,2026-04-28,B006
+V006,Cedar & Stone,Project timeline,Rita,Delivered,Cut stumble,0,4.3,2026-04-26,
+V007,Cedar & Stone,Material choices,Ali,Delivered,Brand color forest green,0,3.2,,B006
+V008,Cedar & Stone,Before and after deck,Rita,Delivered,,1,4.8,,
+V009,Mike Delgado,Roof inspection walkthrough,Rita,Delivered,,0,4.1,,B008
+V010,Mikes Roofing,Free estimate promo,Ali,Delivered,Cut first 3 sec,0,3.6,2026-04-29,
+V011,Mikes Roofing,Leak warning signs,Ali,Delivered,,1,3.6,2026-04-25,B008
+V012,Bloom,Botox before and after,Ali,Delivered,,1,4.2,2026-05-01,B010
+V013,Bloom,Fall facial promo,Rita,Delivered,Captions bigger,0,3.9,,
+V014,Bloom Medspa,Hydrafacial reveal,Ali,Delivered,,2,4.8,2026-05-06,B010
+V015,Bloom Med Spa,Membership promo,Rita,Delivered,Captions bigger,1,4.6,2026-04-29,B010
+V016,Luna Bridal Boutique,Sale promo,Rita,In revision,,2,5.9,2026-05-07,B013
+V017,Luna Bridal Boutique,Styling tips,Ali,Delivered,Captions bigger,0,3.8,,
+V018,Luna Bridal,Bride story,Ali,Delivered,Music lower,0,3.4,2026-05-10,B013
+V019,Meridian WP,Why fees matter,Ali,Delivered,,0,4.0,2026-05-06,
+V020,Meridian Wealth,College savings,Ali,Delivered,,1,4.0,,B014
+V021,Meridian Wealth Partners,Tax season tips,Ali,Delivered,Remove prices part,0,3.8,2026-05-13,B014
+V022,Meridian Wealth,Retirement myths,Ali,Delivered,Captions bigger,1,4.5,,B014
+V023,Meridian WP,Tax season tips,Ali,Delivered,,0,3.4,,B018
+V024,Meridian Wealth,Estate planning basics,Rita,Delivered,,0,4.0,,B018
+V025,Meridian Wealth Partners,Retirement myths,Rita,Delivered,,0,3.3,2026-05-21,B018
+V026,Meridian Wealth,Why fees matter,Ali,Delivered,,2,5.2,2026-05-17,
+V027,Torres Law,Meet the attorney,Ali,Delivered,,1,5.0,2026-05-21,B021
+V028,Torres Law Firm,Do I need a lawyer?,Rita,Delivered,Calmer music,1,4.6,2026-05-18,B021
+V029,Torres Law Firm,Slip and fall rights,Rita,Delivered,,1,4.2,2026-05-18,
+V030,Torres Law Firm,Divorce timeline,Ali,Delivered,Captions bigger,0,3.8,2026-05-23,B021
+V031,Elevate Athletics,Class schedule,Ali,Delivered,,0,3.8,2026-05-23,
+V032,Elevate,Member story,Ali,Delivered,,0,3.8,2026-05-25,B022
+V033,Elevate,30-day challenge,Ali,Delivered,,1,5.0,2026-05-27,B022
+V034,Apex PT,What to expect visit one,Ali,Delivered,Cut stumble,0,3.7,,
+V035,Apex PT,Patient story,Rita,Delivered,,0,3.6,2026-05-26,B023
+V036,Apex PT Dallas,Desk posture fix,Rita,Delivered,,0,3.1,,B023
+V037,Apex PT,Meet the team,Rita,Delivered,,0,4.4,2026-05-21,B023
+V038,Sarah Khan DDS,Invisalign myths,Ali,Delivered,,0,3.8,2026-05-25,
+V039,Khan Dental,Implants explained,Rita,Delivered,,2,5.2,2026-05-27,
+V040,Khan Dental,Why floss matters,Ali,Delivered,,0,2.9,,
+V041,Khan Dental,First visit tour,Ali,Delivered,,0,3.3,2026-05-26,B024
+V042,Glow Aesthetics,Meet the injector,Rita,Delivered,,0,3.8,2026-05-28,B026
+V043,Glow Aesthetic,Lip filler myths,Ali,Delivered,,0,3.1,2026-05-25,B026
+V044,Glow Aesthetic,Membership promo,Rita,Delivered,Cut stumble,1,5.3,,B026
+V045,Mike's Roofing,Roof inspection walkthrough,Ali,Delivered,Brand color teal,0,2.6,2026-05-29,B028
+V046,Mike's Roofing,Crew intro,Ali,Delivered,,0,3.6,2026-05-28,B028
+V047,Mikes Roofing,Gutter guards,Ali,Delivered,,1,4.6,,
+V048,Bloom Med Spa - Plano,Fall facial promo,Ali,Delivered,,0,3.3,2026-05-29,B029
+V049,Bloom Med Spa - Frisco,Laser hair removal,Ali,Delivered,Music lower,1,4.4,2026-05-29,B029
+V050,Bloom Med Spa - Plano,Membership promo,Rita,Delivered,Calmer music,0,4.0,,
+V051,Bloom Med Spa - Plano,Lip filler myths,Rita,Delivered,,0,3.0,,
+V052,Crown Barbers,New arrivals,Ali,Delivered,,1,5.0,,
+V053,Crown Barbers,Bride story,Rita,Delivered,,0,4.3,,B033
+V054,Crown Barbershop,Fresh fade transformation,Ali,Delivered,,0,2.9,2026-06-06,
+V055,Sofia Ramirez,Bride story,Ali,Delivered,Calmer music,1,4.7,2026-06-07,B034
+V056,Luna Bridal,Owner story,Rita,Delivered,,0,3.1,2026-06-10,
+V057,Sofia Ramirez,Styling tips,Rita,Delivered,,1,5.3,2026-06-10,B034
+V058,Patel Insurance,Meet the agent,Rita,Delivered,Brand color teal,1,4.1,2026-06-06,B037
+V059,Raj Patel,Why bundle home and auto,Ali,Delivered,,1,3.7,2026-06-05,
+V060,Patel Insurance,Claims made easy,Ali,Delivered,,0,3.4,,B037
+V061,Patel Ins,Flood coverage,Rita,Delivered,Calmer music,1,5.4,2026-06-11,
+V062,Elevate,Nutrition tip,Ali,Delivered,,0,3.7,2026-06-17,
+V063,Elevate,Form check squat,Rita,Delivered,,0,3.3,2026-06-15,B038
+V064,Elevate,30-day challenge,Rita,Delivered,Phone number end card,1,4.0,2026-06-13,B038
+V065,Dana Brooks,Meet the agent,Ali,Delivered,,2,5.0,,
+V066,Lone Star Realty,Staging tips,Rita,Delivered,,1,5.0,2026-06-17,
+V067,Lone Star Realty,Neighborhood guide,Ali,Delivered,,2,4.9,2026-06-17,B039
+V068,Dana Brooks,Listing tour: Oak St,Ali,Delivered,,1,3.8,,
+V069,Oak Lane Dental,Meet the doctor,Ali,Delivered,,0,2.9,2026-06-19,
+V070,Oak Lane Dental,Invisalign myths,Ali,Delivered,,1,5.0,,B042
+V071,Hannah Brooks DDS,Kids dental tips,Ali,Delivered,,1,3.8,,B042
+V072,Hannah Brooks DDS,First visit tour,Rita,Delivered,,0,3.5,2026-06-15,B042
+V073,Torres Law Firm,Divorce timeline,Ali,Delivered,,0,4.0,2026-06-20,
+V074,Torres Law Firm,Custody myths,Rita,Delivered,,0,3.6,2026-06-18,B044
+V075,Torres,Slip and fall rights,Rita,Delivered,,1,5.0,,B044
+V076,Torres,Meet the attorney,Ali,Delivered,Fix name spelling,1,4.5,2026-06-21,
+V077,Apex PT,Meet the team,Ali,Delivered,,1,4.7,2026-06-20,
+V078,Apex PT,Desk posture fix,Rita,Delivered,Music lower,0,3.3,,
+V079,Apex PT Dallas,What to expect visit one,Ali,Delivered,,0,3.3,,
+V080,Apex Physical Therapy,Insurance we take,Ali,Delivered,,0,2.8,2026-06-23,
+V081,Cedar & Stone,Crew day,Rita,Delivered,Brand color teal,0,3.6,2026-06-21,B046
+V082,Cedar and Stone,Permit tips,Rita,Delivered,Cut stumble,0,3.7,,B046
+V083,Cedar & Stone Builders,Project timeline,Rita,Delivered,Music lower,1,4.5,2026-06-19,B046
+V084,Cedar & Stone Builders,Kitchen remodel reveal,Rita,Delivered,,1,4.7,,B046
+V085,Patel Insurance Group,Rate review,Ali,Delivered,,1,4.2,2026-06-24,
+V086,Patel Insurance Group,Meet the agent,Rita,Delivered,,1,4.1,2026-06-18,
+V087,Patel Insurance,Flood coverage,Ali,Delivered,,2,5.2,2026-06-21,B047
+V088,Patel Insurance Group,Life insurance basics,Rita,Delivered,Cut first 3 sec,1,5.4,2026-06-23,B047
+V089,Brightline - Greenway,Patient story,Rita,Delivered,,0,3.1,2026-06-26,
+V090,Greenway Pediatrics,Desk posture fix,Rita,Delivered,,0,4.4,2026-06-23,B049
+V091,Brightline - Greenway,Back pain myths,Rita,Delivered,Add walk-ins welcome,0,3.2,2026-06-22,
+V092,Mikes Roofing,Shingle vs metal,Ali,Delivered,,1,4.0,2026-06-20,B051
+V093,Mike Delgado,Hail claim help,Rita,Delivered,,0,3.7,2026-06-20,B051
+V094,Mike Delgado,Gutter guards,Ali,Delivered,Use outside shot,0,3.2,,
+V095,Meridian WP,Tax season tips,Rita,Delivered,,0,4.1,2026-06-22,B052
+V096,Meridian Wealth Partners,Retirement myths,Ali,Delivered,,2,4.8,,B052
+V097,Meridian Wealth,Why fees matter,Rita,Delivered,,0,3.5,2026-06-22,
+V098,Meridian Wealth,Market minute,Rita,Delivered,Calmer music,1,5.4,,B052
+V099,Dr. Sarah Khan,First visit tour,Rita,Delivered,Cut stumble,0,3.3,2026-06-25,
+V100,Dr. Sarah Khan,Invisalign myths,Ali,Delivered,,0,3.9,2026-06-25,B053
+V101,Sarah Khan DDS,Implants explained,Ali,Delivered,,1,4.2,2026-07-01,B053
+V102,Sarah Khan DDS,Why floss matters,Ali,Delivered,,2,6.0,,B053
+V103,Khan Family Law,Do I need a lawyer?,Ali,Delivered,,0,2.6,,B054
+V104,Aisha Khan,Car accident: first 3 steps,Ali,Delivered,,0,2.9,,B054
+V105,Khan Family Law,Divorce timeline,Rita,Delivered,Blur client face,0,3.2,2026-06-27,B054
+V106,Bloom,Membership promo,Rita,Delivered,Music lower,1,4.3,2026-06-30,B056
+V107,Bloom Med Spa,Meet the injector,Ali,Delivered,,1,4.6,,
+V108,Bloom Medspa,Hydrafacial reveal,Rita,Delivered,,0,3.2,2026-07-03,
+V109,Bloom Med Spa,Skin care routine,Ali,Delivered,Add walk-ins welcome,0,3.6,2026-06-29,
+V110,Glow Aesthetics,Meet the injector,Rita,Delivered,Cut first 3 sec,1,4.3,,B058
+V111,Glow Med,Fall facial promo,Rita,Delivered,,0,3.1,,B058
+V112,Glow Aesthetics,Lip filler myths,Rita,Delivered,,1,4.5,,
+V113,The Brew Lab,New fall menu,Ali,In revision,Brand color pink,2,5.8,2026-07-02,B060
+V114,Brew Lab,Behind the bar,Rita,In revision,,2,5.7,2026-07-02,B060
+V115,Brewlab Coffee,Meet the barista,Ali,Delivered,,0,3.4,,B060
+V116,Luna Bridal Boutique,New arrivals,Ali,Delivered,Captions bigger,0,2.6,2026-07-08,B061
+V117,Sofia Ramirez,Try-on day,Rita,Delivered,,0,3.6,,
+V118,Luna Bridal,Store tour,Rita,Delivered,,0,4.0,,
+V119,Elevate Athletics,Gym tour,Rita,Delivered,,1,4.2,2026-07-07,
+V120,Elevate,Class schedule,Rita,Delivered,,0,4.3,2026-07-08,
+V121,Elevate Athletics,Trainer intro,Rita,Delivered,Brand color gold,0,3.9,,B063
+V122,Brightline - Summit,Meet the team,Ali,Delivered,,0,2.7,,B068
+V123,Summit Chiropractic,Desk posture fix,Ali,Delivered,,2,4.6,2026-07-12,
+V124,Brightline - Summit,Back pain myths,Ali,Delivered,,1,4.4,2026-07-17,B068
+V125,Crown Barbershop,Styling tips,Ali,Delivered,,1,5.0,,B069
+V126,Crown Barbers,New arrivals,Ali,Delivered,,1,3.6,2026-07-12,B069
+V127,Crown Barbers,Bride story,Rita,Delivered,Music lower,0,3.8,2026-07-16,B069
+V128,Ironclad Gym,Class schedule,Rita,Delivered,,1,5.1,2026-07-21,B070
+V129,Ironclad Fitness,Open house promo,Ali,Delivered,Cut stumble,0,3.7,,B070
+V130,Ironclad Gym,Gym tour,Ali,Delivered,Captions bigger,0,3.3,,
+V131,Patel Insurance Group,Client story,Rita,Delivered,,0,3.6,,B073
+V132,Patel Insurance,Rate review,Ali,Delivered,Brand color burgundy,0,2.5,2026-07-26,B073
+V133,Patel Insurance,Teen driver tips,Rita,Delivered,,0,3.8,2026-07-20,B073
+V134,Patel Insurance Group,Claims made easy,Ali,Delivered,,0,3.7,2026-07-24,
+V135,Apex PT,Insurance we take,Rita,Delivered,Cut stumble,1,4.8,2026-07-25,B074
+V136,Apex PT,Walk-ins welcome,Rita,Delivered,Add walk-ins welcome,1,5.0,2026-07-29,
+V137,Apex PT,Meet the team,Rita,Delivered,,0,4.4,2026-07-24,B074
+V138,Apex PT,What to expect visit one,Ali,Delivered,,0,3.6,2026-07-27,B074
+V139,Dana Brooks,Market update,Rita,Delivered,,0,3.7,2026-07-22,B075
+V140,Lone Star Realty,Neighborhood guide,Rita,Delivered,Music lower,0,3.4,,B075
+V141,Dana Brooks,Listing tour: Oak St,Rita,Delivered,Phone number end card,1,5.0,2026-07-22,B075
+V142,Lone Star Realty,Meet the agent,Rita,Delivered,,0,4.1,,
+V143,Meridian Wealth,Retirement myths,Rita,Delivered,,1,4.8,2026-07-25,B076
+V144,Meridian Wealth,Client story,Ali,Delivered,Cut stumble,0,2.9,2026-07-27,
+V145,Meridian WP,Why fees matter,Ali,Delivered,,0,3.5,2026-07-22,B076
+V146,Meridian WP,College savings,Rita,Delivered,,1,4.7,2026-07-22,B076
+V147,Mike's Roofing,Hail claim help,Rita,Delivered,,1,4.0,2026-07-27,B077
+V148,Mikes Roofing,Gutter guards,Ali,Delivered,,0,3.7,2026-07-28,B077
+V149,Mike's Roofing,Roof inspection walkthrough,Rita,Delivered,,0,3.8,,
+V150,Torres Law Firm,What a consult costs,Rita,Delivered,,0,3.9,,B078
+V151,Torres Law Firm,Custody myths,Rita,Delivered,,1,4.1,,B078
+V152,Torres Law,Do I need a lawyer?,Rita,Delivered,,1,5.2,,
+V153,Torres,Wills in 60 seconds,Ali,Delivered,,1,3.7,2026-07-28,B078
+V154,Sage Therapy,Teen anxiety signs,Ali,Delivered,Add walk-ins welcome,1,3.6,2026-07-23,B079
+V155,Sage Family Therapy,Couples tips,Ali,Delivered,,1,3.5,,B079
+V156,Dr. Maria Lopez,Office tour,Rita,Delivered,,0,3.6,,B079
+V157,Dr. Maria Lopez,Meet the therapist,Rita,Delivered,Brand color pink,0,3.7,,B079
+V158,Elevate,Form check squat,Ali,Delivered,Phone number end card,0,3.8,2026-07-29,B080
+V159,Elevate Athletics,30-day challenge,Ali,Delivered,,0,2.5,,B080
+V160,Elevate Athletics,Nutrition tip,Rita,Delivered,,2,6.1,2026-07-26,B080
+V161,Harbor Coffee,Bean origin story,Rita,Delivered,,0,3.9,,
+V162,Harbor Coffee,Pastry case,Ali,Delivered,,0,3.7,2026-07-27,B081
+V163,Harbor Coffee Roasters,Behind the bar,Ali,Delivered,,1,4.9,2026-07-26,B081
+V164,Bloom,Membership promo,Ali,Delivered,Phone number end card,0,3.2,,B083
+V165,Bloom Med Spa,Skin care routine,Ali,Delivered,,1,4.2,2026-07-25,B083
+V166,Bloom Med Spa - Plano,Fall facial promo,Rita,Delivered,Music lower,0,4.2,,B083
+V167,Bloom Med Spa - Plano,Hydrafacial reveal,Rita,Delivered,Calmer music,0,4.4,2026-07-27,B083
+V168,Greenway Pediatrics,Flu shot season,Ali,Delivered,,0,4.0,2026-07-26,B084
+V169,Greenway Peds,Walk-ins welcome,Rita,Delivered,Use outside shot,0,4.0,,B084
+V170,Brightline - Greenway,Desk posture fix,Rita,Delivered,,1,4.2,2026-07-31,
+V171,Hannah Brooks DDS,Whitening before and after,Ali,Delivered,Cut first 3 sec,0,3.3,,
+V172,Hannah Brooks DDS,Invisalign myths,Rita,Delivered,Phone number end card,0,3.1,,B086
+V173,Oaklane Dental,Kids dental tips,Rita,Delivered,,1,4.7,2026-08-01,B086
+V174,Oak Lane Dental,Meet the doctor,Ali,Delivered,Phone number end card,1,4.6,,B086
+V175,Dr Khan,Why floss matters,Ali,Delivered,,0,3.3,,B088
+V176,Khan Dental,Office tour,Sam,Delivered,,1,5.5,2026-07-30,
+V177,Khan Dental,First visit tour,Ali,Delivered,,2,5.6,,B088
+V178,Dr Khan,Kids dental tips,Ali,Delivered,Captions bigger,0,3.9,,B088
+V179,Khans Auto,Price menu,Ali,Delivered,Phone number end card,0,3.7,2026-07-30,B089
+V180,Imran Khan,Before and after wash,Rita,Delivered,,1,4.9,,B089
+V181,Imran Khan,Ceramic coating reveal,Ali,Delivered,,1,4.2,2026-08-02,B089
+V182,Sofia Ramirez,Try-on day,Rita,Delivered,,3,6.2,,B090
+V183,Luna Bridal,Owner story,Sam,Delivered,,2,7.0,2026-08-06,
+V184,Luna Bridal,Sale promo,Sam,Delivered,,2,8.0,,B090
+V185,Glow Aesthetic,Fall facial promo,Sam,Delivered,,0,4.9,2026-08-02,B092
+V186,Glow Med,Lip filler myths,Sam,Delivered,,0,5.8,,B092
+V187,Glow Med,Meet the injector,Sam,Delivered,,0,5.0,2026-08-09,B092
+V188,Aisha Khan,Meet the attorney,Sam,Delivered,,0,5.8,2026-08-12,B094
+V189,Aisha Khan,Custody myths,Sam,Delivered,,1,6.9,,B094
+V190,Khan Family Law,Divorce timeline,Rita,Delivered,,0,4.3,2026-08-12,
+V191,Brewlab Coffee,Pastry case,Ali,Delivered,,0,2.6,2026-08-15,B096
+V192,Brewlab Coffee,Bean origin story,Ali,Delivered,Captions bigger,0,2.6,2026-08-12,B096
+V193,Brew Lab,Behind the bar,Sam,Delivered,,0,5.9,2026-08-12,B096
+V194,Marcus Webb,Form check squat,Ali,Delivered,,0,3.1,2026-08-16,
+V195,Marcus Webb,Open house promo,Sam,Delivered,,2,7.0,,B099
+V196,Marcus Webb,Trainer intro,Sam,Delivered,,1,5.9,,
+V197,Elevate,Open house promo,Rita,Delivered,,0,3.3,2026-08-14,B100
+V198,Elevate,Gym tour,Ali,Delivered,,0,3.3,2026-08-17,B100
+V199,Elevate Athletics,Form check squat,Sam,Delivered,,0,5.2,,
+V200,Summit Chiro,Flu shot season,Sam,Delivered,,1,6.6,,B101
+V201,Summit Chiropractic,Patient story,Ali,Delivered,,1,4.5,,B101
+V202,Summit Chiropractic,What to expect visit one,Rita,Delivered,Cut first 3 sec,1,4.5,2026-08-20,B101
+V203,Prime Roofing,Shingle vs metal,Ali,Delivered,Cut first 3 sec,0,2.9,2026-08-15,
+V204,Prime Roofing,Leak warning signs,Sam,Delivered,,1,5.9,2026-08-19,B102
+V205,Prime Roofing Co,Crew intro,Sam,Delivered,,0,4.6,,
+V206,Apex PT Dallas,Back pain myths,Sam,Delivered,,2,7.3,,B105
+V207,Apex Physical Therapy,Patient story,Sam,Delivered,,2,8.0,2026-08-22,B105
+V208,Apex Physical Therapy,Walk-ins welcome,Sam,Delivered,,3,7.6,2026-08-24,B105
+V209,Apex PT Dallas,Meet the team,Rita,Delivered,,0,4.5,,
+V210,Patel Insurance Group,Life insurance basics,Rita,Delivered,,0,3.7,2026-08-25,B106
+V211,Patel Insurance Group,Why bundle home and auto,Ali,Delivered,,1,4.4,,
+V212,Patel Ins,Rate review,Sam,Delivered,,0,5.4,2026-08-26,B106
+V213,Raj Patel,Client story,Sam,Delivered,,0,6.0,,B106
+V214,Torres Law,Custody myths,Sam,Delivered,,0,5.9,,B107
+V215,Torres Law Firm,Do I need a lawyer?,Sam,Delivered,,2,6.9,2026-08-23,
+V216,Torres Law Firm,What a consult costs,Rita,Delivered,,0,3.1,,B107
+V217,Torres Law,Meet the attorney,Rita,Delivered,,1,4.0,,B107
+V218,Lonestar Realty Group,Listing tour: Oak St,Sam,Delivered,,0,5.1,2026-08-24,B108
+V219,Lonestar Realty,Open house recap,Sam,Delivered,,0,4.7,2026-08-27,B108
+V220,Lonestar Realty Group,First time buyer tips,Rita,Delivered,,0,3.3,2026-08-23,B108
+V221,Lonestar Realty Group,Market update,Sam,Delivered,,0,5.6,,B108
+V222,Mike Delgado,Free estimate promo,Rita,Delivered,,0,4.2,2026-08-28,
+V223,Mike's Roofing,Storm damage tips,Sam,Delivered,,0,5.8,,B109
+V224,Mike's Roofing,Hail claim help,Sam,Delivered,,0,5.9,2026-08-26,
+V225,Bloom Med Spa - Plano,Meet the injector,Sam,Delivered,,2,6.8,,B111
+V226,Bloom Medspa,Lip filler myths,Rita,Delivered,,1,5.2,,B111
+V227,Bloom Med Spa - Plano,Laser hair removal,Sam,Delivered,,3,8.6,,B111
+V228,Bloom Med Spa - Frisco,Hydrafacial reveal,Sam,Delivered,,1,6.9,2026-08-26,B111
+V229,Luna Bridal Boutique,Store tour,Sam,Delivered,,3,7.9,,B115
+V230,Sofia Ramirez,Bride story,Sam,Delivered,,2,7.4,,
+V231,Luna Bridal Boutique,New arrivals,Sam,Delivered,,2,7.2,2026-09-02,
+V232,Brightline - Greenway,Patient story,Sam,Delivered,,3,9.0,2026-08-29,B116
+V233,Greenway Pediatrics,Back pain myths,Rita,Delivered,,1,4.4,2026-09-04,B116
+V234,Greenway Peds,Meet the team,Sam,Delivered,,0,5.5,2026-08-31,B116
+V235,Elevate,Open house promo,Ali,Delivered,Remove prices part,0,3.3,,B118
+V236,Elevate,Nutrition tip,Sam,Delivered,,2,7.0,,
+V237,Elevate,Form check squat,Ali,Delivered,,0,3.5,2026-09-09,B118
+V238,Glow Aesthetic,Lip filler myths,Sam,Delivered,,1,7.0,,B120
+V239,Glow Med,Laser hair removal,Sam,Delivered,,1,6.2,2026-09-08,B120
+V240,Glow Med,Botox before and after,Ali,Delivered,Cut stumble,0,3.4,2026-09-06,B120
+V241,Sarah Khan DDS,Invisalign myths,Ali,Delivered,Add walk-ins welcome,0,2.8,2026-09-06,B121
+V242,Khan Dental,First visit tour,Sam,Delivered,,0,5.6,,
+V243,Khan Dental,Implants explained,Rita,Delivered,Use outside shot,0,4.4,2026-09-07,B121
+V244,Khan Dental,Meet the doctor,Rita,Delivered,,0,4.4,2026-09-08,B121
+V245,Lone Star Realty,Sold story,Ali,Delivered,Use outside shot,1,4.3,2026-09-06,B122
+V246,Lone Star Realty,Market update,Ali,Delivered,Fix name spelling,0,2.6,,B122
+V247,Dana Brooks,Open house recap,Sam,Delivered,,1,6.0,2026-09-10,B122
+V248,Lone Star Realty,Staging tips,Ali,Delivered,,0,3.6,2026-09-06,
+V249,Hannah Brooks DDS,First visit tour,Sam,Delivered,,0,4.5,2026-09-11,B123
+V250,Oaklane Dental,Office tour,Sam,Delivered,,2,7.4,2026-09-10,
+V251,Oak Lane Dental,Implants explained,Rita,Delivered,Phone number end card,0,4.3,,B123
+V252,Hannah Brooks DDS,Invisalign myths,Sam,Delivered,,0,5.0,,B123
+V253,Harbor Coffee,Happy hour promo,Sam,Delivered,,0,4.8,2026-09-09,
+V254,Harbor Roasters,Behind the bar,Rita,Delivered,,0,3.8,2026-09-09,B124
+V255,Harbor Coffee,Latte art,Sam,Delivered,,1,6.9,,B124
+V256,Marcus Webb,Class schedule,Sam,Delivered,,1,6.7,2026-09-16,
+V257,Marcus Webb,Gym tour,Ali,Delivered,,1,3.5,,B126
+V258,Ironclad Gym,Open house promo,Rita,Delivered,,0,3.7,2026-09-09,
+V259,Vega Auto Detailing,Paint correction,Sam,Delivered,,0,4.9,2026-09-12,B128
+V260,Vega Auto Detailing,Tesla detail,Sam,Delivered,,1,6.3,,B128
+V261,Vega Detailing,Headlight restore,Sam,Delivered,,3,7.7,2026-09-11,B128
+V262,TLC Home Care,Patient story,Rita,Delivered,Brand color teal,0,3.4,2026-09-12,B130
+V263,TLC Homecare,Desk posture fix,Dev,Delivered,,0,2.5,2026-09-12,B130
+V264,TLC Homecare,Meet the team,Dev,Delivered,,0,2.7,2026-09-17,
+V265,TLC Home Care,Back pain myths,Sam,Delivered,,0,5.8,2026-09-15,
+V266,Prime Roofing,Gutter guards,Ali,Delivered,Blur client face,1,4.4,,B131
+V267,Prime Roofing Co,Leak warning signs,Sam,Delivered,,1,6.5,2026-09-16,B131
+V268,Tony Russo,Hail claim help,Sam,Delivered,,0,4.6,2026-09-13,B131
+V269,Aisha Khan,Meet the attorney,Sam,Delivered,,3,8.1,2026-09-20,
+V270,Khan Family Law,Do I need a lawyer?,Ali,Delivered,Use outside shot,0,3.5,2026-09-19,
+V271,Khan Law,What a consult costs,Sam,Delivered,,2,6.6,2026-09-23,
+V272,Mike Delgado,Hail claim help,Dev,Delivered,,0,2.6,,B134
+V273,Mike's Roofing,Roof inspection walkthrough,Sam,Delivered,,0,5.6,,
+V274,Mike Delgado,Free estimate promo,Sam,Delivered,,0,5.7,2026-09-18,B134
+V275,Brightline - Summit,Desk posture fix,Sam,Delivered,,1,6.0,2026-09-17,B136
+V276,Summit Chiropractic,Insurance we take,Dev,Delivered,,0,2.9,,
+V277,Summit Chiro,Patient story,Dev,Delivered,,2,4.3,2026-09-17,B136
+V278,Torres,Divorce timeline,Sam,Delivered,,0,5.6,,B137
+V279,Torres Law Firm,Car accident: first 3 steps,Sam,Delivered,,1,6.8,,B137
+V280,Torres Law Firm,Slip and fall rights,Sam,Delivered,,1,6.7,2026-09-20,B137
+V281,Torres,Wills in 60 seconds,Sam,Delivered,,1,6.8,2026-09-18,B137
+V282,Apex PT,Walk-ins welcome,Ali,Delivered,,0,2.8,2026-09-23,B138
+V283,Apex Physical Therapy,Patient story,Sam,Delivered,,2,7.1,,B138
+V284,Apex Physical Therapy,Flu shot season,Dev,Delivered,,0,3.4,,
+V285,Apex Physical Therapy,Back pain myths,Rita,Delivered,,0,3.9,,
+V286,Bloom Med Spa,Skin care routine,Dev,Delivered,,3,5.3,,
+V287,Bloom Medspa,Hydrafacial reveal,Sam,Delivered,,0,5.6,2026-09-23,
+V288,Bloom Med Spa - Plano,Membership promo,Sam,Delivered,,3,8.0,,
+V289,Bloom Medspa,Lip filler myths,Ali,Delivered,,0,3.9,,
+V290,Brew Lab,Bean origin story,Ali,Delivered,,1,4.4,,B140
+V291,Brew Lab,New fall menu,Sam,Delivered,,0,4.8,2026-09-24,
+V292,The Brew Lab,Pastry case,Rita,Delivered,,0,3.1,,
+V293,Elevate,Member story,Rita,Delivered,,0,4.3,2026-09-24,B142
+V294,Elevate Athletics,Class schedule,Dev,Delivered,,0,2.9,,B142
+V295,Elevate,Gym tour,Sam,Delivered,,3,9.0,2026-09-25,B142
+V296,Sofia Ramirez,Bride story,Sam,Delivered,,1,6.8,2026-09-28,B144
+V297,Sofia Ramirez,New arrivals,Rita,Delivered,,1,4.1,2026-09-24,B144
+V298,Sofia Ramirez,Styling tips,Sam,Delivered,,0,5.0,,
+V299,Patel Insurance,Rate review,Rita,Delivered,,1,4.3,2026-09-30,B145
+V300,Patel Ins,Client story,Ali,Delivered,,0,4.0,,B145
+V301,Patel Ins,Teen driver tips,Dev,Delivered,,0,2.2,2026-09-29,
+V302,Patel Insurance,Why bundle home and auto,Ali,Delivered,,0,3.1,,B145
+V303,Vega Auto,Engine bay clean,Dev,Delivered,,0,2.5,,B147
+V304,Vega Auto,Paint correction,Sam,Delivered,,1,5.8,,B147
+V305,Vega Auto,Headlight restore,Sam,Delivered,,3,8.5,,B147
+V306,Vega Auto Detailing,Before and after wash,Sam,Delivered,,1,6.5,2026-09-30,B147
+V307,Vega Auto Detailing,Tesla detail,Ali,Delivered,,2,5.4,,B148
+V308,Carlos Vega,Before and after wash,Rita,Delivered,,0,3.1,2026-10-03,B148
+V309,Carlos Vega,Headlight restore,Dev,Delivered,,2,4.3,,B148
+V310,Greenway Pediatrics,What to expect visit one,Ali,In review,,0,3.9,,B151
+V311,Greenway Peds,Flu shot season,Sam,In review,,0,5.8,,B151
+V312,Greenway Pediatrics,Desk posture fix,Dev,In review,,1,3.4,,B151
+V313,Ironclad Fitness,Trainer intro,Sam,In review,,0,5.9,,
+V314,Ironclad Fitness,Member story,Ali,In review,,0,2.7,,B153
+V315,Ironclad Gym,Form check squat,Sam,In review,,1,6.7,,B153
+V316,Glow Aesthetic,Membership promo,Sam,In edit,,1,5.8,,
+V317,Glow Aesthetic,Meet the injector,Dev,In edit,,0,2.4,,B156
+V318,Glow Med,Hydrafacial reveal,Ali,In edit,,0,3.2,,B156
+V319,Dr. Sarah Khan,Meet the doctor,Sam,In edit,,0,6.0,,B157
+V320,Dr. Sarah Khan,Kids dental tips,Dev,In edit,,0,3.0,,B157
+V321,Dr. Sarah Khan,Implants explained,Dev,In edit,,0,2.6,,B157
+V322,Sarah Khan DDS,First visit tour,Rita,In edit,,1,5.1,,B157
+V323,Prime Roofing,Storm damage tips,Ali,In edit,,0,3.8,,B159
+V324,Prime Roofing Co,Crew intro,Sam,In edit,,1,6.7,,B159
+V325,Tony Russo,Roof inspection walkthrough,Dev,In edit,,0,2.1,,B159
+V326,Apex PT,Desk posture fix,Sam,In edit,,1,5.6,,B160
+V327,Apex Physical Therapy,Walk-ins welcome,Rita,In edit,,0,4.1,,B160
+V328,Apex Physical Therapy,Meet the team,Sam,In edit,,1,6.8,,B160
+V329,Apex PT,Insurance we take,Dev,In edit,,0,2.6,,B160
+V330,Elevate Athletics,Member story,Dev,In edit,,1,3.1,,
+V331,Elevate,Nutrition tip,Sam,In edit,,0,5.6,,B161
+V332,Elevate,30-day challenge,Sam,In edit,,1,5.8,,B161
+V333,Mike's Roofing,Hail claim help,Sam,In edit,,0,5.5,,B162
+V334,Mike's Roofing,Shingle vs metal,Dev,In edit,,0,2.8,,B162
+V335,Mikes Roofing,Crew intro,Ali,In edit,,1,4.7,,B162
+V336,Oak Lane Dental,Why floss matters,Dev,In edit,,0,3.5,,
+V337,Oak Lane Dental,Office tour,Sam,In edit,,0,5.8,,B163
+V338,Oaklane Dental,Whitening before and after,Dev,In edit,,1,3.9,,B163
+V339,Hannah Brooks DDS,Implants explained,Sam,In edit,,0,5.4,,B163
